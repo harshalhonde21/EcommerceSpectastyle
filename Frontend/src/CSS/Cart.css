@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .cart-container {
+    width: 99.1vw;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(to left, var(--color-4), var(--color-5));
+    padding: 6rem 3.5rem;
+  }

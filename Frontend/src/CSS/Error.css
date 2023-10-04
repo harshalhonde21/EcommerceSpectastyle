@@ -1,0 +1,52 @@
+.error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .error-content {
+    background-color: var(--color-1);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .error-message {
+    font-family: var(--font-2);
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--color-6);
+  }
+  
+  .error-button {
+    background-color: var(--color-6);
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: var(--font-rubik);
+    font-size: 18px;
+    color: var(--color-5);
+    cursor: pointer;
+  }
+
+  .error-button:hover{
+    box-shadow: 1px 1px 5px black;
+  }
+  

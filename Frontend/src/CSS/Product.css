@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+
+  /* font family */
+
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.product-container {
+  width: 99.1vw;
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(to left, var(--color-4), var(--color-5));
+  padding: 6rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-all-container{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-heading {
+  font-size: 2.5rem;
+  color: var(--color-6);
+  font-family: var(--font-2);
+  margin-bottom: 2rem;
+}
+
+.product-card {
+  background-color: var(--color-5);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Adjust the value for desired hover effect */
+}
+
+.product-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  color: var(--color-6);
+  font-family: var(--font-2);
+}
+
+.product-price {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 5px;
+}
+
+.product-status {
+  font-size: 1rem;
+  color: #777;
+}

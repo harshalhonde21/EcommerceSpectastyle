@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+  
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homeSecond-container {
+    width: 99.15vw;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(to right, var(--color-1), var(--color-2));
+    padding: 6rem 3.5rem;
+    text-align: center;
+  }
+  
+  .main-heading {
+    font-family: var(--font-1);
+    font-size: 4rem;
+    color: var(--color-6);
+    margin-bottom: 2rem;
+  }
+  
+  .decorative-slider {
+    background-color: rgba(var(--color-1-rgb), 0.9); 
+    padding: 2rem;
+    font-family: var(--font-inconsolata);
+    color: var(--color-6);
+    border: 5px solid var(--color-3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .decorative-slider img {
+    max-width: 100%;
+    height: auto;
+  }

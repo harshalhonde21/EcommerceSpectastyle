@@ -1,0 +1,186 @@
+/* about.css */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+  
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-container {
+  width: 99.1vw;
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(to left, var(--color-4), var(--color-5));
+  padding: 6rem 3.5rem;
+}
+
+.about-specta,
+.goal-specta,
+.delivary,
+.thanksforchoosing {
+  font-family: var(--font-1);
+  color: var(--color-6);
+  margin-top: 5rem;
+}
+
+.about-specta,
+.goal-specta,
+.delivary,
+.thanksforchoosing {
+  position: absolute;
+  left: 3.5rem;
+}
+
+.about-specta {
+  font-size: 3rem;
+  top: 2rem;
+  text-decoration: underline;
+}
+
+p,  
+c,
+d,
+e {
+  font-family: var(--font-2);
+  color: var(--color-6);
+  position: absolute;
+  left: 3.5rem;
+  margin-top: 5rem;
+}
+
+p {
+  font-size: 1.5rem;
+  top: 6.5rem;
+}
+
+.goal-specta {
+  font-size: 2rem;
+  top: 12rem;
+  text-decoration: underline;
+}
+
+c {
+  font-size: 1.2rem;
+  top: 15rem;
+}
+
+.delivary {
+  font-size: 2rem;
+  top: 19.5rem;
+  text-decoration: underline;
+}
+
+d {
+  font-size: 1.2rem;
+  top: 23rem;
+}
+
+.thanksforchoosing {
+  font-size: 2rem;
+  top: 28rem;
+  text-decoration: underline;
+}
+
+e {
+  font-size: 1.2rem;
+  top: 32rem;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 6rem 1.5rem;
+  }
+
+  .goal-specta {
+    top: 15rem;
+  }
+
+  c {
+    top: 18rem;
+  }
+
+  .delivary {
+    top: 27rem;
+  }
+
+  d {
+    top: 30rem;
+  }
+
+  .thanksforchoosing {
+    top: 38rem;
+  }
+
+  e {
+    top: 42rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-container {
+    padding: 6rem 1.5rem; /* Adjusted padding for top and bottom */
+  }
+
+  .about-specta {
+    font-size: 2rem;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    top: 4rem;
+    left: 1.5rem;
+  }
+
+  .goal-specta {
+    font-size: 1.5rem;
+    top: 10rem;
+    left: 1.5rem;
+  }
+
+  c {
+    font-size: 0.8rem;
+    top: 12rem;
+    left: 1.5rem;
+  }
+
+  .delivary {
+    font-size: 1.5rem;
+    top: 20rem;
+    left: 1.5rem;
+  }
+
+  d {
+    font-size: 0.8rem;
+    top: 22rem;
+    left: 1.5rem;
+  }
+
+  .thanksforchoosing {
+    font-size: 1.5rem;
+    top: 29rem;
+    left: 1.5rem;
+  }
+
+  e {
+    font-size: 0.8rem;
+    top: 31rem;
+    left: 1.5rem;
+  }
+}

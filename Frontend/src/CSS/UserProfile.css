@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+
+  /* font family */
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column; 
+  padding: 20px;
+  min-height: 100vh; 
+  background: linear-gradient(to left, var(--color-4), var(--color-5));
+  overflow: hidden; 
+}
+
+.profile-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--color-5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; 
+  margin-top: 100px;
+}
+
+.profile-details {
+  text-align: center; 
+}
+
+.user-info {
+  text-align: center; 
+}
+
+.userProfile-subheading {
+  font-size: 3rem;
+  color: var(--color-6);
+  margin: 0;
+  font-family: var(--font-2);
+}
+
+.userProfile-paragraph {
+  font-size: 1.8rem;
+  color: var(--color-6);
+  font-family: var(--font-2);
+  position: relative;
+  left: -1rem;
+  top: -5rem;
+  margin-bottom: -5rem;
+}
+
+.buttons {
+  margin-top: 25px;
+}
+
+.reset-password,
+.logo-out,
+.change-photo {
+  padding: 15px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-6);
+  color: #fff;
+  border-radius: 5px;
+  font-family: var(--font-2);
+}
+
+@media (max-width: 480px) {
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .userProfile-subheading {
+    font-size: 2rem;
+  }
+
+  .userProfile-paragraph {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    margin-bottom: 25px;
+  }
+
+  .reset-password,
+  .logo-out,
+  .change-photo {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+
+  /* font family */
+
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.profile-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, var(--color-4), var(--color-5));
+}
+
+.profile-outer_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.profile-card {
+  background-color: var(--color-3);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 25px 25px 100px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  height: auto; 
+  min-height: 300px;
+}
+
+h2 {
+  font-family: var(--font-1);
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--color-6);
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  font-family: var(--font-rubik);
+  font-size: 16px;
+  background-color: var(--color-5);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-6);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-rubik);
+  font-size: 18px;
+  color: var(--color-2);
+  cursor: pointer;
+}
+
+.toggle-btn button {
+  background: none;
+  border: none;
+  color: var(--color-6);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.file-input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .file-label {
+    display: block;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    background-color: var(--color-5);
+    cursor: pointer;
+  }

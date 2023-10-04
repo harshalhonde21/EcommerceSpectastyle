@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.outer-allproducts{
+    border: 2px solid rgb(10, 10, 10);
+    height: 106%;
+    width: 445%;
+    position: absolute;
+    left: 105%;
+    top: -8%;
+    background-color: rgb(10, 10, 10);
+}
+
+.outer-allproducts h1{
+    color: rgb(247, 244, 244);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+
+.product-table {
+    width: 99%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+  
+  .product-table td,th {
+    border: 5px solid #fdfdfd;
+    padding: 8px;
+  }
+  
+  .product-table th {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+  
+  .product-table tr {
+    background-color: #050505;
+    color: whitesmoke;
+    text-align: center;
+  }
+  
+
+  .button-updele{
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid whitesmoke;
+    margin-bottom: 5px;
+  }
+
+  .button-updele:hover{
+    background-color: whitesmoke;
+    color: #000000;
+    border: 3px solid rgb(102, 67, 67);
+    font-weight: bold;
+  }
+
+  .search-barss{
+    position: relative;
+    left: 0.1rem;
+    margin-right: -50rem !important;
+    background-color: black;
+    border: 3px solid whitesmoke;
+    border-radius: 10px;
+    color: rgb(251, 251, 251);
+    text-align: left;
+  }
+
+.update-form form {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  position: relative;
+  left: 25rem;
+  top: -10rem;
+}
+
+
+.update-form input[type="text"],
+.update-form input[type="number"],
+.update-form textarea,
+.update-form select {
+  width: 100%;
+  padding: 1px;
+  margin-bottom: 10px;
+  border: 1px solid #0e0d0d;
+  border-radius: 3px;
+  font-size: 16px;
+  text-align: left ;
+}
+
+
+.update-form button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.update-form button.cancel {
+  background-color: #ccc;
+}

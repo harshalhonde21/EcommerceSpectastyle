@@ -1,0 +1,99 @@
+/* Existing CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.outer-products {
+    border: 2px solid rgb(10, 10, 10);
+    height: 106%;
+    width: 445%;
+    position: absolute;
+    left: 105%;
+    top: -8%;
+    background-color: rgb(10, 10, 10);
+}
+
+.outer-products h1 {
+    color: rgb(247, 244, 244);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* New CSS for the form */
+.product-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="date"],
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.form-group textarea {
+    width: 100%;
+    max-width: 356px;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 30px 10px 10px;
+    background: url("down-arrow.png") no-repeat right #fff;
+    background-size: 20px;
+    background-color: #000000;
+}
+
+.form-group button[type="submit"], 
+.form-group button[type="button"] {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;    
+    cursor: pointer;
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #353a40;
+}

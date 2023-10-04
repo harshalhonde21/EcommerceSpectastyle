@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  /* cursor: none; */
+}
+
+::-webkit-scrollbar{
+    width: 0.8rem;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgb(205, 180, 219);
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgb(70, 11, 70);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-clip: content-box;
+}
+  
+  .cursor-dot,
+  .cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    z-index: 999;
+  }
+  
+  .cursor-dot {
+    width: 10px;
+    height: 10px;
+    border: 0.5px solid blue;
+    background-color: rgb(70, 11, 70);
+  }
+  
+  .cursor-dot-outline {
+    width: 40px;
+    height: 40px; 
+    background-color: rgba(70, 11, 70,0.50);
+  }
+  
+  .links-container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+  }

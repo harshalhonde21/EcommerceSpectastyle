@@ -1,0 +1,76 @@
+/* Loader container styles */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loader styles */
+.loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    var(--color-1) 0%,
+    var(--color-2) 20%,
+    var(--color-3) 40%,
+    var(--color-4) 60%,
+    var(--color-5) 80%
+  ); /* Radial gradient with multi-color effect */
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow */
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for the sun's rays */
+}
+
+.loader::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: moveBefore 2s linear infinite;
+}
+
+.loader::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: moveAfter 2s linear infinite;
+}
+
+/* Keyframes for loader animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes moveBefore {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+
+@keyframes moveAfter {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
