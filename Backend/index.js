@@ -17,8 +17,12 @@ app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);
 app.use("/ecommerce/agent", routersss);
 
+
+const mongoURI = "mongodb+srv://harshalhonde17:harshal%40123@cluster0.b0mwyen.mongodb.net/Blogs?retryWrites=true&w=majority";
+
+
 mongoose
-  .connect(config.mongoURI)
+  .connect(mongoURI)
   .then(() => app.listen(5500))
   .then(() => console.log("connected to db at port 5500 :)"))
   .catch((err) => console.log(`${err} is error`));
