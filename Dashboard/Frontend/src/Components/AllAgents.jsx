@@ -7,7 +7,7 @@ const AllAgents = () => {
   
   useEffect(() => {
     // Fetch re api for all agents
-    axios.get('http://localhost:5500/ecommerce/agent')
+    axios.get('https://ecommerce-backend-0wr7.onrender.com/ecommerce/agent')
       .then((response) => {
         setAgents(response.data);
       })

@@ -46,7 +46,7 @@ const Profile = () => {
       try {
         // end point melne pe excute hoga
         const response = await fetch(
-          "http://localhost:5500/ecommerce/user/login",
+          "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/login",
           {
             method: "POST",
             headers: {
@@ -92,7 +92,7 @@ const Profile = () => {
       try {
         // end point touch hua to excute hoga
         const response = await fetch(
-          "http://localhost:5500/ecommerce/user/signup",
+          "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
           {
             method: "POST",
             headers: {

@@ -14,7 +14,7 @@ const AllProducts = () => {
 
   const fetchProducts = () => {
     // get re products
-    axios.get('http://localhost:5500/ecommerce/product')
+    axios.get('https://ecommerce-backend-0wr7.onrender.com/ecommerce/product')
       .then((response) => {
         setProducts(response.data);
       })
@@ -29,7 +29,7 @@ const AllProducts = () => {
       return;
     }
     // delete re product by id
-    axios.delete(`http://localhost:5500/ecommerce/product/products/${productId}`)
+    axios.delete(`https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}`)
       .then(() => {
         fetchProducts(); 
       })
@@ -51,7 +51,7 @@ const AllProducts = () => {
   const handleUpdateSubmit = (event) => {
     event.preventDefault();
     // update re product by id
-    axios.put(`http://localhost:5500/ecommerce/product/products/${updateProduct._id}`, updateProduct)
+    axios.put(`https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${updateProduct._id}`, updateProduct)
       .then(() => {
         fetchProducts(); 
         closeUpdateForm(); 

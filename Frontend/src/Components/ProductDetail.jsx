@@ -7,7 +7,7 @@ const ProductDetail = ({ productId, onClose }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5500/ecommerce/product/products/${productId}`)
+      .get(`https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}`)
       .then((response) => {
         setProduct(response.data);
       })

@@ -9,7 +9,7 @@ const AllUsers = () => {
     // user re le spectastyle from 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5500/ecommerce/user'); // Make sure the URL is correct
+        const response = await axios.get('https://ecommerce-backend-0wr7.onrender.com/ecommerce/user'); // Make sure the URL is correct
         setUsers(response.data.users);
       } catch (error) {
         console.error('Error fetching users:', error);
