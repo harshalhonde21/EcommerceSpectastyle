@@ -11,10 +11,10 @@ const HomeSecond = () => {
                 <div className="decorative-slider">
                     <Carousel>
                         <div>
-                            <img src="../../assets/poster4.jpg" alt="Poster 1" />
+                            <img src="../../public/assets/poster4.jpg" alt="Poster 1" />
                         </div>
                         <div>
-                            <img src="../../assets/poster3.jpg" alt="Poster 2" />
+                            <img src="../../public/assets/poster3.jpg" alt="Poster 2" />
                         </div>
                     </Carousel>
                 </div>

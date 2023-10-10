@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'; 
 import '../CSS/UserProfile.css';
-import Logo from '../../assets/Logo.png';
+import Logo from '../../public/assets/Logo.png';
 import Error from "../Components/Error";
 
 const UserProfile = () => {
