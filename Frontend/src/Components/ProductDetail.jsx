@@ -1,7 +1,6 @@
-// ProductDetail.js
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../CSS/ProductDetail.css"; // Create this CSS file for styling
+import "../CSS/ProductDetail.css"; 
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
