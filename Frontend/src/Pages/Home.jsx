@@ -23,7 +23,7 @@ const Home = () => {
         </div>
         <div className="home-right">
           <img
-            src="../../assets/shoes-image5.png"
+            src=".././public/shoes-image5.png"
             alt="Rotating Image"
             className="rotating-image"
           />
