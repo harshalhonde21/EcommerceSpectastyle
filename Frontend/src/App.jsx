@@ -10,6 +10,7 @@ import Contact from "./Pages/Contact";
 import Cart from "./Pages/Cart";
 import Profile from "./Pages/Profile";
 import UserProfile from "./Pages/UserProfile";
+import Team from "./Pages/Team";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/user" element={<UserProfile />} />

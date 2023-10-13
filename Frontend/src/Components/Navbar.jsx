@@ -38,6 +38,9 @@ const Navbar = () => {
               <li>
                 <NavLink to="/contact">Contact</NavLink>
               </li>
+              <li>
+                <NavLink to="/team">Tech Team</NavLink>
+              </li>
               <li><NavLink to="/cart"><ShoppingCartIcon
                 className="btn"
                 style={{ color: "rgb(176, 41, 176)", marginLeft: "5rem" }}
