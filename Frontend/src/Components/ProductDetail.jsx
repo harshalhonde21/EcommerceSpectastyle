@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../CSS/ProductDetail.css"; 
+import "../CSS/ProductDetail.css";
+import { useCart } from "./CartContext";
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}`)
+      .get(
+        `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}`
+      )
       .then((response) => {
-        setProduct(response.data);
+        const productData = response.data;
+        productData.quantity = 1;
+        setProduct(productData);
       })
       .catch((error) => {
         console.error("Error fetching product details:", error);
@@ -51,11 +59,21 @@ const ProductDetail = ({ productId, onClose }) => {
               Description : - {product.productDescription}
             </h3>
             <h3 className="product-detail-status">Status:- {product.status}</h3>
-            <h3 className="product-detail-status">category:- {product.category}</h3>
+            <h3 className="product-detail-status">
+              category:- {product.category}
+            </h3>
             <h3 className="product-date-status">
               Date :- {product.publishDate}
             </h3>
-            <button className="product-detail-add-to-cart">Add to Cart</button>
+            <button
+              className="product-detail-add-to-cart"
+              onClick={() => {
+                addToCart(product);
+                navigate("/cart"); 
+              }}
+            >
+              Add to Cart
+            </button>
             <br />
             <button className="product-detail-close-button">Add review</button>
             <div className="close-button" onClick={onClose}>
