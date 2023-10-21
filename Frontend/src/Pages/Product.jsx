@@ -2,12 +2,13 @@ import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import "../CSS/Product.css";
 import Loader from "../Components/Loader";
-import ProductDetail from "../Components/ProductDetail"; // Import the ProductDetail component
+import ProductDetail from "../Components/ProductDetail";
 
 const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
+  const [searchText, setSearchText] = useState(""); // Search input text
 
   useEffect(() => {
     axios
@@ -30,15 +31,32 @@ const Product = () => {
     setSelectedProductId(null);
   };
 
+  const filterProducts = () => {
+    return products.filter((product) => {
+      return (
+        product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchText.toLowerCase()) ||
+        product.productPrice.toString().includes(searchText)
+      );
+    });
+  };
+  
+
   return (
     <Fragment>
       <div className="product-container">
         <h1 className="product-heading">Products</h1>
+        <input
+          type="text"
+          placeholder="Search by Name, category or price..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
         {loading ? (
           <Loader />
         ) : (
           <div className="product-all-container">
-            {products.map((product) => (
+            {filterProducts().map((product) => (
               <div
                 className="product-card"
                 key={product._id}

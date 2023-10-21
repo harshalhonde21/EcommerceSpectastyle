@@ -52,6 +52,7 @@
     display: flex;
     padding: 1rem;
     gap: 2rem;
+    margin-top: 2rem;
   }
 
   .outer-product-container .image-product img{
