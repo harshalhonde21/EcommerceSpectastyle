@@ -3,11 +3,18 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
+import ErrorComponent from "../Components/Error"; // Update the path as needed
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
   const navigate = useNavigate();
+
+  const [error, setError] = useState(null);
+
+  const clearError = () => {
+    navigate("/profile")
+  };
 
   useEffect(() => {
     axios
@@ -24,8 +31,25 @@ const ProductDetail = ({ productId, onClose }) => {
       });
   }, [productId]);
 
+  const handleAddToCart = () => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      navigate("/cart");
+      addToCart(product);
+    } else {
+      setError("Login first to add the product in cart");
+      // navigate("/profile")
+    }
+  };
+
   return (
     <div className="product-detail-container">
+      {error ? (
+        <ErrorComponent message={error} onClose={clearError} />
+      ) : null}
+
+
       {product ? (
         <>
           <div className="product-detail-left">
@@ -47,30 +71,27 @@ const ProductDetail = ({ productId, onClose }) => {
           </div>
           <div className="product-detail-right">
             <h2 className="product-detail-name">
-              Name : - &nbsp;{product.productName}
+              Name: {product.productName}
             </h2>
             <h3 className="product-detail-id">
-              Product ID : - &nbsp; {product._id}
+              Product ID: {product._id}
             </h3>
             <h5 className="product-detail-price">
-              Price :- Rs. {product.productPrice}
+              Price: Rs. {product.productPrice}
             </h5>
             <h3 className="product-detail-description">
-              Description : - {product.productDescription}
+              Description: {product.productDescription}
             </h3>
-            <h3 className="product-detail-status">Status:- {product.status}</h3>
+            <h3 className="product-detail-status">Status: {product.status}</h3>
             <h3 className="product-detail-status">
-              category:- {product.category}
+              Category: {product.category}
             </h3>
             <h3 className="product-date-status">
-              Date :- {product.publishDate}
+              Date: {product.publishDate}
             </h3>
             <button
               className="product-detail-add-to-cart"
-              onClick={() => {
-                addToCart(product);
-                navigate("/cart"); 
-              }}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </button>

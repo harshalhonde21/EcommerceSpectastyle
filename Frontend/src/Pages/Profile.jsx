@@ -44,7 +44,6 @@ const Profile = () => {
       setError("Please fill in all fields.");
     } else {
       try {
-        // end point melne pe excute hoga
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/login",
           {
@@ -61,14 +60,15 @@ const Profile = () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
           const token = data.token;
 
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
 
           setError("success");
-          navigate("/user", { state: { user: data.user } });
+
+          // Always navigate to the "/user" page after successful login
+          navigate("/user");
         } else {
           setError("Login failed. Please check your credentials.");
         }
@@ -90,7 +90,6 @@ const Profile = () => {
       setError("Please fill in all fields.");
     } else {
       try {
-        // end point touch hua to excute hoga
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
           {
@@ -108,19 +107,20 @@ const Profile = () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
           const token = data.token;
 
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
 
           setError("success");
-          navigate("/user", { state: { user: data.user } });
+
+          // Always navigate to the "/user" page after successful signup
+          navigate("/user");
         } else {
-          setError("Login failed. Please check your credentials.");
+          setError("Signup failed. Please check your credentials.");
         }
       } catch (error) {
-        setError("An error occurred while logging in.");
+        setError("An error occurred while signing up.");
       }
     }
   };

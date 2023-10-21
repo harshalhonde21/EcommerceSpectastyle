@@ -5,7 +5,7 @@ const ErrorComponent = ({ message, onClose }) => {
   return (
     <div className="error-container">
       <div className="error-content">
-        <p className="error-message">{message}</p>
+        <h6 className="error-message">{message}</h6>
         <button className="error-button" onClick={onClose}>
           OK
         </button>
