@@ -1,28 +1,10 @@
-import { useEffect } from "react";
 import "../CSS/Cart.css";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useCart } from "../Components/CartContext";
 
 const Cart = () => {
-  const { cart, removeFromCart, incrementQuantity, decrementQuantity, setCart } = useCart();
-
-  useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      const parsedCart = JSON.parse(savedCart);
-      const updatedCart = parsedCart.map((product) => ({
-        ...product,
-        quantity: Number(product.quantity),
-      }));
-      setCart(updatedCart);
-    }
-  }, [setCart]);  
-
-  useEffect(() => {
-    // Save the cart to local storage whenever it changes
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useCart();
 
   return (
     <div className="cart-container">

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
@@ -39,7 +39,7 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         incrementQuantity,
         decrementQuantity,
-        setCart, // Ensure setCart is provided in the context
+        setCart, 
       }}
     >
       {children}
