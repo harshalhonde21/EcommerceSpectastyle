@@ -1,4 +1,5 @@
   import Product from "../Models/Product.js";
+  import User from "../Models/User.js";
 
   export const getAllProducts = async (req, res, next) => {
     try {
@@ -61,6 +62,30 @@
       res.json({ message: "Product deleted" });
     } catch (error) {
       res.status(500).json({ error: "Unable to delete product" });
+    }
+  };
+
+  export const addProductToCart = async (req, res, next) => {
+    try {
+      const userId = req.params.userId;
+      const productId = req.body.productId; 
+  
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      const cartItem = {
+        product: productId,
+      };
+  
+      user.shoppingCart.push(cartItem);
+      await user.save();
+  
+      res.status(201).json({ message: "Product added to cart" });
+    } catch (error) {
+      res.status(500).json({ error: "Unable to add product to cart" });
     }
   };
 

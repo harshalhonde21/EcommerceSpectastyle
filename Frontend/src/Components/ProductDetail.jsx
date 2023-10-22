@@ -13,7 +13,7 @@ const ProductDetail = ({ productId, onClose }) => {
   const [error, setError] = useState(null);
 
   const clearError = () => {
-    navigate("/profile")
+    navigate("/profile");
   };
 
   useEffect(() => {
@@ -34,21 +34,31 @@ const ProductDetail = ({ productId, onClose }) => {
   const handleAddToCart = () => {
     const token = localStorage.getItem("token");
 
-    if (token) {
-      navigate("/cart");
-      addToCart(product);
+    if (!token) {
+      setError("Login first to add the product to the cart");
     } else {
-      setError("Login first to add the product in cart");
-      // navigate("/profile")
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const userId = userData._id;
+      axios
+        .post(
+          `http://localhost:5500/ecommerce/product/addProductToCart/${userId}`,
+          { productId: product._id }
+        )
+        .then((response) => {
+          console.log("Product added to cart:", response.data);
+          navigate("/cart"); // You can navigate to the cart page here
+          addToCart(product); // You can also add it to the local cart context if needed
+        })
+        .catch((error) => {
+          setError("Error adding the product to the cart");
+          console.error("Error adding product to cart:", error);
+        });
     }
   };
 
   return (
     <div className="product-detail-container">
-      {error ? (
-        <ErrorComponent message={error} onClose={clearError} />
-      ) : null}
-
+      {error ? <ErrorComponent message={error} onClose={clearError} /> : null}
 
       {product ? (
         <>
@@ -70,12 +80,8 @@ const ProductDetail = ({ productId, onClose }) => {
             </div>
           </div>
           <div className="product-detail-right">
-            <h2 className="product-detail-name">
-              Name: {product.productName}
-            </h2>
-            <h3 className="product-detail-id">
-              Product ID: {product._id}
-            </h3>
+            <h2 className="product-detail-name">Name: {product.productName}</h2>
+            <h3 className="product-detail-id">Product ID: {product._id}</h3>
             <h5 className="product-detail-price">
               Price: Rs. {product.productPrice}
             </h5>
@@ -86,9 +92,7 @@ const ProductDetail = ({ productId, onClose }) => {
             <h3 className="product-detail-status">
               Category: {product.category}
             </h3>
-            <h3 className="product-date-status">
-              Date: {product.publishDate}
-            </h3>
+            <h3 className="product-date-status">Date: {product.publishDate}</h3>
             <button
               className="product-detail-add-to-cart"
               onClick={handleAddToCart}

@@ -217,6 +217,7 @@ const Profile = () => {
                       type="text"
                       name="username"
                       placeholder="Enter Username"
+                      style={{border:"none", width:'16rem', borderRadius:'7px', marginBottom:'1px', height:'2.5rem'}}
                     />
                   </div>
                   <div className="input-group">

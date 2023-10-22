@@ -1,6 +1,14 @@
+// user-model.js
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
+
+const cartItemSchema = new Schema({
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: "Product", // Reference to the Product model
+  }
+});
 
 const userSchema = new Schema({
   name: {
@@ -16,6 +24,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  shoppingCart: [cartItemSchema], // Array of cart items
 });
 
 export default mongoose.model("ecommerceUser", userSchema);
