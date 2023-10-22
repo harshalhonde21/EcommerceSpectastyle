@@ -8,6 +8,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 // components
 import Error from "../Components/Error";
 import UserProfile from "./UserProfile";
+import { useCart } from "../Components/CartContext";
 import ".././CSS/Profile.css";
 
 const Profile = () => {
@@ -15,16 +16,17 @@ const Profile = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [error, setError] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
   const navigate = useNavigate();
+  const { setUserData } = useCart();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("userData");
     if (token && userData) {
       setAuthenticated(true);
-      const user = JSON.parse(userData);
-      setUser(user);
+      const users = JSON.parse(userData);
+      setUser(users);
     } else {
       setAuthenticated(false);
     }
@@ -61,13 +63,13 @@ const Profile = () => {
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
+          console.log(data)
 
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
 
           setError("success");
-
-          // Always navigate to the "/user" page after successful login
+          setUserData(data.user);
           navigate("/user");
         } else {
           setError("Login failed. Please check your credentials.");
@@ -108,13 +110,12 @@ const Profile = () => {
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
+          
 
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
 
           setError("success");
-
-          // Always navigate to the "/user" page after successful signup
           navigate("/user");
         } else {
           setError("Signup failed. Please check your credentials.");
@@ -132,7 +133,7 @@ const Profile = () => {
   return (
     <Fragment>
       {authenticated ? (
-        <UserProfile />
+        <UserProfile user={user} />
       ) : (
         <div className="profile-container">
           <div className="profile-outer_box">

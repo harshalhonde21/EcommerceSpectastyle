@@ -5,11 +5,15 @@ import { useCart } from "../Components/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useCart();
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity, userData  } =
+    useCart();
   const navigate = useNavigate();
+
+  const userName = userData ? userData.user : 'Guest';
   return (
     <div className="cart-container">
       <h1 className="cart-heading">Cart</h1>
+      <h2>Welcome, {userName}</h2>
       {cart.length === 0 ? (
         <div className="empty-cart">
           <img src="/cartempty.png" alt="Empty Cart" />

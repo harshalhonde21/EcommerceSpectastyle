@@ -1,9 +1,11 @@
-import { createContext, useContext, useState } from "react";
+// CartContext.js
+import { createContext, useContext, useState } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [userData, setUserData] = useState(''); // Add user data state
 
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -39,7 +41,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         incrementQuantity,
         decrementQuantity,
-        setCart, 
+        userData, // Include user data in the context
+        setUserData, // Function to set user data
       }}
     >
       {children}

@@ -28,7 +28,7 @@ const UserProfile = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
 
-    navigate('/profile'); 
+    navigate('/'); 
   };
 
   return (
