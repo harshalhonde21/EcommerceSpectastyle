@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
-import ErrorComponent from "../Components/Error"; // Update the path as needed
+import ErrorComponent from "../Components/Error"; 
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);

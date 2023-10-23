@@ -90,3 +90,55 @@
   };
 
 
+  export const getProductFromCart = async (req, res) => {
+    try {
+      const userId = req.params.userId;
+  
+      const user = await User.findById(userId).populate({
+        path: 'shoppingCart.product', // Populate the 'product' field in shoppingCart
+        model: 'Product', // The name of the Product model
+      });
+  
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      const shoppingCart = user.shoppingCart;
+  
+      res.status(200).json({ shoppingCart });
+    } catch (error) {
+      res.status(500).json({ error: "Unable to retrieve shopping cart" });
+    }
+  };
+
+  export const deleteProductFromCart = async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const productId = req.params.productId; 
+  
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      // Find the index of the cart item with the specified productId
+      const itemIndex = user.shoppingCart.findIndex(item => item.product.toString() === productId);
+  
+      if (itemIndex === -1) {
+        return res.status(404).json({ error: "Product not found in the cart" });
+      }
+  
+      // Remove the item from the shoppingCart array
+      user.shoppingCart.splice(itemIndex, 1);
+  
+      await user.save();
+  
+      res.json({ message: "Product removed from cart" });
+    } catch (error) {
+      res.status(500).json({ error: "Unable to remove product from cart" });
+    }
+  };
+  
+  
+
