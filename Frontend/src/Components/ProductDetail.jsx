@@ -4,6 +4,7 @@ import axios from "axios";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
 import ErrorComponent from "../Components/Error"; 
+import toast from "react-hot-toast";
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
@@ -44,8 +45,15 @@ const ProductDetail = ({ productId, onClose }) => {
           `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/addProductToCart/${userId}`,
           { productId: product._id }
         )
-        .then((response) => {
-          console.log("Product added to cart:", response.data);
+        .then(() => {
+          toast("Item Added To Cart!", {
+            icon: "🥳",
+            style: {
+              borderRadius: "rgb(189, 224, 254)",
+              background: "rgb(70, 11, 70)",
+              color: "rgb(255, 210, 255)",
+            },
+          });
           navigate("/cart"); // You can navigate to the cart page here
           addToCart(product); // You can also add it to the local cart context if needed
         })

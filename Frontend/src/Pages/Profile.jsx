@@ -6,6 +6,7 @@ import AttachmentIcon from "@mui/icons-material/Attachment";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 // components
+import toast from 'react-hot-toast';
 import Error from "../Components/Error";
 import UserProfile from "./UserProfile";
 import { useCart } from "../Components/CartContext";
@@ -33,6 +34,14 @@ const Profile = () => {
   }, []);
 
   const toggleLoginSignup = () => {
+    toast("Just Do It And Shop With Us", {
+      icon: "😎",
+      style: {
+        borderRadius: "rgb(189, 224, 254)",
+        background: "rgb(70, 11, 70)",
+        color: "rgb(255, 210, 255)",
+      },
+    });
     setIsLogin(!isLogin);
   };
 
@@ -63,13 +72,20 @@ const Profile = () => {
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-          console.log(data)
 
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
 
           setError("success");
           setUserData(data.user);
+          toast("You Are Success Login Welcome to Your Profile!", {
+            icon: "😁",
+            style: {
+              borderRadius: "rgb(189, 224, 254)",
+              background: "rgb(70, 11, 70)",
+              color: "rgb(255, 210, 255)",
+            },
+          });
           navigate("/user");
         } else {
           setError("Login failed. Please check your credentials.");
@@ -116,6 +132,14 @@ const Profile = () => {
           localStorage.setItem("userData", JSON.stringify(data.user));
 
           setError("success");
+          toast("You Are Success Signup Saved Me In Your Mind Welcome to Your Profile!", {
+            icon: "😁",
+            style: {
+              borderRadius: "rgb(189, 224, 254)",
+              background: "rgb(70, 11, 70)",
+              color: "rgb(255, 210, 255)",
+            },
+          });
           navigate("/user");
         } else {
           setError("Signup failed. Please check your credentials.");

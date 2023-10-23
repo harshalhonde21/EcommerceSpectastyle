@@ -1,65 +1,75 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import "../CSS/Cart.css";
-import axios from 'axios';
+import axios from "axios";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [cartItems, setCartItems] = useState([]); // Manage cart items locally
-  const [itemQuantities, setItemQuantities] = useState({}); // Store item quantities
+  const [cartItems, setCartItems] = useState([]);
+  const [itemQuantities, setItemQuantities] = useState({});
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem('userData'));
+    const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
 
     if (!userId) {
-      console.error('User ID not found in localStorage.');
+      console.error("User ID not found in localStorage.");
       return;
     }
 
     const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}`;
 
-    axios.get(apiUrl)
-      .then(response => {
+    axios
+      .get(apiUrl)
+      .then((response) => {
         setLoading(false);
         const shoppingCart = response.data.shoppingCart;
-        setCartItems(shoppingCart); // Set cartItems to the shoppingCart array
+        setCartItems(shoppingCart);
 
-        // Initialize item quantities from shopping cart
         const initialQuantities = {};
-        shoppingCart.forEach(item => {
+        shoppingCart.forEach((item) => {
           initialQuantities[item._id] = item.quantity;
         });
         setItemQuantities(initialQuantities);
       })
-      .catch(error => {
+      .catch((error) => {
         setLoading(false);
         setError(error);
       });
   }, []);
 
   const removeProductFromCart = (itemId) => {
-    const userData = JSON.parse(localStorage.getItem('userData'));
+    const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
-    console.log(userId)
-    console.log(itemId)
+    console.log(userId);
+    console.log(itemId);
 
     if (!userId) {
-      console.error('User ID not found in localStorage.');
+      console.error("User ID not found in localStorage.");
       return;
     }
 
     const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}/${itemId}`;
 
-    axios.delete(apiUrl)
-      .then(()=>{
-        navigate('/product')
+    axios
+      .delete(apiUrl)
+      .then(() => {
+        toast("Item Removed success!", {
+          icon: "😞",
+          style: {
+            borderRadius: "rgb(189, 224, 254)",
+            background: "rgb(70, 11, 70)",
+            color: "rgb(255, 210, 255)",
+          },
+        });
+        navigate("/product");
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error);
       });
   };
@@ -73,19 +83,19 @@ const Cart = () => {
   }
 
   const handleIncrementQuantity = (itemId) => {
-    setItemQuantities(prevQuantities => ({
+    setItemQuantities((prevQuantities) => ({
       ...prevQuantities,
-      [itemId]: (prevQuantities[itemId] || 0) + 1
+      [itemId]: (prevQuantities[itemId] || 0) + 1,
     }));
   };
 
   const handleDecrementQuantity = (itemId) => {
-    setItemQuantities(prevQuantities => {
+    setItemQuantities((prevQuantities) => {
       const currentQuantity = prevQuantities[itemId] || 0;
       if (currentQuantity > 1) {
         return {
           ...prevQuantities,
-          [itemId]: currentQuantity - 1
+          [itemId]: currentQuantity - 1,
         };
       }
       return prevQuantities;
@@ -101,10 +111,13 @@ const Cart = () => {
           <button onClick={() => navigate("/product")}>Shop the Product</button>
         </div>
       ) : (
-        cartItems.map(item => (
+        cartItems.map((item) => (
           <div key={item._id} className="outer-product-container">
             <div className="image-product">
-              <img src={item.product.productImage} alt={item.product.productName} />
+              <img
+                src={item.product.productImage}
+                alt={item.product.productName}
+              />
             </div>
             <div className="detail-product">
               <h4>Name: {item.product.productName}</h4>
@@ -135,7 +148,10 @@ const Cart = () => {
               />
             </div>
             <div className="product-price-cart">
-              <h1>Rs. {item.product.productPrice * (itemQuantities[item._id] || 1)}</h1>
+              <h1>
+                Rs.{" "}
+                {item.product.productPrice * (itemQuantities[item._id] || 1)}
+              </h1>
             </div>
           </div>
         ))

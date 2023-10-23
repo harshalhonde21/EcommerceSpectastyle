@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import '../CSS/UserProfile.css';
 import Logo from '/Logo.png';
 import Error from "../Components/Error";
+import toast from 'react-hot-toast';
 
 const UserProfile = () => {
   const [error, setError] = useState(null);
@@ -27,6 +28,14 @@ const UserProfile = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
+    toast("You are logouted Meet Us soon!", {
+      icon: "😢",
+      style: {
+        borderRadius: "rgb(189, 224, 254)",
+        background: "rgb(70, 11, 70)",
+        color: "rgb(255, 210, 255)",
+      },
+    });
 
     navigate('/'); 
   };

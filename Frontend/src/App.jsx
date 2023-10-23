@@ -11,9 +11,9 @@ import Cart from "./Pages/Cart";
 import Profile from "./Pages/Profile";
 import UserProfile from "./Pages/UserProfile";
 import Team from "./Pages/Team";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-
   return (
     <div>
       <Navbar />
@@ -27,7 +27,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/user" element={<UserProfile />} />
       </Routes>
-      <Footer/>
+      <Toaster position="top-right" reverseOrder={false} />
+      <Footer />
       {/* <Cursor /> */}
     </div>
   );

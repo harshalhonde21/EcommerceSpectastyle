@@ -3,6 +3,7 @@ import axios from "axios";
 import "../CSS/Product.css";
 import Loader from "../Components/Loader";
 import ProductDetail from "../Components/ProductDetail";
+import toast from "react-hot-toast";
 
 const Product = () => {
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,14 @@ const Product = () => {
   }, []);
 
   const openProductDetail = (productId) => {
+    toast("Nice Choice Just Take It For You!", {
+      icon: "😁",
+      style: {
+        borderRadius: "rgb(189, 224, 254)",
+        background: "rgb(70, 11, 70)",
+        color: "rgb(255, 210, 255)",
+      },
+    });
     setSelectedProductId(productId);
   };
 
