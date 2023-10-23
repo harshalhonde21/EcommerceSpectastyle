@@ -21,7 +21,7 @@ const Cart = () => {
       return;
     }
 
-    const apiUrl = `http://localhost:5500/ecommerce/product/shopping-cart/${userId}`;
+    const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}`;
 
     axios.get(apiUrl)
       .then(response => {
@@ -53,11 +53,11 @@ const Cart = () => {
       return;
     }
 
-    const apiUrl = `http://localhost:5500/ecommerce/product/shopping-cart/${userId}/${itemId}`;
+    const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}/${itemId}`;
 
     axios.delete(apiUrl)
       .then(()=>{
-        navigate('/')
+        navigate('/product')
       })
       .catch(error => {
         setError(error);
