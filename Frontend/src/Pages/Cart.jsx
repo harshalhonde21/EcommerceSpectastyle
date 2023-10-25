@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [itemQuantities, setItemQuantities] = useState({});
@@ -27,7 +26,6 @@ const Cart = () => {
     axios
       .get(apiUrl)
       .then((response) => {
-        setLoading(false);
         const shoppingCart = response.data.shoppingCart;
         setCartItems(shoppingCart);
 
@@ -38,7 +36,6 @@ const Cart = () => {
         setItemQuantities(initialQuantities);
       })
       .catch((error) => {
-        setLoading(false);
         setError(error);
       });
   }, []);
@@ -73,10 +70,6 @@ const Cart = () => {
         setError(error);
       });
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   if (error) {
     return <div>Error: {error.message}</div>;
