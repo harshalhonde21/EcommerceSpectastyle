@@ -29,3 +29,69 @@
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   padding: 6rem 3.5rem;
 }
+
+
+.PlaceOrder-outer-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, var(--color-4), var(--color-5));
+  padding: 6rem 3.5rem;
+}
+
+h1 {
+  font-family: var(--font-1);
+  font-size: 2rem;
+  color: var(--color-6);
+  margin-bottom: 2rem;
+}
+
+.form-submit {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-1);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border:3px solid rgb(189, 224, 254);
+  border-radius: 4px;
+}
+
+.special-input{
+  border: 20px solid red;
+}
+
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0; 
+  border:3px solid rgb(189, 224, 254);
+  border-radius: 4px;
+  background-color: var(--color-5);
+}
+
+.btn-order {
+  background-color: var(--color-3);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-order:hover {
+  background-color: var(--color-2);
+} 
+
+

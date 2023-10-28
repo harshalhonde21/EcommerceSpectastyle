@@ -12,6 +12,7 @@ import Profile from "./Pages/Profile";
 import UserProfile from "./Pages/UserProfile";
 import Team from "./Pages/Team";
 import { Toaster } from "react-hot-toast";
+import PlaceOrder from "./Pages/PlaceOrder";
 
 function App() {
   return (
@@ -26,10 +27,10 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/user" element={<UserProfile />} />
+        <Route path="/address-payment-placeOrder" element={<PlaceOrder />} />
       </Routes>
-      <Toaster position="top-right" reverseOrder={false} />
       <Footer />
-      {/* <Cursor /> */}
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 }
