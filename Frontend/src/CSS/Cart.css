@@ -147,10 +147,36 @@
     font-weight: bolder;
   }
 
+  /* ... (previous CSS code) */
 
-  
+.product-price-cart {
+  padding: 4rem;
+}
+
+.total-cart-value {
+  text-align: right; /* Align the total value to the right */
+  margin-top: 2rem; /* Add some top margin to separate it from the products */
+  font-family: var(--font-2);
+  font-size: 1.5rem;
+  color: var(--color-6);
+}
+
+.total-cart-value button {
+  width: 10%;
+  max-width: 100px; /* Set a maximum width for the button */
+}
+
 @media (max-width: 382px) {
-  .outer-product-container .image-product img{
+  .outer-product-container .image-product img {
     width: 9rem;
+  }
+}
+
+@media (max-width:1110px) {
+  
+
+  .total-cart-value button {
+    width: 50%; 
+    max-width: unset; 
   }
 }

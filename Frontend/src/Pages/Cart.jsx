@@ -12,6 +12,11 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [itemQuantities, setItemQuantities] = useState({});
 
+  const totalCartValue = cartItems.reduce((total, item) => {
+    const itemQuantity = itemQuantities[item._id] || 1;
+    return total + item.product.productPrice * itemQuantity;
+  }, 0);
+
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
@@ -149,6 +154,10 @@ const Cart = () => {
           </div>
         ))
       )}
+      <div className="total-cart-value">
+        <h2>Total Products Value: Rs. {totalCartValue}</h2>
+        <button>Buy Now</button>
+      </div>
     </div>
   );
 };
