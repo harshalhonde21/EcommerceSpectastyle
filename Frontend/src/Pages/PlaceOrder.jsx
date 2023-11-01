@@ -1,11 +1,12 @@
 import { Fragment, useState } from "react";
+import axios from "axios";
 import "../CSS/PlaceOrder.css";
 
 const PlaceOrder = () => {
   const [formData, setFormData] = useState({
     address: "",
     city: "",
-    pinCode: "",
+    pincode: "",
     phoneNumber: "",
     country: "",
     state: "",
@@ -28,13 +29,35 @@ const PlaceOrder = () => {
     setFormData({ ...formData, state: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form submitted with the following data:", formData);
+
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = userData._id;
+    console.log("user id is", userId)
+    console.log(formData)
+
+    try {
+      const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`; // Replace with your API endpoint
+      const response = await axios.post(apiUrl, formData);
+     
+
+      if (response.status === 201) {
+        console.log("Address added successfully!");
+        // You can handle success as needed, e.g., redirect to a success page.
+      } else {
+        console.error("Error adding address.");
+        // Handle errors here, e.g., show an error message to the user
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    // Clear the form after submission
     setFormData({
       address: "",
       city: "",
-      pinCode: "",
+      pincode: "",
       phoneNumber: "",
       country: "",
       state: "",
@@ -82,9 +105,9 @@ const PlaceOrder = () => {
             }}
             type="text"
             placeholder="Pin Code"
-            value={formData.pinCode}
+            value={formData.pincode}
             onChange={(e) =>
-              setFormData({ ...formData, pinCode: e.target.value })
+              setFormData({ ...formData, pincode: e.target.value })
             }
             required
           />
@@ -120,7 +143,11 @@ const PlaceOrder = () => {
           </select>
 
           {formData.country && (
-            <select value={formData.state} onChange={handleStateChange} required>
+            <select
+              value={formData.state}
+              onChange={handleStateChange}
+              required
+            >
               <option value="" disabled>
                 Select State
               </option>

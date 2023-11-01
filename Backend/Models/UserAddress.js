@@ -12,11 +12,11 @@ const UserAddress = new Schema({
         required: true,
     },
     pincode:{
-        type: Number,
+        type: String,
         required: true,
     },
     phoneNumber:{
-        type: Number,
+        type: String,
         require: true,
     },
     country: {
