@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const cartItemSchema = new Schema({
   product: {
     type: Schema.Types.ObjectId,
-    ref: "Product", 
+    ref: "Product",
   }
 });
 
@@ -23,7 +23,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  shoppingCart: [cartItemSchema], // Array of cart items
+  shoppingCart: [cartItemSchema],
+  
+  addresses: [{
+    type: Schema.Types.ObjectId,
+    ref: "UserAddress",
+  }],
 });
 
 export default mongoose.model("ecommerceUser", userSchema);
