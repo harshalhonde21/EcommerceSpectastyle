@@ -67,7 +67,7 @@ export const deleteUserAddress = async (req, res, next) => {
       return res.status(404).json({ message: "Address not found" });
     }
 
-    await addressToDelete.remove(); // This will physically delete the address document
+    await addressToDelete.remove(); 
 
     userData.addresses = userData.addresses.filter(
       (address) => address._id.toString() !== addressId
