@@ -51,35 +51,36 @@ export const updateUserAddress = async (req, res, next) => {
   }
 };
 
-export const deleteUserAddress = async (req, res, next) => {
+export const deleteAddress = async (req, res) => {
   try {
-    const { userId, addressId } = req.params;
+    const userId = req.params.userId;
+    const addressId = req.params.addressId;
 
-    const userData = await User.findById(userId);
+    const user = await User.findById(userId);
 
-    if (!userData) {
-      return res.status(404).json({ message: "User not found" });
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
     }
 
-    const addressToDelete = await UserAddress.findById(addressId);
+    // Find the index of the address in the user's addresses
+    const addressIndex = user.addresses.findIndex(address => address._id.toString() === addressId);
 
-    if (!addressToDelete) {
-      return res.status(404).json({ message: "Address not found" });
+    if (addressIndex === -1) {
+      return res.status(404).json({ error: "Address not found in the user's addresses" });
     }
 
-    await addressToDelete.remove(); 
+    // Remove the address from the addresses array
+    user.addresses.splice(addressIndex, 1);
 
-    userData.addresses = userData.addresses.filter(
-      (address) => address._id.toString() !== addressId
-    );
+    await user.save();
 
-    await userData.save();
-
-    res.status(204).send();
+    res.json({ message: "Address removed successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Server error while deleting the address" });
+    res.status(500).json({ error: "Unable to remove the address" });
   }
 };
+
+
 
 
 export const getUserAddresses = async (req, res, next) => {
