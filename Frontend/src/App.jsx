@@ -13,6 +13,7 @@ import UserProfile from "./Pages/UserProfile";
 import Team from "./Pages/Team";
 import { Toaster } from "react-hot-toast";
 import PlaceOrder from "./Pages/PlaceOrder";
+import ConformOrder from "./Pages/ConformOrder";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/address-payment-placeOrder" element={<PlaceOrder />} />
+        <Route path="/address-payment-placeOrder/confirmOrder" element={<ConformOrder />} ></Route>
       </Routes>
       <Footer />
       <Toaster position="top-right" reverseOrder={false} />

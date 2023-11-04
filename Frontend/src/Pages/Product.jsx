@@ -9,7 +9,7 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [searchText, setSearchText] = useState(""); // Search input text
+  const [searchText, setSearchText] = useState(""); 
 
   useEffect(() => {
     axios

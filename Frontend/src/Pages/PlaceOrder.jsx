@@ -1,8 +1,12 @@
 import { Fragment, useState } from "react";
+import {useNavigate} from "react-router-dom"
 import axios from "axios";
 import "../CSS/PlaceOrder.css";
 
 const PlaceOrder = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     address: "",
     city: "",
@@ -38,22 +42,20 @@ const PlaceOrder = () => {
     console.log(formData)
 
     try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`; // Replace with your API endpoint
+      const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`; 
       const response = await axios.post(apiUrl, formData);
      
 
       if (response.status === 201) {
         console.log("Address added successfully!");
-        // You can handle success as needed, e.g., redirect to a success page.
+        navigate('/address-payment-placeOrder/confirmOrder');
       } else {
         console.error("Error adding address.");
-        // Handle errors here, e.g., show an error message to the user
       }
+
     } catch (error) {
       console.error("Error:", error);
     }
-
-    // Clear the form after submission
     setFormData({
       address: "",
       city: "",
