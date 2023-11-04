@@ -1,5 +1,5 @@
-import { Fragment, useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import "../CSS/PlaceOrder.css";
 
@@ -7,6 +7,11 @@ const PlaceOrder = () => {
 
   const navigate = useNavigate();
 
+  const selectNavigate = () => {
+    navigate("/address-payment-placeOrder/confirmOrder")
+  }
+
+  const [userAddresses, setUserAddresses] = useState([]);
   const [formData, setFormData] = useState({
     address: "",
     city: "",
@@ -42,9 +47,9 @@ const PlaceOrder = () => {
     console.log(formData)
 
     try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`; 
+      const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`;
       const response = await axios.post(apiUrl, formData);
-     
+
 
       if (response.status === 201) {
         console.log("Address added successfully!");
@@ -66,10 +71,53 @@ const PlaceOrder = () => {
     });
   };
 
+  // for fetching my address data from mongo cloud
+
+  const fetchUserAddresses = async () => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = userData._id;
+    try {
+      const apiUrl = `http://localhost:5500/ecommerce/user-address/getAddresses/${userId}`;
+      const response = await axios.get(apiUrl);
+      if (response.status === 200) {
+        setUserAddresses(response.data);
+        localStorage.setItem("Address", JSON.stringify(response.data));
+      } else {
+        console.error("Error fetching addresses.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+
+  const deleteAddress = async (addressId) => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = userData._id;
+
+    try {
+      const apiUrl = `http://localhost:5500/ecommerce/user-address/deleteAddress/${userId}/${addressId}`;
+      const response = await axios.delete(apiUrl);
+
+      if (response.status === 200) {
+        console.log("Address deleted successfully!");
+        fetchUserAddresses();
+      } else {
+        console.error("Error deleting address.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserAddresses();
+  }, []);
+
   return (
     <Fragment>
+      <h1 style={{ position: "relative", top: '8rem' }}>Place Order</h1>
       <div className="PlaceOrder-outer-container">
-        <h1>Place Order</h1>
         <form className="form-submit" onSubmit={handleSubmit}>
           <input
             style={{
@@ -165,6 +213,27 @@ const PlaceOrder = () => {
             Submit
           </button>
         </form>
+        <div className="right-container-dataShow">
+          <h1 className="dataShow-heading">Select the Address</h1>
+          {userAddresses.map((address, index) => (
+            <div className="dataShow-address" key={index}>
+              <h5 className="address">Address: {address.address}</h5>
+              <h5 className="city">City: {address.city}</h5>
+              <h5 className="pinCode">Pin Code: {address.pincode}</h5>
+              <h5 className="phoneNumber">Phone Number: {address.phoneNumber}</h5>
+              <h5 className="country">Country: {address.country}</h5>
+              <h5 className="state">State: {address.state}</h5>
+              <button type="submit">Update</button>
+              <button
+                type="button"
+                onClick={() => deleteAddress(address._id)}
+              >
+                Delete
+              </button>
+              <button type="submit" onClick={selectNavigate}>Select</button>
+            </div>
+          ))}
+        </div>
       </div>
     </Fragment>
   );
