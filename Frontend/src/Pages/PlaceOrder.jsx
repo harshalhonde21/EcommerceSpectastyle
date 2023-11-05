@@ -1,14 +1,21 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast"
 import "../CSS/PlaceOrder.css";
 
 const PlaceOrder = () => {
-
   const navigate = useNavigate();
-
-  const selectNavigate = () => {
-    navigate("/address-payment-placeOrder/confirmOrder")
+  const goToOrder = () => {
+    toast("Address Selected success!", {
+      icon: "😄",
+      style: {
+        borderRadius: "rgb(189, 224, 254)",
+        background: "rgb(70, 11, 70)",
+        color: "rgb(255, 210, 255)",
+      },
+    });
+    navigate('/address-payment-placeOrder/confirmOrder')
   }
 
   const [userAddresses, setUserAddresses] = useState([]);
@@ -21,6 +28,10 @@ const PlaceOrder = () => {
     state: "",
   });
 
+  const [editMode, setEditMode] = useState(false);
+  const [updatedFormData, setUpdatedFormData] = useState({});
+  const [selectedAddressId, setSelectedAddressId] = useState(null);
+
   const countries = ["Country1", "Country2", "Country3"];
 
   const stateData = {
@@ -30,8 +41,7 @@ const PlaceOrder = () => {
   };
 
   const handleCountryChange = (event) => {
-    const selectedCountry = event.target.value;
-    setFormData({ ...formData, country: selectedCountry, state: "" });
+    setFormData({ ...formData, country: event.target.value, state: "" });
   };
 
   const handleStateChange = (event) => {
@@ -43,24 +53,29 @@ const PlaceOrder = () => {
 
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData._id;
-    console.log("user id is", userId)
-    console.log(formData)
 
     try {
       const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`;
       const response = await axios.post(apiUrl, formData);
 
-
       if (response.status === 201) {
-        console.log("Address added successfully!");
-        navigate('/address-payment-placeOrder/confirmOrder');
+        toast("Address Added success!", {
+          icon: "😄",
+          style: {
+            borderRadius: "rgb(189, 224, 254)",
+            background: "rgb(70, 11, 70)",
+            color: "rgb(255, 210, 255)",
+          },
+        });
+        navigate("/address-payment-placeOrder/confirmOrder");
       } else {
         console.error("Error adding address.");
       }
-
     } catch (error) {
       console.error("Error:", error);
     }
+
+    // Clear the form data for nice harshal
     setFormData({
       address: "",
       city: "",
@@ -71,7 +86,67 @@ const PlaceOrder = () => {
     });
   };
 
-  // for fetching my address data from mongo cloud
+  const handleEditClick = (address) => {
+    setEditMode(true);
+    setUpdatedFormData({ ...address });
+    setSelectedAddressId(address._id);
+  };
+
+  const handleSaveClick = async () => {
+    if (selectedAddressId) {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const userId = userData._id;
+
+      try {
+        const apiUrl = `http://localhost:5500/ecommerce/user-address/updateAddress/${userId}/${selectedAddressId}`;
+        const response = await axios.put(apiUrl, updatedFormData);
+
+        if (response.status === 200) {
+          toast("Address updated success!", {
+            icon: "😄",
+            style: {
+              borderRadius: "rgb(189, 224, 254)",
+              background: "rgb(70, 11, 70)",
+              color: "rgb(255, 210, 255)",
+            },
+          });
+          setEditMode(false);
+          setSelectedAddressId(null);
+          fetchUserAddresses();
+        } else {
+          console.error("Error updating address.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
+
+  const deleteAddress = async (addressId) => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = userData._id;
+
+    try {
+      const apiUrl = `http://localhost:5500/ecommerce/user-address/deleteAddress/${userId}/${addressId}`;
+      const response = await axios.delete(apiUrl);
+
+      if (response.status === 200) {
+        toast("Address Deleted success!", {
+          icon: "😞",
+          style: {
+            borderRadius: "rgb(189, 224, 254)",
+            background: "rgb(70, 11, 70)",
+            color: "rgb(255, 210, 255)",
+          },
+        });
+        fetchUserAddresses();
+      } else {
+        console.error("Error deleting address.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   const fetchUserAddresses = async () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -87,27 +162,7 @@ const PlaceOrder = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-    }
-  };
-
-
-  const deleteAddress = async (addressId) => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const userId = userData._id;
-
-    try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/deleteAddress/${userId}/${addressId}`;
-      const response = await axios.delete(apiUrl);
-
-      if (response.status === 200) {
-        console.log("Address deleted successfully!");
-        fetchUserAddresses();
-      } else {
-        console.error("Error deleting address.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    } 
   };
 
   useEffect(() => {
@@ -191,7 +246,6 @@ const PlaceOrder = () => {
               </option>
             ))}
           </select>
-
           {formData.country && (
             <select
               value={formData.state}
@@ -213,24 +267,75 @@ const PlaceOrder = () => {
             Submit
           </button>
         </form>
+
         <div className="right-container-dataShow">
           <h1 className="dataShow-heading">Select the Address</h1>
           {userAddresses.map((address, index) => (
             <div className="dataShow-address" key={index}>
-              <h5 className="address">Address: {address.address}</h5>
-              <h5 className="city">City: {address.city}</h5>
-              <h5 className="pinCode">Pin Code: {address.pincode}</h5>
-              <h5 className="phoneNumber">Phone Number: {address.phoneNumber}</h5>
+              {editMode && selectedAddressId === address._id ? (
+                <div>
+                  <input
+                  style={{border:"2px solid rgb(70, 11, 70)", width:'100%', marginBottom:'0.5px'}}
+                    type="text"
+                    value={updatedFormData.address}
+                    onChange={(e) =>
+                      setUpdatedFormData({
+                        ...updatedFormData,
+                        address: e.target.value,
+                      })
+                    }
+                  />
+                  <input
+                  style={{border:"2px solid rgb(70, 11, 70)", width:'100%', marginBottom:'0.5px'}}
+                    type="text"
+                    value={updatedFormData.city}
+                    onChange={(e) =>
+                      setUpdatedFormData({
+                        ...updatedFormData,
+                        city: e.target.value,
+                      })
+                    }
+                  />
+                  <input
+                  style={{border:"2px solid rgb(70, 11, 70)", width:'100%', marginBottom:'0.5px'}}
+                    type="text"
+                    value={updatedFormData.pincode}
+                    onChange={(e) =>
+                      setUpdatedFormData({
+                        ...updatedFormData,
+                        pincode: e.target.value,
+                      })
+                    }
+                  />
+                  <input
+                  style={{border:"2px solid rgb(70, 11, 70)", width:'100%', marginBottom:'0.5px'}}
+                    type="text"
+                    value={updatedFormData.phoneNumber}
+                    onChange={(e) =>
+                      setUpdatedFormData({
+                        ...updatedFormData,
+                        phoneNumber: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+              ) : (
+                <Fragment>
+                  <h5 className="address">Address: {address.address}</h5>
+                  <h5 className="city">City: {address.city}</h5>
+                  <h5 className="pinCode">Pin Code: {address.pincode}</h5>
+                  <h5 className="phoneNumber">Phone Number: {address.phoneNumber}</h5>
+                </Fragment>
+              )}
               <h5 className="country">Country: {address.country}</h5>
               <h5 className="state">State: {address.state}</h5>
-              <button type="submit">Update</button>
-              <button
-                type="button"
-                onClick={() => deleteAddress(address._id)}
-              >
-                Delete
-              </button>
-              <button type="submit" onClick={selectNavigate}>Select</button>
+              {editMode && selectedAddressId === address._id ? (
+                <button onClick={handleSaveClick}>Save</button>
+              ) : (
+                <button onClick={() => handleEditClick(address)}>Edit</button>
+              )}
+              <button onClick={() => deleteAddress(address._id)}>Delete</button>
+              <button onClick={goToOrder}>Order With Address</button>
             </div>
           ))}
         </div>
