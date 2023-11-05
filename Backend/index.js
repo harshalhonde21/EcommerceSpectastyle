@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import Stripe from "stripe";
 import cors from "cors";
 
 import router from "./Routes/user-routes.js";
@@ -10,6 +11,9 @@ import routerAddress from "./Routes/user-address-routes.js";
 import config from "./config.js";
 
 const app = express();
+const stripe = new Stripe(
+  "sk_test_51O96wfSH8i1UqUchc81vmn8Mka2bbbMrCW2vZKLEvGRTZDqWx2KlxkbLzdQnAJ0ipNA1UtO9Y83vX4x7KXjz5E4Z00JxrbAflY"
+);
 
 app.use(cors());
 app.use(express.json());
@@ -19,9 +23,43 @@ app.use("/ecommerce/manager", routerss);
 app.use("/ecommerce/agent", routersss);
 app.use("/ecommerce/user-address", routerAddress);
 
+app.post("/checkout", async (req, res) => {
+  try {
+    const { items } = req.body;
 
-const mongoURI = "mongodb+srv://harshalhonde17:harshal%40123@cluster0.b0mwyen.mongodb.net/Blogs?retryWrites=true&w=majority";
+    if (!Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ error: "Invalid or empty item data" });
+    }
 
+    const line_items = items.map((item) => ({
+      price_data: {
+        currency: "inr",
+        product_data: {
+          name: "Product Name",
+        },
+        unit_amount: item.price * 100,
+      },
+      quantity: 1, // Default quantity
+    }));
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items,
+      success_url: "http://localhost:5173/success",
+      cancel_url: "http://localhost:5173/cancel",
+    });
+
+    if (!session || !session.id) {
+      return res.status(500).json({ error: "Failed to create a checkout session" });
+    }
+
+    res.json({ url: session.url });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+const mongoURI = config.mongoURI;
 
 mongoose
   .connect(mongoURI)

@@ -1,10 +1,12 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast"
 import "../CSS/PlaceOrder.css";
 
 const PlaceOrder = () => {
+  const location = useLocation();
+  const totalCartValue = location.state.totalCartValue;
   const navigate = useNavigate();
   const goToOrder = () => {
     toast("Address Selected success!", {
@@ -15,7 +17,7 @@ const PlaceOrder = () => {
         color: "rgb(255, 210, 255)",
       },
     });
-    navigate('/address-payment-placeOrder/confirmOrder')
+    navigate("/address-payment-placeOrder/confirmOrder" , { state: { totalCartValue } })
   }
 
   const [userAddresses, setUserAddresses] = useState([]);
@@ -335,7 +337,8 @@ const PlaceOrder = () => {
                 <button onClick={() => handleEditClick(address)}>Edit</button>
               )}
               <button onClick={() => deleteAddress(address._id)}>Delete</button>
-              <button onClick={goToOrder}>Order With Address</button>
+              <button onClick={goToOrder}>Order With Address</button> 
+              <h6 style={{border:'2px solid red', display:'none'}}>value :{totalCartValue}</h6>
             </div>
           ))}
         </div>

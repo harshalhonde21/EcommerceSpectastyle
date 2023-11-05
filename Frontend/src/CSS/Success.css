@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+
+  /* font family */
+
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.success-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to left, var(--color-4), var(--color-5));
+  padding: 6rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#payment-success{
+  font-size: 3rem;
+  font-family: var(--font-rubik);
+  margin-bottom: 2rem;
+}

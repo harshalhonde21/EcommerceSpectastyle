@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import "../CSS/Cart.css";
 import axios from "axios";
 import AddIcon from "@mui/icons-material/Add";
@@ -99,6 +99,9 @@ const Cart = () => {
     });
   };
 
+  const navigateToOther = () => {
+    navigate("/address-payment-placeOrder", { state: { totalCartValue } });
+  };
   return (
     <div className="cart-container">
       <h1 className="cart-heading">Cart</h1>
@@ -155,9 +158,9 @@ const Cart = () => {
           ))}
           <div className="total-cart-value">
             <h2>Total Products Value: Rs. {totalCartValue}</h2>
-            <NavLink to="/address-payment-placeOrder">
-              <button>Buy Now</button>
-            </NavLink>
+            {/* <NavLink to="/address-payment-placeOrder"> */}
+            <button onClick={navigateToOther}>Buy Now</button>
+            {/* </NavLink> */}
           </div>
         </>
       )}
