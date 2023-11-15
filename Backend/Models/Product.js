@@ -2,6 +2,17 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
+const ReviewSchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'ecommerceUser',
+  },
+  text: {
+    type: String,
+    required: true,
+  },
+});
+
 const productSchema = new Schema({
   productName: {
     type: String,
@@ -13,17 +24,18 @@ const productSchema = new Schema({
     type: String,
   },
   category: {
-    type : String,
-  },
-  productDescription:{
     type: String,
   },
-  productImage:{
+  productDescription: {
     type: String,
   },
-  status:{
-    type:String,
-  }
+  productImage: {
+    type: String,
+  },
+  status: {
+    type: String,
+  },
+  reviews: [ReviewSchema], // Array of reviews
 });
 
-export default mongoose.model("Product", productSchema)
+export default mongoose.model('Product', productSchema);

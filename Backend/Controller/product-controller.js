@@ -140,5 +140,32 @@
     }
   };
   
+  // for adding review to my product spectastyle
+
+  export const addReviewToProduct = async (req, res, next) => {
+    try {
+      const userId = req.params.userId; 
+      const reviewText = req.body.reviewText; 
+      const productId = req.params.productId;
   
+      const product = await Product.findById(productId);
+  
+      if (!product) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+  
+      product.reviews.push({
+        user: userId,
+        text: reviewText,
+      });
+  
+      await product.save();
+  
+      res.status(201).json({ message: 'Review added successfully' });
+    } catch (error) {
+      res.status(500).json({ error: 'Unable to add review to product', error });
+    }
+  };
+  
+
 
