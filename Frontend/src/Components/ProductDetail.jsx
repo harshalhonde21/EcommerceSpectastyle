@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Modal from "react-modal";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
 import ErrorComponent from "../Components/Error";
 import toast from "react-hot-toast";
-import AddReview from "./AddReview"; // Import the AddReview component
+import AddReview from "./AddReview";
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
@@ -14,7 +13,10 @@ const ProductDetail = ({ productId, onClose }) => {
   const navigate = useNavigate();
 
   const [error, setError] = useState(null);
-  const [showAddReview, setShowAddReview] = useState(false); // State to control showing the AddReview component
+  const [showAddReview, setShowAddReview] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  const userName = JSON.parse(localStorage.getItem("userData")).name;
 
   const clearError = () => {
     setError(null);
@@ -30,6 +32,7 @@ const ProductDetail = ({ productId, onClose }) => {
         const productData = response.data;
         productData.quantity = 1;
         setProduct(productData);
+        setReviews(productData.reviews);
       })
       .catch((error) => {
         console.error("Error fetching product details:", error);
@@ -81,14 +84,12 @@ const ProductDetail = ({ productId, onClose }) => {
               className="product-detail-image"
             />
             <div className="product-detail-reviews">
-              <div className="product-review-card">
-                <h3 className="customer-name">Harshal Honde</h3>
-                <h5 className="rating">★★★★★</h5>
-              </div>
-              <div className="product-review-card">
-                <h3 className="customer-name">Kunal Honde</h3>
-                <h5 className="rating">★★★★★</h5>
-              </div>
+              {reviews.map((review) => (
+                <div key={review._id} className="product-review-card">
+                  <h3 className="customer-name">{userName}</h3>
+                  <h5 className="rating">{review.text}</h5>
+                </div>
+              ))}
             </div>
           </div>
           <div className="product-detail-right">
@@ -123,11 +124,10 @@ const ProductDetail = ({ productId, onClose }) => {
               <div className="cross-line"></div>
             </div>
 
-            {/* Conditionally render the AddReview component */}
             {showAddReview && (
               <AddReview
                 productId={product._id}
-                onClose={() => setShowAddReview(false)} // Close the AddReview component
+                onClose={() => setShowAddReview(false)}
               />
             )}
           </div>

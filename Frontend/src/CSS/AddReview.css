@@ -36,8 +36,8 @@
 }
 
 .dialogue-container {
-  background: rgba(113, 110, 159, 0.5); /* Change the alpha value as needed */
+  background: rgba(3, 3, 3, 0.5); /* Change the alpha value as needed */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(193, 91, 91, 0.1);
 }
