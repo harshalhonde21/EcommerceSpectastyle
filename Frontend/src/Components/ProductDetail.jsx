@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Modal from "react-modal";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
-import ErrorComponent from "../Components/Error"; 
+import ErrorComponent from "../Components/Error";
 import toast from "react-hot-toast";
+import AddReview from "./AddReview"; // Import the AddReview component
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
@@ -12,8 +14,10 @@ const ProductDetail = ({ productId, onClose }) => {
   const navigate = useNavigate();
 
   const [error, setError] = useState(null);
+  const [showAddReview, setShowAddReview] = useState(false); // State to control showing the AddReview component
 
   const clearError = () => {
+    setError(null);
     navigate("/profile");
   };
 
@@ -54,8 +58,8 @@ const ProductDetail = ({ productId, onClose }) => {
               color: "rgb(255, 210, 255)",
             },
           });
-          navigate("/cart"); // You can navigate to the cart page here
-          addToCart(product); // You can also add it to the local cart context if needed
+          navigate("/cart");
+          addToCart(product);
         })
         .catch((error) => {
           setError("Error adding the product to the cart");
@@ -108,10 +112,24 @@ const ProductDetail = ({ productId, onClose }) => {
               Add to Cart
             </button>
             <br />
-            <button className="product-detail-close-button">Add review</button>
+            {/* Updated the onClick handler to toggle the modal */}
+            <button
+              className="product-detail-close-button"
+              onClick={() => setShowAddReview(!showAddReview)}
+            >
+              Add review
+            </button>
             <div className="close-button" onClick={onClose}>
               <div className="cross-line"></div>
             </div>
+
+            {/* Conditionally render the AddReview component */}
+            {showAddReview && (
+              <AddReview
+                productId={product._id}
+                onClose={() => setShowAddReview(false)} // Close the AddReview component
+              />
+            )}
           </div>
         </>
       ) : (

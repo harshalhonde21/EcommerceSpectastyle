@@ -1,9 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
+import ReactDOM from "react-dom";
+import App from "./App";
+import Modal from "react-modal";
 import { BrowserRouter } from "react-router-dom";
-import { CartProvider } from "./Components/CartContext.jsx";
+import { CartProvider } from "./Components/CartContext";
+
+// Set the root element for accessibility
+Modal.setAppElement("#root");
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
