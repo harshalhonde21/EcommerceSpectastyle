@@ -16,7 +16,9 @@ const ProductDetail = ({ productId, onClose }) => {
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
 
-  const userName = JSON.parse(localStorage.getItem("userData")).name;
+  const userName = (localStorage.getItem("userData") && JSON.parse(localStorage.getItem("userData")).name) || "Demo";
+
+  const userId = localStorage.getItem("userData");
 
   const clearError = () => {
     setError(null);
@@ -86,7 +88,7 @@ const ProductDetail = ({ productId, onClose }) => {
             <div className="product-detail-reviews">
               {reviews.map((review) => (
                 <div key={review._id} className="product-review-card">
-                  <h3 className="customer-name">{userName}</h3>
+                  <h3 className="customer-name">{userName} </h3>
                   <h5 className="rating">{review.text}</h5>
                 </div>
               ))}
@@ -116,7 +118,13 @@ const ProductDetail = ({ productId, onClose }) => {
             {/* Updated the onClick handler to toggle the modal */}
             <button
               className="product-detail-close-button"
-              onClick={() => setShowAddReview(!showAddReview)}
+              onClick={() => {
+                if(userId){
+                setShowAddReview(!showAddReview)
+                }else{
+                  setError("First Login to add the review")
+                }
+                }}
             >
               Add review
             </button>

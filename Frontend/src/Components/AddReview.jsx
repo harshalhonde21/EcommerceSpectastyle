@@ -7,6 +7,7 @@ const AddReview = ({ productId, onClose }) => {
   const userId = JSON.parse(localStorage.getItem("userData"))._id;
 
   const handleSubmitReview = () => {
+
     if (!reviewText.trim()) {
       return;
     }
