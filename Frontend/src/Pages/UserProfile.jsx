@@ -6,7 +6,7 @@ import Error from "../Components/Error";
 import toast from 'react-hot-toast';
 
 const UserProfile = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null)
   const location = useLocation();
   const navigate = useNavigate(); 
   let user = location.state?.user;
