@@ -19,7 +19,7 @@ const ConformOrder = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData._id;
     try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/getAddresses/${userId}`;
+      const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/getAddresses/${userId}`;
       const response = await axios.get(apiUrl);
       if (response.status === 200) {
         console.log(response.data);

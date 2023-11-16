@@ -57,7 +57,7 @@ const PlaceOrder = () => {
     const userId = userData._id;
 
     try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/addAddress/${userId}`;
+      const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/addAddress/${userId}`;
       const response = await axios.post(apiUrl, formData);
 
       if (response.status === 201) {
@@ -100,7 +100,7 @@ const PlaceOrder = () => {
       const userId = userData._id;
 
       try {
-        const apiUrl = `http://localhost:5500/ecommerce/user-address/updateAddress/${userId}/${selectedAddressId}`;
+        const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/updateAddress/${userId}/${selectedAddressId}`;
         const response = await axios.put(apiUrl, updatedFormData);
 
         if (response.status === 200) {
@@ -129,7 +129,7 @@ const PlaceOrder = () => {
     const userId = userData._id;
 
     try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/deleteAddress/${userId}/${addressId}`;
+      const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/deleteAddress/${userId}/${addressId}`;
       const response = await axios.delete(apiUrl);
 
       if (response.status === 200) {
@@ -154,7 +154,7 @@ const PlaceOrder = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData._id;
     try {
-      const apiUrl = `http://localhost:5500/ecommerce/user-address/getAddresses/${userId}`;
+      const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/getAddresses/${userId}`;
       const response = await axios.get(apiUrl);
       if (response.status === 200) {
         setUserAddresses(response.data);

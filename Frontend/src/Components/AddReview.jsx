@@ -13,7 +13,7 @@ const AddReview = ({ productId, onClose }) => {
 
     axios
       .post(
-        `http://localhost:5500/ecommerce/product/products/${productId}/reviews/${userId}`,
+        `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}/reviews/${userId}`,
         { reviewText },
         {
           headers: {
