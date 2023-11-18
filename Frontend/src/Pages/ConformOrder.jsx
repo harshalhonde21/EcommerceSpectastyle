@@ -73,14 +73,13 @@ const ConformOrder = () => {
     };
 
     axios
-      .post("http://localhost:5500/checkout", payload)
+      .post("https://ecommerce-backend-0wr7.onrender.com/checkout", payload)
       .then((response) => {
         console.log("POST request response:", response.data);
 
         const { url } = response.data;
 
         if (url) {
-          // Redirect the user to the Stripe checkout page
           window.location.href = url;
         } else {
           console.error("Failed to initiate payment");

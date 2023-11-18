@@ -61,7 +61,7 @@ const PlaceOrder = () => {
       const response = await axios.post(apiUrl, formData);
 
       if (response.status === 201) {
-        toast("Address Added success!", {
+        toast("Address Added success! Reload to show to address", {
           icon: "😄",
           style: {
             borderRadius: "rgb(189, 224, 254)",
