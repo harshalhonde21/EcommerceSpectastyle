@@ -46,8 +46,8 @@ app.post("/checkout", async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      success_url: "https://ecommerce-backend-0wr7.onrender.com/success",
-      cancel_url: "https://ecommerce-backend-0wr7.onrender.com/cancel",
+      success_url: "https://spectastyle.vercel.app/success",
+      cancel_url: "https://spectastyle.vercel.app/cancel",
     });
 
     if (!session || !session.id) {
