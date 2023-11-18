@@ -69,7 +69,7 @@ const PlaceOrder = () => {
             color: "rgb(255, 210, 255)",
           },
         });
-        navigate("/address-payment-placeOrder/confirmOrder");
+        // navigate("/address-payment-placeOrder/confirmOrder");
       } else {
         console.error("Error adding address.");
       }
