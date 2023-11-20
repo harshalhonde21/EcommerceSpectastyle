@@ -39,7 +39,7 @@ app.post("/checkout", async (req, res) => {
         },
         unit_amount: item.price * 100,
       },
-      quantity: 1, // Default quantity
+      quantity: 1, 
     }));
 
     const session = await stripe.checkout.sessions.create({
