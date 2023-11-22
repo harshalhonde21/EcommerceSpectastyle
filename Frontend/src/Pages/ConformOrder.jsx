@@ -60,6 +60,8 @@ const ConformOrder = () => {
       });
   }, []);
 
+  // fetching the API for the sending payment request 
+
   const fetchPriceAndSendRequest = async () => {
     const cartValue = localStorage.getItem("cartValue");
     console.log(cartValue);
