@@ -8,12 +8,6 @@
 
 [https://spectastyle.vercel.app/](https://spectastyle.vercel.app/)
 
-<h2>Project Screenshots:</h2>
-
-<img src="https://ibb.co/bs9WBhk" alt="project-screenshot" width="12px" height="400/">
-
-<img src="" alt="project-screenshot" width="2px" height="2px/">
-
   
   
 <h2>🧐 Features</h2>
