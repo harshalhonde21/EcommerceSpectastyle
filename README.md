@@ -10,7 +10,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="" alt="project-screenshot" width="12px" height="400/">
+<img src="https://ibb.co/bs9WBhk" alt="project-screenshot" width="12px" height="400/">
 
 <img src="" alt="project-screenshot" width="2px" height="2px/">
 
@@ -30,7 +30,7 @@ Here're some of the project's best features:
 <p>1. Clone the Project</p>
 
 ```
-git clone project_url
+git clone https://github.com/harshalhonde21/EcommerceSpectastyle.git
 ```
 
 <p>2. Install Dependencies</p>
