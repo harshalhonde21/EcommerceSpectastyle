@@ -6,7 +6,8 @@
 
 <h2>🚀 Demo</h2>
 
-[https://spectastyle.vercel.app/](https://spectastyle.vercel.app/)
+[Website](https://spectastyle.vercel.app/)
+[Warehouse](https://spectadash.vercel.app/)
 
   
   
