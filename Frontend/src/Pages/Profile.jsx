@@ -126,7 +126,7 @@ const Profile = () => {
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-          
+
 
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
@@ -161,52 +161,36 @@ const Profile = () => {
       ) : (
         <div className="profile-container">
           <div className="profile-outer_box">
-            <div className="profile-card">
+            <div className="profile-card" style={{ boxShadow: "25px 25px 100px rgba(0, 0, 0, 0.2)"}}>
               <h2>{isLogin ? "Login" : "Signup"}</h2>
               {isLogin ? (
                 <form onSubmit={handleLoginFormSubmit}>
                   <div className="input-group">
-                    <EmailIcon
-                      style={{
-                        position: "absolute",
-                        top: "0.5rem",
-                        left: "13.5rem",
-                        color: "rgb(70, 11, 70)",
-                      }}
+                    <EmailIcon className="icon"
                     />
                     <input
                       type="email"
                       name="email"
                       placeholder="Enter Email"
+                      style={{border:"3px solid var(--color-6)",borderRadius: "15px" }}
+
                     />
                   </div>
                   <div className="input-group">
-                    <input
-                      type={isPasswordVisible ? "text" : "password"}
+                    <input type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
+                      style={{boxShadow:"none",width:"100%",border:"3px solid var(--color-6)",borderRadius: "15px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
-                        style={{
-                          position: "absolute",
-                          top: "0.5rem",
-                          left: "13.5rem",
-                          color: "rgb(70, 11, 70)",
-                        }}
-                        className="password-toggle"
-                        onClick={() => setIsPasswordVisible(false)}
+                        className="icon"
+                        onClick={() => setIsPasswordVisible(!isPasswordVisible)}
                       />
                     ) : (
                       <VisibilityOffIcon
-                        style={{
-                          position: "absolute",
-                          top: "0.5rem",
-                          left: "13.5rem",
-                          color: "rgb(70, 11, 70)",
-                        }}
-                        className="password-toggle"
-                        onClick={() => setIsPasswordVisible(true)}
+                        className="icon"
+                        onClick={() => setIsPasswordVisible(!isPasswordVisible)}
                       />
                     )}
                   </div>
@@ -215,34 +199,21 @@ const Profile = () => {
               ) : (
                 <form onSubmit={handleSignupFormSubmit}>
                   <div className="input-group">
-                    <EmailIcon
-                      style={{
-                        position: "absolute",
-                        top: "0.5rem",
-                        left: "13.5rem",
-                        color: "rgb(70, 11, 70)",
-                      }}
-                    />
+                    <EmailIcon className="icon" />
                     <input
                       type="email"
                       name="email"
                       placeholder="Enter Email"
+                      style={{ border:"3px solid var(--color-6)",borderRadius: "15px" }}
                     />
                   </div>
                   <div className="input-group">
-                    <PersonIcon
-                      style={{
-                        position: "absolute",
-                        top: "0.5rem",
-                        left: "13.5rem",
-                        color: "rgb(70, 11, 70)",
-                      }}
-                    />
+                    <PersonIcon className="icon" />
                     <input
                       type="text"
                       name="username"
                       placeholder="Enter Username"
-                      style={{border:"none", width:'16rem', borderRadius:'7px', marginBottom:'1px', height:'2.5rem'}}
+                      style={{ boxShadow:"none",marginBottom:"0.7rem", width: '100%', border:"3px solid var(--color-6)",borderRadius: "15px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -250,50 +221,31 @@ const Profile = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
+                      style={{ boxShadow:"none",marginBottom:"1.2rem",width: '100%', border:"3px solid var(--color-6)",borderRadius: "15px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
-                        style={{
-                          position: "absolute",
-                          top: "0.5rem",
-                          left: "13.5rem",
-                          color: "rgb(70, 11, 70)",
-                        }}
-                        className="password-toggle"
-                        onClick={() => setIsPasswordVisible(false)}
+                        className="icon" onClick={() => setIsPasswordVisible(false)}
                       />
                     ) : (
-                      <VisibilityOffIcon
-                        style={{
-                          position: "absolute",
-                          top: "0.5rem",
-                          left: "13.5rem",
-                          color: "rgb(70, 11, 70)",
-                        }}
-                        className="password-toggle"
+                      <VisibilityOffIcon className="icon"
                         onClick={() => setIsPasswordVisible(true)}
                       />
                     )}
                   </div>
                   <div className="input-group">
-                    <AttachmentIcon
-                      style={{
-                        position: "absolute",
-                        top: "0.5rem",
-                        left: "13.5rem",
-                        color: "rgb(70, 11, 70)",
-                      }}
-                    />
                     <label className="file-label" htmlFor="fileInput">
                       Profile Picture
-                    </label>
+                    <AttachmentIcon className="icon" style={{top:"8px"}}/>
                     <input
+                      style={{border:"3px solid var(--color-6)",borderRadius: "15px" }}
                       type="file"
                       id="fileInput"
                       className="file-input"
                       accept="image/*"
                       name="fileInput"
                     />
+                    </label>
                   </div>
                   <button type="submit">Signup</button>
                 </form>
