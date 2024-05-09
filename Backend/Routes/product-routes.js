@@ -1,16 +1,21 @@
 import express from "express";
-import { addProduct, updateProduct, deleteProduct, getAllProducts, getProductById, addProductToCart, getProductFromCart, deleteProductFromCart, addReviewToProduct } from "../Controller/product-controller.js";
+import productController from "../controllers/productController.js";
 
-const routers = express.Router();
+const router = express.Router();
 
-routers.get('/', getAllProducts);
-routers.get('/products/:productId', getProductById);
-routers.post('/products', addProduct);
-routers.put('/products/:productId', updateProduct);
-routers.delete('/products/:productId', deleteProduct);
-routers.post('/addProductToCart/:userId', addProductToCart);
-routers.get('/shopping-cart/:userId', getProductFromCart);
-routers.delete('/shopping-cart/:userId/:productId', deleteProductFromCart);
-routers.post('/products/:productId/reviews/:userId', addReviewToProduct);
+// Products
+router.get("/products", productController.getAllProducts);
+router.get("/products/:productId", productController.getProductById);
+router.post("/products", productController.addProduct);
+router.put("/products/:productId", productController.updateProduct);
+router.delete("/products/:productId", productController.deleteProduct);
 
-export default routers;
+// Shopping Cart
+router.post("/users/:userId/cart/products", productController.addProductToCart);
+router.get("/users/:userId/cart/products", productController.getProductFromCart);
+router.delete("/users/:userId/cart/products/:productId", productController.deleteProductFromCart);
+
+// Reviews
+router.post("/products/:productId/reviews/:userId", productController.addReviewToProduct);
+
+export default router;

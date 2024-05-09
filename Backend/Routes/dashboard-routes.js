@@ -1,15 +1,15 @@
 import express from "express";
-import {
-  getManager,
-  signupManager,
-  loginManager,
-} from "../Controller/dashboard-controller.js";
+import dashboardController from "../controllers/dashboardController.js";
 
-const routerss = express.Router();
+const router = express.Router();
 
-routerss.get('/', getManager);
-routerss.post('/signup', signupManager);
-routerss.post('/login', loginManager);
+// GET /managers
+router.get("/managers", dashboardController.getManagers);
 
+// POST /managers/signup
+router.post("/managers/signup", dashboardController.signupManager);
 
-export default routerss;
+// POST /managers/login
+router.post("/managers/login", dashboardController.loginManager);
+
+export default router;

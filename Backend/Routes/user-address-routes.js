@@ -1,16 +1,18 @@
 import express from "express";
-import {
-  addUserAddress,
-  updateUserAddress,
-  getUserAddresses,
-  deleteAddress,
-} from "../Controller/user-address.js";
+import userAddressController from "../controllers/userAddressController.js";
 
-const routerAddress = express.Router();
+const router = express.Router();
 
-routerAddress.post("/addAddress/:userId", addUserAddress);
-routerAddress.put("/updateAddress/:userId/:addressId", updateUserAddress);
-routerAddress.delete("/deleteAddress/:userId/:addressId", deleteAddress);
-routerAddress.get("/getAddresses/:userId", getUserAddresses);
+// Add Address
+router.post("/users/:userId/addresses", userAddressController.addUserAddress);
 
-export default routerAddress;
+// Update Address
+router.put("/users/:userId/addresses/:addressId", userAddressController.updateUserAddress);
+
+// Delete Address
+router.delete("/users/:userId/addresses/:addressId", userAddressController.deleteAddress);
+
+// Get Addresses
+router.get("/users/:userId/addresses", userAddressController.getUserAddresses);
+
+export default router;

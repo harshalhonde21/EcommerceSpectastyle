@@ -1,15 +1,15 @@
 import express from "express";
-import {
-  getAgents,
-  loginAgent,
-  signupAgent
-} from "../Controller/dashboardagent-controller.js";
+import dashboardAgentController from "../controllers/dashboardAgentController.js";
 
-const routersss = express.Router();
+const router = express.Router();
 
+// GET /agents
+router.get("/agents", dashboardAgentController.getAgents);
 
-routersss.get('/', getAgents);
-routersss.post('/signup', signupAgent);
-routersss.post('/login', loginAgent);
+// POST /agents/signup
+router.post("/agents/signup", dashboardAgentController.signupAgent);
 
-export default routersss;
+// POST /agents/login
+router.post("/agents/login", dashboardAgentController.loginAgent);
+
+export default router;

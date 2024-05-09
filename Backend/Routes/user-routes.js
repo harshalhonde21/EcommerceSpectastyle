@@ -1,11 +1,16 @@
 import express from "express";
-import { getMyUsers, login, signup } from "../Controller/user-controller.js";
-import authMiddelware from "../Middelware/authMiddelware.js";
+import userController from "../controllers/userController.js";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", getMyUsers); // my all users in one place
-router.post("/signup", signup); //my users should signup here
-router.post("/login", login); //my users should login here
+// Get all users
+router.get("/users", authMiddleware, userController.getMyUsers);
+
+// User Signup
+router.post("/users/signup", userController.signup);
+
+// User Login
+router.post("/users/login", userController.login);
 
 export default router;
