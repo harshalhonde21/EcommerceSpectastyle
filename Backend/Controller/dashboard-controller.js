@@ -1,11 +1,9 @@
 import Manager from "../Models/Manager.js";
 
-
-// my manager it is the superhero 
 export const getManager = async (req, res, next) => {
   try {
-    const managers = await Manager.find();
-    if (!managers || managers.length === 0) {
+    const managers = await Manager.find().select('name email'); // Select only necessary fields
+    if (managers.length === 0) {
       return res.status(404).json({ message: "Managers not found" });
     }
     res.status(200).json(managers);
@@ -25,7 +23,7 @@ export const signupManager = async (req, res, next) => {
     const manager = new Manager({ name, password });
     await manager.save();
 
-    res.status(201).json({ manager, message:"Manager signup success" });
+    res.status(201).json({ manager, message: "Manager signup success" });
   } catch (error) {
     next(error);
   }
@@ -34,7 +32,7 @@ export const signupManager = async (req, res, next) => {
 export const loginManager = async (req, res, next) => {
   const { name, password } = req.body;
   try {
-    const manager = await Manager.findOne({ name });
+    const manager = await Manager.findOne({ name }).select('+password'); // Include password field for comparison
     if (!manager) {
       return res.status(404).json({ message: "Manager not found" });
     }
@@ -43,7 +41,7 @@ export const loginManager = async (req, res, next) => {
       return res.status(401).json({ message: "Authentication failed" });
     }
 
-    res.status(200).json({ manager,  message: "Login successful" });
+    res.status(200).json({ manager, message: "Login successful" });
   } catch (error) {
     next(error);
   }
