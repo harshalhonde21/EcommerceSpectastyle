@@ -28,31 +28,38 @@ Here're some of the project's best features:
 git clone https://github.com/harshalhonde21/EcommerceSpectastyle.git
 ```
 
-<p>2. Install Dependencies</p>
+
+<p>1. Go to Frontend folder</p>
+
+```
+cd Frontend
+```
+
+<p>3. Install Dependencies</p>
 
 ```
 npm install
 ```
 
-<p>3. Start</p>
+<p>4. Start</p>
 
 ```
 npm run dev
 ```
 
-<p>4. Go to server path</p>
+<p>5. Go to server path</p>
 
 ```
 cd backend
 ```
 
-<p>5. Install server Dependencies</p>
+<p>6. Install server Dependencies</p>
 
 ```
 npm install
 ```
 
-<p>6. Start Server</p>
+<p>7. Start Server</p>
 
 ```
 npm start
