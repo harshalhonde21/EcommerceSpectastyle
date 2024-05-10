@@ -13,6 +13,7 @@ import UserProfile from "./UserProfile";
 import { useCart } from "../Components/CartContext";
 import ".././CSS/Profile.css";
 
+
 const Profile = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -21,6 +22,8 @@ const Profile = () => {
   const [user, setUser] = useState('');
   const navigate = useNavigate();
   const { setUserData } = useCart();
+
+  const defaultProfileImage = '../../public/defaultProfile.jpg'
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -107,10 +110,20 @@ const Profile = () => {
     const password = e.target.password.value;
     const fileInput = e.target.fileInput.files[0];
 
-    if (!email || !username || !password || !fileInput) {
+    if (!email || !username || !password) {
       setError("Please fill in all fields.");
     } else {
       try {
+        const formData = new FormData();
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("name", username);
+
+      if (fileInput) {
+        formData.append("profilePicture", fileInput);
+      } else {
+        formData.append("profilePicture", defaultProfilePicture);
+      }
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
           {
