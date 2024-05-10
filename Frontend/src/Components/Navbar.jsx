@@ -40,7 +40,7 @@ const Navbar = () => {
               </li>
               <li><NavLink to="/cart"><ShoppingCartIcon
                 className="btn"
-                style={{ color: "rgb(176, 41, 176)", marginLeft: "5rem" }}
+                style={{ color: "rgb(176, 41, 176)" }}
               /></NavLink></li>
               <li><NavLink to="/profile"><AccountBoxIcon
                 className="btn1"
