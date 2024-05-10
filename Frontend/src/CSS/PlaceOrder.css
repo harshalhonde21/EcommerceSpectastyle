@@ -26,7 +26,7 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
@@ -115,4 +115,43 @@ select {
 .dataShow-address h5{
   color: var(--color-6);
   font-family: var(--font-2);
+}
+
+/* responsive */
+@media only screen and (min-width: 768px) {
+  .PlaceOrder-outer-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .form-submit,
+  .right-container-dataShow {
+    width: 45%; /* Adjust width for larger screens */
+    max-width: none;
+  }
+}
+
+/* Adjust placeholder font size for small devices */
+@media only screen and (max-width: 767px) {
+  ::-webkit-input-placeholder {
+    font-size: 12px; /* Adjust font size as needed */
+  }
+
+  :-moz-placeholder {
+    font-size: 12px; /* Adjust font size as needed */
+  }
+
+  ::-moz-placeholder {
+    font-size: 12px; /* Adjust font size as needed */
+  }
+
+  :-ms-input-placeholder {
+    font-size: 12px; /* Adjust font size as needed */
+  }
+  .address,
+  .city,
+  .pinCode,
+  .phoneNumber {
+    font-size: 14px; /* Adjust font size as needed */
+  }
 }
