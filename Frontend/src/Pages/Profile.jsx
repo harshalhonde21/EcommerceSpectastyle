@@ -1,11 +1,10 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import ReCAPTCHA from 'react-google-recaptcha';
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
 
 // components
 import toast from 'react-hot-toast';
@@ -22,11 +21,8 @@ const Profile = () => {
   const [user, setUser] = useState('');
   const navigate = useNavigate();
   const { setUserData } = useCart();
-  const captchaRef = useRef()
-  const [recaptchaValue, setRecaptchaValue] = useState(null)
 
   useEffect(() => {
-    handleChange();
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("userData");
     if (token && userData) {
@@ -50,15 +46,10 @@ const Profile = () => {
     setIsLogin(!isLogin);
   };
 
-  const handleChange = (value) => {
-    setRecaptchaValue(value);
-  }
 
   const handleLoginFormSubmit = async (e) => {
 
     e.preventDefault();
-
-    captchaRef.current.reset()
 
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -209,8 +200,7 @@ const Profile = () => {
                       />
                     )}
                   </div>
-                  <ReCAPTCHA sitekey={import.meta.env.VITE_SITE_KEY} ref={captchaRef} onChange={handleChange} />
-                  <button disabled={recaptchaValue==null ? true : ""} type="submit">Login</button>
+                  <button  type="submit">Login</button>
 
                 </form>
               ) : (
