@@ -88,6 +88,7 @@ const Contact = () => {
           <form>
             <div className="form-group">
               <input
+                style={{ width: "100%", marginBottom: "-2rem",border:'2px solid rgb(70, 11, 70)' }}
                 type="text"
                 id="name"
                 name="name"
@@ -97,6 +98,7 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
+                style={{ width: "100%", marginBottom: "-2rem", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem'}}
                 type="email"
                 id="email"
                 name="email"
@@ -106,6 +108,7 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
+              style={{ width: "100%", marginBottom: "-2rem", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem'}}
                 type="Number"
                 id="email"
                 name="email"
@@ -115,7 +118,7 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <textarea
-                style={{ padding: "10px 35px 10px 35px", border:'2px solid white', borderRadius:'8px', backgroundColor:'rgb(255, 210, 255)' }}
+                style={{ width: "100%", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem', backgroundColor:'rgb(255, 210, 255)'}}
                 id="message"
                 name="message"
                 placeholder="Your Message"
