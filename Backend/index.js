@@ -9,6 +9,7 @@ import routerss from "./Routes/dashboard-routes.js";
 import routersss from "./Routes/dashboardagent-routes.js";
 import routerAddress from "./Routes/user-address-routes.js";
 import config from "./config.js";
+import visitCountRoutes from './Routes/visit-count-routes.js';
 
 const app = express();
 const stripe = new Stripe(
@@ -22,6 +23,7 @@ app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);
 app.use("/ecommerce/agent", routersss);
 app.use("/ecommerce/user-address", routerAddress);
+app.use('/visitcount', visitCountRoutes);     // added newly   
 
 app.post("/checkout", async (req, res) => {
   try {
@@ -59,6 +61,7 @@ app.post("/checkout", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 const mongoURI = config.mongoURI;
 
 mongoose
@@ -66,3 +69,6 @@ mongoose
   .then(() => app.listen(5500))
   .then(() => console.log("connected to db at port 5500 :)"))
   .catch((err) => console.log(`${err} is error`));
+
+  //This listen to run server locally
+  app.listen(3000, () => { console.log('Server is running on port 3000') });
