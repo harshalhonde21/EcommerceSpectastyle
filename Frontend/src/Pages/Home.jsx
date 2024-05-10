@@ -12,7 +12,7 @@ const Home = () => {
             <b>NEW TRENDS</b> FOR SHOES
           </h1>
           <div className="para">
-            <p>
+            <p style={{padding:'20px'}}>
               Welcome to our premium e-commerce shoe haven! Uncover an extensive
               array of stylish and comfortable footwear, showcasing the latest
               trends and timeless classics. From casual kicks to elegant heels,
