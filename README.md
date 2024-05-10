@@ -9,7 +9,10 @@
 [Website](https://spectastyle.vercel.app/)<br />
 [Warehouse](https://spectadash.vercel.app/)
 
-  
+# 🚀 Don't Forget to Star the Repo 🚀
+
+🌟 If you find this repository useful or interesting, please consider giving it a star! It helps us understand how many users appreciate our work and motivates us to continue improving it. Thank you for your support! 🌟
+
   
 <h2>🧐 Features</h2>
 
@@ -110,21 +113,7 @@ Any contributor who wishes to contribute to this project should first read the R
 - Mention any specific individuals who may have relevant expertise or insights.
 
 ## Deadline:
-- If applicable, specify any deadlines or time constraints associated with resolving the issue.
-
-## Feedback:
-- Welcome feedback from other team members and be open to revising the issue description based on their input.
-
-## Closure Criteria:
-- Define clear criteria for when the issue can be considered resolved.
-- Include any tests or validation steps that need to be performed to confirm the resolution.
-
-## Review:
-- Request reviews from relevant stakeholders to ensure the issue is accurately documented and understood.
-
-## Conclusion:
-- Conclude with a thank you note for anyone who contributes to resolving the issue.
-- Express appreciation for their time and effort in addressing the problem.
+- If you apply for issue the response will come in 4 to 5 hrs
 
 
   
