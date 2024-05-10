@@ -27,7 +27,7 @@
   width: 100%;
   height: 6rem;
   display: flex;
-  gap: 32rem;
+  gap: 25rem;
   /* background-color: var(--color-1);
   color: whitesmoke; */
   z-index: 999;
@@ -172,13 +172,13 @@ span {
   }
 
   .btn {
-    position: relative;
+    
     top: -1rem;
     left: -2rem;
   }
 
   .btn1 {
-    position: relative;
+   
     top: -2rem;
     left: 0.5rem;
   }
