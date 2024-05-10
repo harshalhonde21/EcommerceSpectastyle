@@ -17,7 +17,6 @@
     "axios": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-google-recaptcha": "^3.1.0",
     "react-hot-toast": "^2.4.1",
     "react-loader-spinner": "^5.4.5",
     "react-modal": "^3.16.1",
