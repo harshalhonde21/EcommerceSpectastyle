@@ -5,6 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import VisitorCounter from "./VisitorCounter";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,14 +39,25 @@ const Navbar = () => {
               <li>
                 <NavLink to="/contact">Contact</NavLink>
               </li>
-              <li><NavLink to="/cart"><ShoppingCartIcon
-                className="btn"
-                style={{ color: "rgb(176, 41, 176)", marginLeft: "5rem" }}
-              /></NavLink></li>
-              <li><NavLink to="/profile"><AccountBoxIcon
-                className="btn1"
-                style={{ color: "rgb(176, 41, 176)" }}
-              /></NavLink></li>
+              <li>
+                <NavLink to="/cart">
+                  <ShoppingCartIcon
+                    className="btn"
+                    style={{ color: "rgb(176, 41, 176)", marginLeft: "5rem" }}
+                  />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/profile">
+                  <AccountBoxIcon
+                    className="btn1"
+                    style={{ color: "rgb(176, 41, 176)" }}
+                  />
+                </NavLink>
+              </li>
+              <li>
+                <VisitorCounter />
+              </li>
             </ul>
             <div className="button" onClick={toggleMenu}>
               {menuOpen ? (
