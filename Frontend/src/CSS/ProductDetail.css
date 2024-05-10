@@ -73,7 +73,7 @@
 }
 
 .product-detail-price {
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   font-size: 18px;
   color: var(--color-6);
   margin-top: 5px;
@@ -81,7 +81,7 @@
 
 .product-detail-description {
   margin-top: 10px;
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   font-size: 20px;
   color: var(--color-6);
 }
@@ -89,13 +89,13 @@
 .product-detail-status {
   margin-top: 10px;
   color: var(--color-6);
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
 }
 
 .product-date-status{
   margin-top: 10px;
   color: var(--color-6);
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
 }
 
 .product-detail-add-to-cart {
@@ -194,7 +194,7 @@
 }
 
 .customer-name {
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   font-size: 16px;
   color: var(--color-6);
   margin-bottom: 5px;
@@ -215,7 +215,7 @@
 
   .product-detail-description {
     margin-top: 10px;
-    font-family: var(--font-2);
+    font-family: var(--font-rubik);
     font-size: 12px;
     color: var(--color-6);
   }
@@ -233,7 +233,7 @@
 
   .product-detail-description {
     margin-top: 10px;
-    font-family: var(--font-2);
+    font-family: var(--font-rubik);
     font-size: 12px;
     color: var(--color-6);
   }

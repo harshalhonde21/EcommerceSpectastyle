@@ -49,13 +49,13 @@
   font-size: 3rem;
   color: var(--color-6);
   margin: 0;
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
 }
 
 .userProfile-paragraph {
   font-size: 1.8rem;
   color: var(--color-6);
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   position: relative;
   left: -1rem;
   top: -5rem;
@@ -76,7 +76,7 @@
   background-color: var(--color-6);
   color: #fff;
   border-radius: 5px;
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
 }
 
 @media (max-width: 480px) {

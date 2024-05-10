@@ -43,7 +43,7 @@
 .head-main h3 {
   position: relative;
   top: -0.5rem;
-  margin-left: 5rem;
+  margin-left: 3rem;
   font-family: var(--font-1);
   font-size: 2.5rem;
   color: var(--color-6);
@@ -67,7 +67,7 @@ span {
 .routes ul {
   display: flex;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 2.2rem;
 }
 
 .routes ul li {
@@ -106,9 +106,6 @@ span {
 }
 
 @media screen and (max-width: 1000px) {
-  .head-main h3 {
-    font-size: 2rem;
-  }
 
   span {
     font-size: 1.5rem;

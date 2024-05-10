@@ -15,7 +15,12 @@ const Footer = () => {
         <div className="section">
           <h2>SpectaStyle</h2>
           <div className="email-signup">
-            <input type="email" placeholder="Enter Your Email" />
+          <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter Email"
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                    />
             <button>Get monthly updates and free resources</button>
           </div>
         </div>

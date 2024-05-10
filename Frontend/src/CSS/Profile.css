@@ -40,7 +40,7 @@
 }
 
 .profile-card {
-  background-color: var(--color-3);
+  background-color: rgba(194, 139, 187, 0.8);
   box-shadow: 25px 25px 100px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 20px;
