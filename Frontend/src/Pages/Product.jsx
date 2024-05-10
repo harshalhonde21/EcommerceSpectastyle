@@ -35,6 +35,7 @@ const Product = () => {
     });
     setSelectedProductId(productId);
   };
+  
 
   const closeProductDetail = () => {
     setSelectedProductId(null);

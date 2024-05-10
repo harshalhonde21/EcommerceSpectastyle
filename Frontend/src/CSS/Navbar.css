@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
   --color-1: rgb(205, 180, 219);
@@ -31,12 +31,13 @@
   /* background-color: var(--color-1);
   color: whitesmoke; */
   z-index: 999;
-  background-color: rgba(194, 139, 187, 0.5); /* Use rgba for transparency */
+  background-color: rgba(194, 139, 187, 0.5);
   backdrop-filter: blur(10px);
 }
 
 .head-main {
   display: flex;
+  cursor: pointer;
 }
 
 .head-main h3 {
@@ -48,7 +49,13 @@
   color: var(--color-6);
   font-weight: 700;
   text-shadow: 1px 1px 1px #919191;
+  transition: 0.5s ease-in;
 }
+
+.head-main h3:hover {
+  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 
 span {
   margin-left: 1rem;
@@ -65,14 +72,33 @@ span {
 
 .routes ul li {
   list-style: none;
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
+  font-weight: 500;
   cursor: pointer;
-  color: var(--color-6);
+  color: #460B46;
   font-size: 20px;
+  position: relative;
 }
 
-.routes ul li:hover {
-  text-shadow: 2px 2px 10px rgba(70, 11, 70, 1);
+.routes ul li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+#nav-hov::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2.5px;
+  bottom: 1px;
+  left: 50%;
+  background-color: #460B46;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+#nav-hov:hover::after {
+  width: 100%;
+  left: 0; 
 }
 
 .button {
@@ -100,8 +126,8 @@ span {
   }
 
   .menu-open {
-    background-color: rgba(194, 139, 187, 0.5); /* Use rgba for transparency */
-    backdrop-filter: blur(10px); /* Apply a blur effect */
+    background-color: rgba(194, 139, 187, 0.5);
+    backdrop-filter: blur(10px);
     height: 100vh;
     width: 15rem;
     position: fixed;

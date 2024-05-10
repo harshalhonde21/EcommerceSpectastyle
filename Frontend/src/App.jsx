@@ -17,7 +17,7 @@ import Success from "./Pages/Success"
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -32,8 +32,8 @@ function App() {
         <Route path="/success" element={<Success />} ></Route>
       </Routes>
       <Footer />
-      <Toaster position="top-right" reverseOrder={false} />
-    </div>
+      <Toaster position="top-left" reverseOrder={false} />
+    </>
   );
 }
 
