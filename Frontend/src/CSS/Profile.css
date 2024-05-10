@@ -91,6 +91,10 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  opacity:0.5
+}
+
 .toggle-btn button {
   background: none;
   border: none;
