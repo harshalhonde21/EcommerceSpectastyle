@@ -1,10 +1,12 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import ReCAPTCHA from 'react-google-recaptcha';
+
 // components
 import toast from 'react-hot-toast';
 import Error from "../Components/Error";
@@ -20,8 +22,11 @@ const Profile = () => {
   const [user, setUser] = useState('');
   const navigate = useNavigate();
   const { setUserData } = useCart();
+  const captchaRef = useRef()
+  const [recaptchaValue, setRecaptchaValue] = useState(null)
 
   useEffect(() => {
+    handleChange();
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("userData");
     if (token && userData) {
@@ -45,8 +50,15 @@ const Profile = () => {
     setIsLogin(!isLogin);
   };
 
+  const handleChange = (value) => {
+    setRecaptchaValue(value);
+  }
+
   const handleLoginFormSubmit = async (e) => {
+
     e.preventDefault();
+
+    captchaRef.current.reset()
 
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -154,14 +166,17 @@ const Profile = () => {
     setError(null);
   };
 
+
   return (
     <Fragment>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
       {authenticated ? (
         <UserProfile user={user} />
       ) : (
         <div className="profile-container">
           <div className="profile-outer_box">
-            <div className="profile-card" style={{ boxShadow: "25px 25px 100px rgba(0, 0, 0, 0.2)"}}>
+            <div className="profile-card" style={{ boxShadow: "25px 25px 100px rgba(0, 0, 0, 0.2)" }}>
               <h2>{isLogin ? "Login" : "Signup"}</h2>
               {isLogin ? (
                 <form onSubmit={handleLoginFormSubmit}>
@@ -172,7 +187,7 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{border:"3px solid var(--color-6)",borderRadius: "15px" }}
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
 
                     />
                   </div>
@@ -180,7 +195,7 @@ const Profile = () => {
                     <input type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{boxShadow:"none",width:"100%",border:"3px solid var(--color-6)",borderRadius: "15px" }}
+                      style={{ boxShadow: "none", width: "100%", border: "3px solid var(--color-6)", borderRadius: "15px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -194,7 +209,9 @@ const Profile = () => {
                       />
                     )}
                   </div>
-                  <button type="submit">Login</button>
+                  <ReCAPTCHA sitekey={import.meta.env.VITE_SITE_KEY} ref={captchaRef} onChange={handleChange} />
+                  <button disabled={recaptchaValue==null ? true : ""} type="submit">Login</button>
+
                 </form>
               ) : (
                 <form onSubmit={handleSignupFormSubmit}>
@@ -204,7 +221,7 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border:"3px solid var(--color-6)",borderRadius: "15px" }}
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -213,7 +230,7 @@ const Profile = () => {
                       type="text"
                       name="username"
                       placeholder="Enter Username"
-                      style={{ boxShadow:"none",marginBottom:"0.7rem", width: '100%', border:"3px solid var(--color-6)",borderRadius: "15px" }}
+                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "15px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -221,7 +238,7 @@ const Profile = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow:"none",marginBottom:"1.2rem",width: '100%', border:"3px solid var(--color-6)",borderRadius: "15px" }}
+                      style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "15px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -236,15 +253,15 @@ const Profile = () => {
                   <div className="input-group">
                     <label className="file-label" htmlFor="fileInput">
                       Profile Picture
-                    <AttachmentIcon className="icon" style={{top:"8px"}}/>
-                    <input
-                      style={{border:"3px solid var(--color-6)",borderRadius: "15px" }}
-                      type="file"
-                      id="fileInput"
-                      className="file-input"
-                      accept="image/*"
-                      name="fileInput"
-                    />
+                      <AttachmentIcon className="icon" style={{ top: "8px" }} />
+                      <input
+                        style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                        type="file"
+                        id="fileInput"
+                        className="file-input"
+                        accept="image/*"
+                        name="fileInput"
+                      />
                     </label>
                   </div>
                   <button type="submit">Signup</button>
