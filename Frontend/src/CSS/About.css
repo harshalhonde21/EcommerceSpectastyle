@@ -184,3 +184,57 @@ e {
     left: 1.5rem;
   }
 }
+
+@media (min-width: 500px) and (max-width: 1100px) {
+  .about-container {
+    padding: 6rem 1.5rem; /* Adjusted padding for top and bottom */
+  }
+
+  .about-specta {
+    font-size: 2rem;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    top: 4rem;
+    left: 1.5rem;
+  }
+
+  .goal-specta {
+    font-size: 1.5rem;
+    top: 10rem;
+    left: 1.5rem;
+  }
+
+  c {
+    font-size: 1rem;
+    top: 12rem;
+    left: 1.5rem;
+  }
+
+  .delivary {
+    font-size: 1.5rem;
+    top: 20rem;
+    left: 1.5rem;
+  }
+
+  d {
+    font-size: 1rem;
+    top: 22rem;
+    left: 1.5rem;
+  }
+
+  .thanksforchoosing {
+    font-size: 1.5rem;
+    top: 29rem;
+    left: 1.5rem;
+  }
+
+  e {
+    font-size: 1rem;
+    top: 31rem;
+    left: 1.5rem;
+  }
+}
