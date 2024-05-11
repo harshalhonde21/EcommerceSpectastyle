@@ -32,14 +32,27 @@ const ProductDetail = ({ productId, onClose }) => {
       )
       .then((response) => {
         const productData = response.data;
+        console.log(response.data);
         productData.quantity = 1;
         setProduct(productData);
         setReviews(productData.reviews);
       })
+
       .catch((error) => {
         console.error("Error fetching product details:", error);
       });
   }, [productId]);
+
+  useEffect(()=>{
+    const addView=async()=>{
+      axios.put(`https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/views/${productId}`)
+      .then((response)=>{console.log(response.data);})
+      .catch((error)=>{
+        console.error("Error fetching product details:", error);
+      });
+    }
+    addView();
+  },[productId])
 
   const handleAddToCart = () => {
     const token = localStorage.getItem("token");
@@ -51,7 +64,7 @@ const ProductDetail = ({ productId, onClose }) => {
       const userId = userData._id;
       axios
         .post(
-          `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/addProductToCart/${userId}`,
+          `http://localhost:5500/product/addProductToCart/${userId}`,
           { productId: product._id }
         )
         .then(() => {
