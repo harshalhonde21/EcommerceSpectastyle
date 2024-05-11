@@ -87,17 +87,10 @@ const Navbar = () => {
                 </NavLink>
               </li>
 
-              <li><NavLink to="/cart"><ShoppingCartIcon
-                className="btn"
-                style={{ color: "rgb(176, 41, 176)" }}
-              /></NavLink></li>
-              <li><NavLink to="/profile"><AccountBoxIcon
-                className="btn1"
-                style={{ color: "rgb(176, 41, 176)" }}
-              /></NavLink></li>
               <li>
               <VisitCount></VisitCount>
               </li>
+              
 
             </ul>
 

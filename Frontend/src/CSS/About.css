@@ -23,6 +23,7 @@
 
 .about-container {
   width: 100%;
+  min-height: 80vh;
   position: relative;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   padding: 10rem 10rem;
