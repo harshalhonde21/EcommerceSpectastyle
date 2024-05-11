@@ -9,7 +9,8 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [searchText, setSearchText] = useState(""); 
+  const [searchText, setSearchText] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(''); 
 
   useEffect(() => {
     axios
@@ -43,18 +44,41 @@ const Product = () => {
   const filterProducts = () => {
     return products.filter((product) => {
       return (
-        product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+        (product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
         product.category.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.productPrice.toString().includes(searchText)
+        product.productPrice.toString().includes(searchText))&&
+        (selectedCategory=='' || product.category.toLowerCase()===selectedCategory.toLocaleLowerCase())
       );
     });
   };
-  
 
+  // Get unique categories using Set
+  const uniqueCategories = [...new Set(products.map((product) => product.category))]; 
+
+  const handleCategory = (category) => {
+    setSelectedCategory(category);
+  }
+
+  //Sorting the products on the basis of views
+  const sortMostViewed = () => {
+    const sortedProducts = products.slice().sort((a, b) => b.views - a.views);
+    setProducts(sortedProducts);
+  }
+
+  
   return (
     <Fragment>
       <div className="product-container">
         <h1 className="product-heading">Products</h1>
+        <button className="category-tabs most-viewed-btn" onClick={()=>sortMostViewed()}>Most viewed</button>
+        <h1>Category</h1>
+        <div className="category-section">
+        {uniqueCategories.map((category) => (
+          <button key={category} className="category-tabs" onClick={()=>handleCategory(category)}>{category}</button>
+        ))}
+        <button key="all" className="category-tabs" onClick={()=>handleCategory('')}>ALL</button>
+        </div>
+
         <input
           type="text"
           placeholder="Search by Name, category or price..."

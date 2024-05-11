@@ -1,0 +1,117 @@
+# Query: https://ecommerce-backend-0wr7.onrender.com/ecommerce
+# Excluding: .env.local
+# ContextLines: 1
+
+23 results - 13 files
+
+EcommerceSpectastyle\Dashboard\Frontend\src\Components\AllAgents.jsx:
+   9      // Fetch re api for all agents
+  10:     axios.get('${process.env.BACKEND_PORT}/agent')
+  11        .then((response) => {
+
+EcommerceSpectastyle\Dashboard\Frontend\src\Components\AllProducts.jsx:
+  16      // get re products
+  17:     axios.get('${process.env.BACKEND_PORT}/product')
+  18        .then((response) => {
+
+  31      // delete re product by id
+  32:     axios.delete(`${process.env.BACKEND_PORT}/product/products/${productId}`)
+  33        .then(() => {
+
+  53      // update re product by id
+  54:     axios.put(`${process.env.BACKEND_PORT}/product/products/${updateProduct._id}`, updateProduct)
+  55        .then(() => {
+
+EcommerceSpectastyle\Dashboard\Frontend\src\Components\AllUsers.jsx:
+  11        try {
+  12:         const response = await axios.get('${process.env.BACKEND_PORT}/user'); // Make sure the URL is correct
+  13          setUsers(response.data.users);
+
+EcommerceSpectastyle\Dashboard\Frontend\src\Components\MainDashboardLogin.jsx:
+  31        const response = await axios.post(
+  32:         "${process.env.BACKEND_PORT}/agent/login",
+  33          {
+
+EcommerceSpectastyle\Dashboard\Frontend\src\Components\ManagerLogin.jsx:
+  39        const response = await axios.post(
+  40:         "${process.env.BACKEND_PORT}/manager/login",
+  41          {
+
+  63        const response = await axios.post(
+  64:         "${process.env.BACKEND_PORT}/agent/signup",
+  65          {
+
+EcommerceSpectastyle\Dashboard\Frontend\src\Components\Products.jsx:
+  35        const response = await axios.post(
+  36:         "${process.env.BACKEND_PORT}/product/products",
+  37          formData
+
+EcommerceSpectastyle\Frontend\src\Components\AddReview.jsx:
+  16        .post(
+  17:         `${process.env.BACKEND_PORT}/product/products/${productId}/reviews/${userId}`,
+  18          { reviewText },
+
+EcommerceSpectastyle\Frontend\src\Components\ProductDetail.jsx:
+  29        .get(
+  30        .get(
+  31:         `${process.env.BACKEND_PORT}/product/products/${productId}`
+
+  31        )
+  32        )
+
+  54          .post(
+  55          .post(
+  56:           `${process.env.BACKEND_PORT}/product/addProductToCart/${userId}`,
+  56            { productId: product._id }
+  57            { productId: product._id }
+
+EcommerceSpectastyle\Frontend\src\Pages\Cart.jsx:
+  29  
+  30:     const apiUrl = `${process.env.BACKEND_PORT}/product/shopping-cart/${userId}`;
+  31  
+
+  57  
+  58:     const apiUrl = `${process.env.BACKEND_PORT}/product/shopping-cart/${userId}/${itemId}`;
+  59  
+
+EcommerceSpectastyle\Frontend\src\Pages\ConformOrder.jsx:
+  21      try {
+  22:       const apiUrl = `${process.env.BACKEND_PORT}/user-address/getAddresses/${userId}`;
+  23        const response = await axios.get(apiUrl);
+
+  48  
+  49:     const apiUrl = `${process.env.BACKEND_PORT}/product/shopping-cart/${userId}`;
+  50  
+
+EcommerceSpectastyle\Frontend\src\Pages\PlaceOrder.jsx:
+   59      try {
+   60:       const apiUrl = `${process.env.BACKEND_PORT}/user-address/addAddress/${userId}`;
+   61        const response = await axios.post(apiUrl, formData);
+
+  102        try {
+  103:         const apiUrl = `${process.env.BACKEND_PORT}/user-address/updateAddress/${userId}/${selectedAddressId}`;
+  104          const response = await axios.put(apiUrl, updatedFormData);
+
+  131      try {
+  132:       const apiUrl = `${process.env.BACKEND_PORT}/user-address/deleteAddress/${userId}/${addressId}`;
+  133        const response = await axios.delete(apiUrl);
+
+  156      try {
+  157:       const apiUrl = `${process.env.BACKEND_PORT}/user-address/getAddresses/${userId}`;
+  158        const response = await axios.get(apiUrl);
+
+EcommerceSpectastyle\Frontend\src\Pages\Product.jsx:
+  15      axios
+  16      axios
+  17:       .get("${process.env.BACKEND_PORT}/product")
+  17        .then((response) => {
+  18        .then((response) => {
+
+EcommerceSpectastyle\Frontend\src\Pages\Profile.jsx:
+   61          const response = await fetch(
+   62:           "${process.env.BACKEND_PORT}/user/login",
+   63            {
+
+  114          const response = await fetch(
+  115:           "${process.env.BACKEND_PORT}/user/signup",
+  116            {
