@@ -33,31 +33,6 @@
   align-items: center;
 }
 
-.category-section{
-  width:80vw;
-  height:fit-content;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-}
-
-.category-tabs{
-  margin:0 0.4rem;
-  margin-top: 1rem;
-  width:fit-content;
-  padding:0.6rem 0.6rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.most-viewed-btn{
-  position: absolute;
-  right:0;
-}
-
-.category-tabs:hover{
-  transform: translateY(-5px);
-}
-
 .product-all-container {
   display: flex;
   gap: 20px;

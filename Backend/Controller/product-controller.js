@@ -167,17 +167,5 @@
     }
   };
   
-//function to inc the views of the product
-export const addViews=async(req,res,next)=>{
-  try{
-    const productId=req.params.productId;
-    const product=await Product.findByIdAndUpdate(productId,{
-      $inc:{views:1}
-    },{new:true})
-    res.status(201).json(product);
-  }catch(error){
-    res.status(500).json({error:"Unable to add views to product",error});
-  }
-}  
 
 
