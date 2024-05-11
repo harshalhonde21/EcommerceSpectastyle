@@ -40,7 +40,6 @@ const Navbar = () => {
   return (
     <Fragment>
       <nav>
-        {console.log(cartLength)}
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main">
             <h3 style={{ marginTop: "1rem" }}>
