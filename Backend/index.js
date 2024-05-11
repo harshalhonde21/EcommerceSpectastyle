@@ -2,6 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import Stripe from "stripe";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config({
+  path: "./.env",
+});
 
 import router from "./Routes/user-routes.js";
 import routers from "./Routes/product-routes.js";
@@ -59,10 +63,9 @@ app.post("/checkout", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-const mongoURI = config.mongoURI;
 
 mongoose
-  .connect(mongoURI)
+  .connect(process.env.MONGO_URL)
   .then(() => app.listen(5500))
   .then(() => console.log("connected to db at port 5500 :)"))
   .catch((err) => console.log(`${err} is error`));

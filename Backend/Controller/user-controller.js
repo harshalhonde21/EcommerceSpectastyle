@@ -1,7 +1,6 @@
   import User from "../Models/User.js";
   import jwt from "jsonwebtoken";
   import bcrypt from "bcryptjs";
-  import config from "../config.js";
 
   export const getMyUsers = async (req, res, next) => {
     let users;
@@ -29,7 +28,7 @@
       const user = new User({ name, email, password: hashPassword });
       await user.save();
   
-      const token = jwt.sign({ _id: user._id }, config.jwtSecret);
+      const token = jwt.sign({ _id: user._id }, process.env.SECRET);
       res.status(201).json({ token, user });
     } catch (error) {
       if (error.code === 11000 && error.keyPattern.email) {
@@ -61,7 +60,7 @@
         });
       }
   
-      const token = jwt.sign({ _id: user._id }, config.jwtSecret);
+      const token = jwt.sign({ _id: user._id }, process.env.SECRET);
       res.status(201).json({ token, user }); 
   
     } catch (error) {
