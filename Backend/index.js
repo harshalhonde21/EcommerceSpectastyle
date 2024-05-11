@@ -13,7 +13,10 @@ import routers from "./Routes/product-routes.js";
 import routerss from "./Routes/dashboard-routes.js";
 import routersss from "./Routes/dashboardagent-routes.js";
 import routerAddress from "./Routes/user-address-routes.js";
+<<<<<<< HEAD
 //import config from "./config.js";
+=======
+>>>>>>> upstream/main
 
 const app = express();
 const stripe = new Stripe(
