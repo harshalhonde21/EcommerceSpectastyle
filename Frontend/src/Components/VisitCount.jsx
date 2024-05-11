@@ -10,7 +10,7 @@ const VisitCount = () => {
     const fetchVisitCount = async () => {
       try { 
         // The URL should be updated to match the backend route for fetching the visit count
-        const response = await axios.get('http://localhost:3000/visitcount');
+        const response = await axios.get('https://ecommerce-backend-0wr7.onrender.com/visitcount');
         setCount(response.data.count);
       } catch (error) {
         console.error('Error fetching visit count:', error);
@@ -24,7 +24,7 @@ const VisitCount = () => {
     const incrementVisitCount = async () => {
       try {
         // The URL should be updated to match the backend route for incrementing the visit count
-        await axios.post('http://localhost:3000/visitcount/increment');
+        await axios.post('https://ecommerce-backend-0wr7.onrender.com/visitcount/increment');
         setCount(prevCount => prevCount + 1);
       } catch (error) {
         console.error('Error incrementing visit count:', error);
