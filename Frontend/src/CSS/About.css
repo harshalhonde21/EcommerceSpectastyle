@@ -23,7 +23,6 @@
 
 .about-container {
   width: 100%;
-  min-height: 80vh;
   position: relative;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   padding: 10rem 10rem;
@@ -104,6 +103,7 @@ e {
 @media (max-width: 768px) {
   .about-container {
     padding: 6rem 1.5rem;
+    min-height: 100vh;
   }
 
   .goal-specta {
@@ -134,6 +134,7 @@ e {
 @media (max-width: 500px) {
   .about-container {
     padding: 6rem 1.5rem;
+    min-height: 100vh;
   }
 
   .about-specta {
