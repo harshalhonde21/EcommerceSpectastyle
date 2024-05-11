@@ -66,10 +66,11 @@ app.post("/checkout", async (req, res) => {
 });
 
 const port = process.env.PORT || 4000;
+const url = process.env.MONGO_URL;
 
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(url)
   .then(() => app.listen(port))
   .then(() => console.log(`connected to db at port ${port} :)`))
   .catch((err) => console.log(`${err} is error`));
