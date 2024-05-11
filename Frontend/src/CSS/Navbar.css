@@ -79,9 +79,22 @@ span {
   display: none;
 }
 
+.items-number-on-cart {
+  position: absolute;
+  top: -30px;
+  right: 0px;
+  padding: 5px;
+  font-size: 20px;
+  color: var(--color-6);
+}
+
 @media screen and (max-width: 1000px) {
   .head-main h3 {
     font-size: 2rem;
+  }
+
+  .items-number-on-cart {
+    top: -20px;
   }
 
   span {
@@ -149,13 +162,11 @@ span {
   }
 
   .btn {
-    
     top: -1rem;
     left: -2rem;
   }
 
   .btn1 {
-   
     top: -2rem;
     left: 0.5rem;
   }
