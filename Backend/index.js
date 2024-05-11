@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import Stripe from "stripe";
 import cors from "cors";
+import bodyParser from 'body-parser';
 import dotenv from "dotenv";
 dotenv.config({
   path: "./.env",
@@ -12,7 +13,7 @@ import routers from "./Routes/product-routes.js";
 import routerss from "./Routes/dashboard-routes.js";
 import routersss from "./Routes/dashboardagent-routes.js";
 import routerAddress from "./Routes/user-address-routes.js";
-import config from "./config.js";
+//import config from "./config.js";
 
 const app = express();
 const stripe = new Stripe(
@@ -21,6 +22,9 @@ const stripe = new Stripe(
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(express.static('public'));
 app.use("/ecommerce/user", router);
 app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);

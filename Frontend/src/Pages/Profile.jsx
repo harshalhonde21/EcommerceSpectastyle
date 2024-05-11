@@ -108,6 +108,12 @@ const Profile = () => {
     const password = e.target.password.value;
     const fileInput = e.target.fileInput.files[0];
 
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("name",username);
+    formData.append("password",password);
+    formData.append("profilePic",fileInput);
+
     if (!email || !username || !password || !fileInput) {
       setError("Please fill in all fields.");
     } else {
@@ -116,14 +122,7 @@ const Profile = () => {
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
           {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              name: username,
-            }),
+            body:formData,
           }
         );
 
