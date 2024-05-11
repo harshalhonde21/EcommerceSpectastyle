@@ -45,7 +45,43 @@
   justify-content: center;
 }
 
+
+.category-section{
+  width:80vw;
+  height:fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.category-tabs{
+  margin:0 0.4rem;
+  margin-top: 1rem;
+  width:fit-content;
+  padding:0.6rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
 .loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  width: 100%;
+}
+
+.most-viewed-btn{
+  position: absolute;
+  right:0;
+}
+
+.category-tabs:hover{
+  transform: translateY(-5px);
+}
+
+.product-all-container {
+
   display: flex;
   align-items: center;
   justify-content: center;

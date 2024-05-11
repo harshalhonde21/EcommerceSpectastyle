@@ -9,7 +9,8 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [searchText, setSearchText] = useState(""); 
+  const [searchText, setSearchText] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(''); 
 
   useEffect(() => {
     axios
@@ -43,15 +44,30 @@ const Product = () => {
   const filterProducts = () => {
     return products.filter((product) => {
       return (
-        product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+        (product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
         product.category.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.productPrice.toString().includes(searchText)
+        product.productPrice.toString().includes(searchText))&&
+        (selectedCategory=='' || product.category.toLowerCase()===selectedCategory.toLocaleLowerCase())
       );
     });
   };
 
+  // Get unique categories using Set
+  const uniqueCategories = [...new Set(products.map((product) => product.category))]; 
+
+  const handleCategory = (category) => {
+    setSelectedCategory(category);
+  }
+
+  //Sorting the products on the basis of views
+  const sortMostViewed = () => {
+    const sortedProducts = products.slice().sort((a, b) => b.views - a.views);
+    setProducts(sortedProducts);
+  }
+
+  
   return (
-    <Fragment>
+<Fragment>
   <div className="product-container">
     <h1 className="product-heading">Products</h1>
     <input
