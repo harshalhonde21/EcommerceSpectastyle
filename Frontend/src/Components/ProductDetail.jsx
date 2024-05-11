@@ -64,7 +64,7 @@ const ProductDetail = ({ productId, onClose }) => {
       const userId = userData._id;
       axios
         .post(
-          `http://localhost:5500/product/addProductToCart/${userId}`,
+          `https://ecommerce-backend-0wr7.onrender.com/ecommerce/addProductToCart/${userId}`,
           { productId: product._id }
         )
         .then(() => {
