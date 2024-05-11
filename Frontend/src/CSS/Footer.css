@@ -98,3 +98,12 @@ ul li {
     gap: 50px;
   }
 }
+
+.linkto{
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.linkto:hover{
+  color: rgb(255, 0, 251);
+}

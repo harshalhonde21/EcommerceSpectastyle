@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import "../CSS/Contact.css";
 import { Email, Phone, Store } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -24,9 +25,9 @@ const Contact = () => {
 
           <h2 className="contact-subheading">Reach Us</h2>
           <h6 className="contact-paragraph">
-            Email: SpectaStyle@gmail.com
+            Email: <a className="linkto" href="mailto:spectastyle@gmail.com">spectastyle@gmail.com</a>
             <br />
-            Phone: +91 565 8989 878
+            Phone: <a className="linkto" href="tel:+915658989878">+91 565 8989 878</a>
             <br />
             Address: 1234 Smart Street,Nagpur 440058
           </h6>
@@ -47,6 +48,7 @@ const Contact = () => {
           </h6>
 
           <div className="social-icons">
+          <a className="linkto" href="mailto:spectastyle@gmail.com">
             <Email
               style={{
                 transition: "transform 0.2s",
@@ -58,6 +60,8 @@ const Contact = () => {
                 e.target.style.transform = "translateY(0)";
               }}
             />
+            </a>
+            <a className="linkto" href="tel:+915658989878">
             <Phone
               style={{
                 transition: "transform 0.2s",
@@ -69,6 +73,8 @@ const Contact = () => {
                 e.target.style.transform = "translateY(0)";
               }}
             />
+            </a>
+            <NavLink className="linkto" to="/product">
             <Store
               style={{
                 transition: "transform 0.2s",
@@ -80,6 +86,7 @@ const Contact = () => {
                 e.target.style.transform = "translateY(0)";
               }}
             />
+            </NavLink>
           </div>
         </div>
 
@@ -118,7 +125,7 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <textarea
-                style={{ width: "100%", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem', backgroundColor:'rgb(255, 210, 255)'}}
+                style={{ width: "100%", border:'2px solid rgb(70, 11, 70)', padding:'10px', borderRadius:'1rem', backgroundColor:'rgb(255, 210, 255)'}}
                 id="message"
                 name="message"
                 placeholder="Your Message"

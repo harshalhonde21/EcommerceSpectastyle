@@ -91,3 +91,7 @@
 .form-group {
   margin-bottom: 2rem;
 }
+
+.linkto:hover{
+  color: rgb(255, 0, 251);
+}
