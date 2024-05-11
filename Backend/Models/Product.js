@@ -35,6 +35,10 @@ const productSchema = new Schema({
   status: {
     type: String,
   },
+  views:{
+    type: Number,
+    default: 0,
+  },
   reviews: [ReviewSchema], // Array of reviews
 });
 
