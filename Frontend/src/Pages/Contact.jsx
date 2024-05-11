@@ -10,7 +10,7 @@ const Contact = () => {
           <h1 className="contact-heading">Contact Us</h1>
           <h6 className="contact-paragraph">
             If you have any questions, feedback, or concerns about SpectaStyle,
-            we're here to assist you. Our team is dedicated to providing
+            we are here to assist you. Our team is dedicated to providing
             top-quality shoes and exceptional customer service. You can reach
             out to us through various channels, including email, phone, or
             social media. Alternatively, you can use our convenient contact form
@@ -38,7 +38,7 @@ const Contact = () => {
             assist you and guide you through our products.
           </h6>
 
-          <h2 className="contact-heading">Social Media</h2>
+          <h2 className="contact-subheading">Social Media</h2>
           <h6 className="contact-paragraph">
             Stay connected with SpectaStyle on social media! Follow us for the
             latest shoe trends, exclusive offers, and customer testimonials.
@@ -88,7 +88,12 @@ const Contact = () => {
           <form>
             <div className="form-group">
               <input
-                style={{ width: "100%", marginBottom: "-2rem",border:'2px solid rgb(70, 11, 70)' }}
+                style={{
+                  width: "100%",
+                  marginBottom: "-2rem",
+                  border: "2px solid rgb(70, 11, 70)",
+                  borderRadius: "8px",
+                }}
                 type="text"
                 id="name"
                 name="name"
@@ -98,7 +103,31 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
-                style={{ width: "100%", marginBottom: "-2rem", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem'}}
+                style={{
+                  width: "100%",
+                  marginBottom: "-2rem",
+                  border: "2px solid rgb(70, 11, 70)",
+                  borderRadius: "8px",
+                  fontSize: "16px", // Font size set to 16px
+                  padding: "10px", // Padding set to 10px
+                }}
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Good Name"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                style={{
+                  width: "100%",
+                  marginBottom: "-2rem",
+                  border: "2px solid rgb(70, 11, 70)",
+                  borderRadius: "8px",
+                  fontSize: "16px", // Font size set to 16px
+                  padding: "10px", // Padding set to 10px
+                }}
                 type="email"
                 id="email"
                 name="email"
@@ -108,7 +137,14 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <input
-              style={{ width: "100%", marginBottom: "-2rem", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem'}}
+                style={{
+                  width: "100%",
+                  marginBottom: "-2rem",
+                  border: "2px solid rgb(70, 11, 70)",
+                  borderRadius: "8px",
+                  fontSize: "16px", // Font size set to 16px
+                  padding: "10px", // Padding set to 10px
+                }}
                 type="Number"
                 id="email"
                 name="email"
@@ -118,7 +154,15 @@ const Contact = () => {
             </div>
             <div className="form-group">
               <textarea
-                style={{ width: "100%", border:'2px solid rgb(70, 11, 70)', borderRadius:'1rem', backgroundColor:'rgb(255, 210, 255)'}}
+                style={{
+                  width: "100%",
+                  border: "2px solid rgb(70, 11, 70)",
+                  borderRadius: "8px",
+                  backgroundColor: "rgb(255, 210, 255)",
+                  fontFamily: "Rubik", // Font type set to Rubik
+                  fontSize: "16px", // Font size set to 16px
+                  padding: "10px", // Padding set to 10px
+                }}
                 id="message"
                 name="message"
                 placeholder="Your Message"
@@ -126,6 +170,7 @@ const Contact = () => {
                 required
               />
             </div>
+
             <button type="submit">Submit</button>
           </form>
         </div>

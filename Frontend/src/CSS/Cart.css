@@ -72,12 +72,12 @@
   }
 
   .detail-product h4{
-    font-family: var(--font-2);
+    font-family: var(--font-rubik);
     font-size: 2rem;
   }
 
   .detail-product h5{
-    font-family: var(--font-2);
+    font-family: var(--font-rubik);
     font-size: 1.3rem;
   }
 
@@ -94,23 +94,25 @@
   .increase-product{
     padding: 1rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 70px;
   }
 
   .increase-product h3{
-    border: 2px solid var(--color-6);
-    padding: 1px 30px 1px 30px;
     background-color: var(--color-6);
+    font-family: var(--font-rubik);
     color: whitesmoke;
     font-size: 30px;
+    padding: 10px;
     border-radius: 15px;
-    height: 50px;
   }
   
   .product-price-cart{
     padding: 4rem;
+    font-family: var(--font-rubik);
   }
 
 
@@ -136,18 +138,18 @@
     cursor: pointer;
     font-weight: bolder;
     border-radius: 15px;
-    border: 4px solid var(--color-3);
+    border: 2px solid var(--color-3);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Add transition properties */
   }
   
   .empty-cart button:hover {
     background-color: var(--color-5);
-    border: 3px solid var(--color-6);
+    border: 2px solid var(--color-6);
     border-radius: 15px;
     color: var(--color-6);
     font-weight: bolder;
   }
-
-  /* ... (previous CSS code) */
+  
 
 .product-price-cart {
   padding: 4rem;
@@ -156,12 +158,13 @@
 .total-cart-value {
   text-align: right; /* Align the total value to the right */
   margin-top: 2rem; /* Add some top margin to separate it from the products */
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   font-size: 1.5rem;
   color: var(--color-6);
 }
 
 .total-cart-value button {
+  font-family: var(--font-rubik);
   width: 10%;
   max-width: 100px; /* Set a maximum width for the button */
 }
