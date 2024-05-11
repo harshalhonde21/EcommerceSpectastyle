@@ -24,11 +24,9 @@
         return res.status(400).json({ message: "Email already exists." });
       }
   
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
+      const hashPassword = await bcrypt.hash(password, 10);
   
-      const user = new User({ name, email, password: hashedPassword });
-      console.log(user);
+      const user = new User({ name, email, password: hashPassword });
       await user.save();
   
       const token = jwt.sign({ _id: user._id }, config.jwtSecret);
@@ -48,13 +46,19 @@
       const user = await User.findOne({ email });
   
       if (!user) {
-        return res.status(401).json({ message: "Invalid email or password." });
+        return res.status(404).json({
+          success: false,
+          message: "User does not exists",
+        });
       }
   
-      const isValid = await bcrypt.compare(password, user.password);
+      const checkMatchPass = await bcrypt.compare(password, user.password);
   
-      if (!isValid) {
-        return res.status(401).json({ message: "Invalid email or password." });
+      if (!checkMatchPass) {
+        return res.status(400).json({
+          success: false,
+          message: "Passwords do not match",
+        });
       }
   
       const token = jwt.sign({ _id: user._id }, config.jwtSecret);
