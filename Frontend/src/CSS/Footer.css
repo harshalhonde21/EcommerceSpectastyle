@@ -20,10 +20,10 @@
 .footer {
   display: flex;
   flex-wrap: wrap;
-  gap: 130px;
+  gap: 120px;
   background-color: var(--color-1);
   color: var(--color-6);
-  padding: 85px 35px 35px 35px;
+  padding: 5rem 3rem;
 }
 
 .section {

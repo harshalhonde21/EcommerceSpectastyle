@@ -23,7 +23,7 @@
 .home-left{
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
