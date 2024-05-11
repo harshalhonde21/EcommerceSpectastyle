@@ -12,7 +12,7 @@ import routers from "./Routes/product-routes.js";
 import routerss from "./Routes/dashboard-routes.js";
 import routersss from "./Routes/dashboardagent-routes.js";
 import routerAddress from "./Routes/user-address-routes.js";
-import visitCountRoutes from './Routes/visit-count-routes.js';
+import visitCountRoutes from "./Routes/visit-count-routes.js";
 
 const app = express();
 const stripe = new Stripe(
@@ -26,7 +26,7 @@ app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);
 app.use("/ecommerce/agent", routersss);
 app.use("/ecommerce/user-address", routerAddress);
-app.use('/visitcount', visitCountRoutes);     // added newly   
+app.use("/visitcount", visitCountRoutes); // added newly
 
 app.post("/checkout", async (req, res) => {
   try {
@@ -44,7 +44,7 @@ app.post("/checkout", async (req, res) => {
         },
         unit_amount: item.price * 100,
       },
-      quantity: 1, 
+      quantity: 1,
     }));
 
     const session = await stripe.checkout.sessions.create({
@@ -56,7 +56,9 @@ app.post("/checkout", async (req, res) => {
     });
 
     if (!session || !session.id) {
-      return res.status(500).json({ error: "Failed to create a checkout session" });
+      return res
+        .status(500)
+        .json({ error: "Failed to create a checkout session" });
     }
 
     res.json({ url: session.url });
@@ -68,11 +70,13 @@ app.post("/checkout", async (req, res) => {
 const port = process.env.PORT || 4000;
 const url = process.env.MONGO_URL;
 
-
 mongoose
-  .connect(url)
+  .connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => app.listen(port))
   .then(() => console.log(`connected to db at port ${port} :)`))
   .catch((err) => console.log(`${err} is error`));
 
-  // updated with the ports
+// updated with the ports
