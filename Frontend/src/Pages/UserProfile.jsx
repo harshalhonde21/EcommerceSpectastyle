@@ -15,6 +15,7 @@ const UserProfile = () => {
     const userDataFromLocalStorage = localStorage.getItem("userData");
     if (userDataFromLocalStorage) {
       user = JSON.parse(userDataFromLocalStorage);
+      console.log(user);
     } else {
       setError("User not found!!");
     }
@@ -43,7 +44,11 @@ const UserProfile = () => {
     <Fragment>
       <div className="profile-container">
         <div className="profile-image">
-          <img src={Logo} alt="User Profile" />
+        {user.profilePic ? (
+            <img src={`https://ecommerce-backend-0wr7.onrender.com/Images/${user.profilePic}`} alt="User Profile" />
+          ) : (
+            <img src={Logo} alt="Logo" /> 
+          )}
         </div>
         <div className="profile-details">
           <div className="user-info">

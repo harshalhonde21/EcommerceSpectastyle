@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import Stripe from "stripe";
+import bodyParser from 'body-parser';
 import cors from "cors";
 
 import router from "./Routes/user-routes.js";
@@ -11,12 +12,16 @@ import routerAddress from "./Routes/user-address-routes.js";
 import config from "./config.js";
 
 const app = express();
+
 const stripe = new Stripe(
   "sk_test_51O96wfSH8i1UqUchc81vmn8Mka2bbbMrCW2vZKLEvGRTZDqWx2KlxkbLzdQnAJ0ipNA1UtO9Y83vX4x7KXjz5E4Z00JxrbAflY"
 );
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(express.static('public'));
 app.use("/ecommerce/user", router);
 app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);

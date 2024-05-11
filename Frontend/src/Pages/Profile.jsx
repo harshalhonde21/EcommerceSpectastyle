@@ -19,9 +19,10 @@ const Profile = () => {
   const [error, setError] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState('');
+
   const navigate = useNavigate();
   const { setUserData } = useCart();
-
+ 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("userData");
@@ -102,27 +103,28 @@ const Profile = () => {
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
 
-    const email = e.target.email.value;
-    const username = e.target.username.value;
-    const password = e.target.password.value;
-    const fileInput = e.target.fileInput.files[0];
+    // const email = e.target.email.value;
+    // const username = e.target.username.value;
+    // const password = e.target.password.value;
+    // const fileInput = e.target.fileInput.files[0];
 
-    if (!email || !username || !password || !fileInput) {
-      setError("Please fill in all fields.");
-    } else {
+   // https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup
+
+   const formData = new FormData();
+   formData.append("email", e.target.email.value);
+   formData.append("name", e.target.username.value);
+   formData.append("password", e.target.password.value);
+   formData.append("profilePic", e.target.fileInput.files[0]);
+
+    // if (!email || !username || !password || !fileInput) {
+    //   setError("Please fill in all fields.");
+    // } else {
       try {
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
           {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              name: username,
-            }),
+            body:formData,
           }
         );
 
@@ -150,7 +152,7 @@ const Profile = () => {
       } catch (error) {
         setError("An error occurred while signing up.");
       }
-    }
+    // }
   };
 
   const closeError = () => {
