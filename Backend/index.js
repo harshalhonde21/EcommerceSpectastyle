@@ -65,13 +65,11 @@ app.post("/checkout", async (req, res) => {
   }
 });
 
-const mongoURI = config.mongoURI;
+const port = process.env.PORT || 4000;
+
 
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => app.listen(5500))
-  .then(() => console.log("connected to db at port 5500 :)"))
+  .then(() => app.listen(port))
+  .then(() => console.log(`connected to db at port ${port} :)`))
   .catch((err) => console.log(`${err} is error`));
-
-  //This listen to run server locally
-  app.listen(3000, () => { console.log('Server is running on port 3000') });
