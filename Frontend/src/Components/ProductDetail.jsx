@@ -32,7 +32,6 @@ const ProductDetail = ({ productId, onClose }) => {
       )
       .then((response) => {
         const productData = response.data;
-        console.log(response.data);
         productData.quantity = 1;
         setProduct(productData);
         setReviews(productData.reviews);
@@ -46,7 +45,7 @@ const ProductDetail = ({ productId, onClose }) => {
   useEffect(()=>{
     const addView=async()=>{
       axios.put(`https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/views/${productId}`)
-      .then((response)=>{console.log(response.data);})
+      .then((response)=>{})
       .catch((error)=>{
         console.error("Error fetching product details:", error);
       });

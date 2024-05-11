@@ -65,7 +65,7 @@ const Product = () => {
     setProducts(sortedProducts);
   }
 
-
+  
   return (
     <Fragment>
       <div className="product-container">
