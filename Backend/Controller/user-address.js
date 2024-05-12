@@ -1,5 +1,17 @@
 import UserAddress from "../Models/UserAddress.js";
 import User from "../Models/User.js";
+import { z } from 'zod';
+
+const addressSchema = z.object({
+  address: z.string().min(1, 'Address is required'),
+  city: z.string().min(1, 'City is required'),
+  pincode: z.string().min(1, 'Pincode is required').refine((value) => parseInt(value) >= 0, {
+    message: 'Pincode cannot be a negative number',
+  }),
+  phoneNumber: z.string().min(1, 'Phone number is required').regex(/^[0-9]{1,10}$/, 'Phone number should not be more than 10 digits'),
+  country: z.string().min(1, 'Country is required'),
+  state: z.string().min(1, 'State is required'),
+});
 
 export const addUserAddress = async (req, res, next) => {
   try {
@@ -10,7 +22,7 @@ export const addUserAddress = async (req, res, next) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const newAddressData = req.body;
+    const newAddressData = addressSchema.parse(req.body);
     const newAddress = new UserAddress(newAddressData);
 
     await newAddress.save();
@@ -25,10 +37,21 @@ export const addUserAddress = async (req, res, next) => {
   }
 };
 
+const updateAddressSchema = z.object({
+  address: z.string().optional(),
+  city: z.string().optional(),
+  pincode: z.string().min(1, 'Pincode is required').refine((value) => parseInt(value) >= 0, {
+    message: 'Pincode cannot be a negative number',
+  }).optional(),
+  phoneNumber: z.string().min(1, 'Phone number is required').regex(/^[0-9]{1,10}$/, 'Phone number should not be more than 10 digits').optional(),
+  country: z.string().optional(),
+  state: z.string().optional(),
+});
+
 export const updateUserAddress = async (req, res, next) => {
   try {
     const { userId, addressId } = req.params;
-    const updatedAddressData = req.body;
+    const updatedAddressData = updateAddressSchema.parse(req.body);
 
     const userData = await User.findById(userId);
 

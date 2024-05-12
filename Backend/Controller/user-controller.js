@@ -2,6 +2,7 @@
   import jwt from "jsonwebtoken";
   import bcrypt from "bcryptjs";
   import config from "../config.js";
+  import {z} from 'zod';
 
   export const getMyUsers = async (req, res, next) => {
     let users;
@@ -15,9 +16,16 @@
     return res.status(200).json({ users });
   };
 
+  const signupSchema = z.object({
+    name: z.string().min(1, 'Name is required').max(50, 'Name cannot be longer than 50 characters'),
+    email: z.string().email('Invalid email').min(1, 'Email is required'),
+    password: z.string().min(8, 'Password must be at least 8 characters').max(50, 'Password cannot be longer than 50 characters'),
+  });
+
   export const signup = async (req, res, next) => {
     try {
-      const { name, email, password } = req.body;
+      const { name, email, password } = signupSchema.parse(req.body);
+
       const existingUser = await User.findOne({ email });
   
       if (existingUser) {
@@ -42,9 +50,14 @@
     }
   };
 
+  const loginSchema = z.object({
+    email: z.string().email('Invalid email').min(1, 'Email is required'),
+    password: z.string().min(8, 'Password must be at least 8 characters').max(50, 'Password cannot be longer than 50 characters'),
+  })
+
   export const login = async (req, res, next) => {
     try {
-      const { email, password } = req.body;
+      const { email, password } = loginSchema.parse(req.body);
       const user = await User.findOne({ email });
   
       if (!user) {
