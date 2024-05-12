@@ -108,6 +108,12 @@ const Profile = () => {
     const password = e.target.password.value;
     const fileInput = e.target.fileInput.files[0];
 
+    const formData = new FormData();
+    formData.append('email',email);
+    formData.append('username',username);
+    formData.append('password',password);
+    formData.append('fileInput',fileInput);
+
     if (!email || !username || !password || !fileInput) {
       setError("Please fill in all fields.");
     } else {
@@ -117,13 +123,10 @@ const Profile = () => {
           {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+              "Content-Type": "multipart/form-data",
             },
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              name: username,
-            }),
+            body: formData,
+
           }
         );
 
@@ -201,7 +204,7 @@ const Profile = () => {
                       />
                     )}
                   </div>
-                  <button  type="submit">Login</button>
+                  <button type="submit">Login</button>
 
                 </form>
               ) : (
