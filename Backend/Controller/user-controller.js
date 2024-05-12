@@ -18,7 +18,7 @@
     try {
       const { name, email, password } = req.body;
       const profilePhoto = new Image({
-      name: req.body.name,
+      name: req.file.filename,
       data: req.file.buffer,
       contentType: req.file.mimetype
     });
