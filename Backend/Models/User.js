@@ -23,6 +23,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  profilePhoto: {
+    name: String,
+    data: Buffer,
+    contentType: String,
+  },
   shoppingCart: [cartItemSchema],
   
   addresses: [{
