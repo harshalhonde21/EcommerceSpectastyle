@@ -135,6 +135,7 @@ const Cart = () => {
                     border: "1px solid var(--color-6)",
                     fontSize: "35px",
                     cursor: "pointer",
+                    
                   }}
                   onClick={() => handleDecrementQuantity(item._id)}
                 />

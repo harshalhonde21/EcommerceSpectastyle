@@ -3,7 +3,7 @@
 :root {
   --color-1: rgb(205, 180, 219);
   --color-2: rgb(255, 200, 221);
-  --color-3: rgb(255, 175, 204);
+  --color-3: rgba(255, 175, 204, 50%);
   --color-4: rgb(189, 224, 254);
   --color-5: rgb(255, 210, 255);
   --color-6: rgb(70, 11, 70);
@@ -20,10 +20,10 @@
 .footer {
   display: flex;
   flex-wrap: wrap;
-  gap: 130px;
+  gap: 120px;
   background-color: var(--color-1);
   color: var(--color-6);
-  padding: 85px 35px 35px 35px;
+  padding: 5rem 3rem;
 }
 
 .section {
@@ -32,7 +32,7 @@
 }
 
 z {
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   font-size: 1rem;
 }
 
@@ -40,6 +40,10 @@ z {
   font-family: var(--font-1);
   font-size: 1.5rem;
   margin-bottom: 10px;
+}
+
+.section ul li {
+  cursor: pointer;
 }
 
 .email-signup {
@@ -57,9 +61,9 @@ z {
   background-color: var(--color-1);
   color: var(--color-6);
   padding: 10px;
-  border: none;
   cursor: pointer;
-  border: 1px solid var(--color-6);
+  border: 2px solid var(--color-6);
+  transition: 0.3s ease;
 }
 
 .email-signup button:hover {
@@ -73,7 +77,7 @@ ul {
 
 ul li {
   margin-bottom: 5px;
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   font-size: 1rem;
 }
 
