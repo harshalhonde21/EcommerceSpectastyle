@@ -21,6 +21,7 @@ const stripe = new Stripe(
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('Public'));
 app.use("/ecommerce/user", router);
 app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);
