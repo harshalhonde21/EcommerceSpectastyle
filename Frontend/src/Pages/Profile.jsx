@@ -48,12 +48,11 @@ const Profile = () => {
 
 
   const handleLoginFormSubmit = async (e) => {
-
     e.preventDefault();
-
+  
     const email = e.target.email.value;
     const password = e.target.password.value;
-
+  
     if (!email || !password) {
       setError("Please fill in all fields.");
     } else {
@@ -71,14 +70,14 @@ const Profile = () => {
             }),
           }
         );
-
+  
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-
+  
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
-
+  
           setError("success");
           setUserData(data.user);
           toast("You Are Success Login Welcome to Your Profile!", {
@@ -91,13 +90,15 @@ const Profile = () => {
           });
           navigate("/user");
         } else {
-          setError("Login failed. Please check your credentials.");
+          const errorData = await response.json();
+          setError(errorData.message || "Login failed. Please check your credentials.");
         }
       } catch (error) {
         setError("An error occurred while logging in.");
       }
     }
   };
+  
 
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
