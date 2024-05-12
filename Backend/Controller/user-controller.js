@@ -17,6 +17,11 @@
   export const signup = async (req, res, next) => {
     try {
       const { name, email, password } = req.body;
+      const profilePhoto = new Image({
+      name: req.body.name,
+      data: req.file.buffer,
+      contentType: req.file.mimetype
+    });
       const existingUser = await User.findOne({ email });
   
       if (existingUser) {
@@ -25,7 +30,7 @@
   
       const hashPassword = await bcrypt.hash(password, 10);
   
-      const user = new User({ name, email, password: hashPassword });
+      const user = new User({ name, email, password: hashPassword, profilePhoto:profilePhoto });
       await user.save();
   
       const token = jwt.sign({ _id: user._id }, process.env.SECRET);
