@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import Stripe from "stripe";
 import cors from "cors";
+import bodyParser from 'body-parser';
 import dotenv from "dotenv";
 dotenv.config({
   path: "./.env",
@@ -21,6 +22,9 @@ const stripe = new Stripe(
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(express.static('Public'));
 app.use("/ecommerce/user", router);
 app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);
