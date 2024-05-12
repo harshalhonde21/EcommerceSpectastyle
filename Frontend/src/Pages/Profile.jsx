@@ -38,7 +38,7 @@ const Profile = () => {
     toast("Just Do It And Shop With Us", {
       icon: "😎",
       style: {
-        borderRadius: "rgb(189, 224, 254)",
+        borderRadius: "r0b(189, 224, 254)",
         background: "rgb(70, 11, 70)",
         color: "rgb(255, 210, 255)",
       },
@@ -83,7 +83,7 @@ const Profile = () => {
           toast("You Are Success Login Welcome to Your Profile!", {
             icon: "😁",
             style: {
-              borderRadius: "rgb(189, 224, 254)",
+              borderRadius: "r0b(189, 224, 254)",
               background: "rgb(70, 11, 70)",
               color: "rgb(255, 210, 255)",
             },
@@ -139,7 +139,7 @@ const Profile = () => {
           toast("You Are Success Signup Saved Me In Your Mind Welcome to Your Profile!", {
             icon: "😁",
             style: {
-              borderRadius: "rgb(189, 224, 254)",
+              borderRadius: "r0b(189, 224, 254)",
               background: "rgb(70, 11, 70)",
               color: "rgb(255, 210, 255)",
             },
@@ -179,7 +179,7 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
 
                     />
                   </div>
@@ -187,7 +187,7 @@ const Profile = () => {
                     <input type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow: "none", width: "100%", border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ boxShadow: "none", width: "100%", border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -212,7 +212,7 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -221,7 +221,7 @@ const Profile = () => {
                       type="text"
                       name="username"
                       placeholder="Enter Username"
-                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -229,7 +229,7 @@ const Profile = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -246,7 +246,7 @@ const Profile = () => {
                       Profile Picture
                       <AttachmentIcon className="icon" style={{ top: "8px" }} />
                       <input
-                        style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                        style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
                         type="file"
                         id="fileInput"
                         className="file-input"
