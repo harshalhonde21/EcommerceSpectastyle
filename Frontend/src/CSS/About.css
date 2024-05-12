@@ -22,11 +22,11 @@
 }
 
 .about-container {
-  width: 99.1vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 80vh;
   position: relative;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
-  padding: 5.9rem 3.6rem;
+  padding: 10rem 10rem;
 }
 
 .about-specta,
@@ -56,7 +56,7 @@ p,
 c,
 d,
 e {
-  font-family: var(--font-2);
+  font-family: var(--font-rubik);
   color: var(--color-6);
   position: absolute;
   left: 3.5rem;
@@ -104,6 +104,7 @@ e {
 @media (max-width: 768px) {
   .about-container {
     padding: 6rem 1.5rem;
+    min-height: 100vh;
   }
 
   .goal-specta {
@@ -133,7 +134,8 @@ e {
 
 @media (max-width: 500px) {
   .about-container {
-    padding: 6rem 1.5rem; /* Adjusted padding for top and bottom */
+    padding: 6rem 1.5rem;
+    min-height: 100vh;
   }
 
   .about-specta {
@@ -187,7 +189,7 @@ e {
 
 @media (min-width: 500px) and (max-width: 1100px) {
   .about-container {
-    padding: 6rem 1.5rem; /* Adjusted padding for top and bottom */
+    padding: 6rem 1.5rem; 
   }
 
   .about-specta {

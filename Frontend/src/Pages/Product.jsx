@@ -67,54 +67,48 @@ const Product = () => {
 
   
   return (
-    <Fragment>
-      <div className="product-container">
-        <h1 className="product-heading">Products</h1>
-        <button className="category-tabs most-viewed-btn" onClick={()=>sortMostViewed()}>Most viewed</button>
-        <h1>Category</h1>
-        <div className="category-section">
-        {uniqueCategories.map((category) => (
-          <button key={category} className="category-tabs" onClick={()=>handleCategory(category)}>{category}</button>
-        ))}
-        <button key="all" className="category-tabs" onClick={()=>handleCategory('')}>ALL</button>
-        </div>
-
-        <input
-          type="text"
-          placeholder="Search by Name, category or price..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        {loading ? (
-          <Loader />
-        ) : (
-          <div className="product-all-container">
-            {filterProducts().map((product) => (
-              <div
-                className="product-card"
-                key={product._id}
-                onClick={() => openProductDetail(product._id)}
-              >
-                <img
-                  src={product.productImage}
-                  alt={product.productName}
-                  className="product-image"
-                />
-                <h2 className="product-name">{product.productName}</h2>
-                <h5 className="product-price">Rs. {product.productPrice}</h5>
-                <h4 className="product-status">{product.status}</h4>
-              </div>
-            ))}
-          </div>
-        )}
+<Fragment>
+  <div className="product-container">
+    <h1 className="product-heading">Products</h1>
+    <input
+      type="text"
+      placeholder="Search by Name, category or price..."
+      value={searchText}
+      onChange={(e) => setSearchText(e.target.value)}
+    />
+    {loading ? (
+      <div className="loader-container">
+        <Loader />
       </div>
-      {selectedProductId && (
-        <ProductDetail
-          productId={selectedProductId}
-          onClose={closeProductDetail}
-        />
-      )}
-    </Fragment>
+    ) : (
+      <div className="product-all-container">
+        {filterProducts().map((product) => (
+          <div
+            className="product-card"
+            key={product._id}
+            onClick={() => openProductDetail(product._id)}
+          >
+            <img
+              src={product.productImage}
+              alt={product.productName}
+              className="product-image"
+            />
+            <h2 className="product-name">{product.productName}</h2>
+            <h5 className="product-price">Rs. {product.productPrice}</h5>
+            <h4 className="product-status">{product.status}</h4>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  {selectedProductId && (
+    <ProductDetail
+      productId={selectedProductId}
+      onClose={closeProductDetail}
+    />
+  )}
+</Fragment>
+
   );
 };
 
