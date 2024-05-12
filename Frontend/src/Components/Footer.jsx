@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="section">
           <h2>About Us</h2>
           <z>Phone: +91 565 8989 878</z>
-          <z>Email: spectastyle@gmail.com</z>
+          <z><a href="mailto:spectastyle@gmail.com">Email: spectastyle@gmail.com</a></z>
           <z>Address: 1234 Smart Street,Nagpur 440058</z>
           <z style={{fontWeight:'bolder'}}>Design and Develop by <a style={{textDecoration:'none'}} href="https://harshalwebfolio.netlify.app">❤️Harshal Honde❤️</a></z>
         </div>
