@@ -39,7 +39,7 @@ const Home = () => {
             About Us
           </button>
         </div>
-        <div className="down-arrow">
+        <div className="right-arrow">
           <img src={Arrow} alt="" id="arrow"/>
         </div>
       </div>

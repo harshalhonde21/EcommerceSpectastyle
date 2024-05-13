@@ -88,7 +88,7 @@
     transform: scale(1.05);
 }
 
-.down-arrow{
+.right-arrow{
   position: absolute;
   bottom: 4rem;
 }
@@ -131,7 +131,7 @@
   .top {
     flex-direction: column;
   }
-  .down-arrow{
+  .right-arrow{
     position: absolute;
     bottom: 1rem;
   }
