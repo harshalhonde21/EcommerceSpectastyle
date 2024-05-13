@@ -12,3 +12,7 @@
 body {
   height: 100%;
 }
+
+.slide-arrows {
+  display: none;
+}

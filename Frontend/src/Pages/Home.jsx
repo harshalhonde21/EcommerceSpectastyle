@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import "../CSS/Home.css";
 import HomeSecond from "./HomeSecond";
 import Product from "./Product";
-import Image from "../../public/shoes-image5.png";
-import Arrow from "../../public/arrow.png";
+import Image from "/shoes-image5.png";
+import Arrow from "/arrow.png";
 import { useNavigate } from "react-router-dom";
 
 
@@ -28,7 +28,10 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 700
+    autoplaySpeed: 700,
+    arrows: false // Hide the arrows
+
+
   };
 
   const navigate = useNavigate();
@@ -66,7 +69,7 @@ const Home = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
 
-          <div className=" h-[100vh] w-[100vw]  " >
+          <div className=" h-[100vh] w-[100%]  " >
             <div className=" h-[100vh] md:bg-left-top bg-cover bg-no-repeat bg-center home-left" style={{ backgroundImage: `url(${image})` }} >
               <h1>
                 NEW TRENDS FOR SHOES
