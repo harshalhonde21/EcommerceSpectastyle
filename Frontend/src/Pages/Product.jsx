@@ -9,7 +9,8 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [searchText, setSearchText] = useState(""); 
+  const [searchText, setSearchText] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(''); 
 
   useEffect(() => {
     axios
@@ -43,54 +44,71 @@ const Product = () => {
   const filterProducts = () => {
     return products.filter((product) => {
       return (
-        product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+        (product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
         product.category.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.productPrice.toString().includes(searchText)
+        product.productPrice.toString().includes(searchText))&&
+        (selectedCategory=='' || product.category.toLowerCase()===selectedCategory.toLocaleLowerCase())
       );
     });
   };
-  
 
+  // Get unique categories using Set
+  const uniqueCategories = [...new Set(products.map((product) => product.category))]; 
+
+  const handleCategory = (category) => {
+    setSelectedCategory(category);
+  }
+
+  //Sorting the products on the basis of views
+  const sortMostViewed = () => {
+    const sortedProducts = products.slice().sort((a, b) => b.views - a.views);
+    setProducts(sortedProducts);
+  }
+
+  
   return (
-    <Fragment>
-      <div className="product-container">
-        <h1 className="product-heading">Products</h1>
-        <input
-          type="text"
-          placeholder="Search by Name, category or price..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        {loading ? (
-          <Loader />
-        ) : (
-          <div className="product-all-container">
-            {filterProducts().map((product) => (
-              <div
-                className="product-card"
-                key={product._id}
-                onClick={() => openProductDetail(product._id)}
-              >
-                <img
-                  src={product.productImage}
-                  alt={product.productName}
-                  className="product-image"
-                />
-                <h2 className="product-name">{product.productName}</h2>
-                <h5 className="product-price">Rs. {product.productPrice}</h5>
-                <h4 className="product-status">{product.status}</h4>
-              </div>
-            ))}
-          </div>
-        )}
+<Fragment>
+  <div className="product-container">
+    <h1 className="product-heading">Products</h1>
+    <input
+      type="text"
+      placeholder="Search by Name, category or price..."
+      value={searchText}
+      onChange={(e) => setSearchText(e.target.value)}
+    />
+    {loading ? (
+      <div className="loader-container">
+        <Loader />
       </div>
-      {selectedProductId && (
-        <ProductDetail
-          productId={selectedProductId}
-          onClose={closeProductDetail}
-        />
-      )}
-    </Fragment>
+    ) : (
+      <div className="product-all-container">
+        {filterProducts().map((product) => (
+          <div
+            className="product-card"
+            key={product._id}
+            onClick={() => openProductDetail(product._id)}
+          >
+            <img
+              src={product.productImage}
+              alt={product.productName}
+              className="product-image"
+            />
+            <h2 className="product-name">{product.productName}</h2>
+            <h5 className="product-price">Rs. {product.productPrice}</h5>
+            <h4 className="product-status">{product.status}</h4>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  {selectedProductId && (
+    <ProductDetail
+      productId={selectedProductId}
+      onClose={closeProductDetail}
+    />
+  )}
+</Fragment>
+
   );
 };
 

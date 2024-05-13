@@ -1,15 +1,26 @@
 import { Fragment } from "react";
 import '../CSS/Footer.css';
-import { Facebook, Twitter, Instagram, LinkedIn, YouTube} from '@mui/icons-material'; // Import the shoes icon
+import { Facebook, Twitter, Instagram, LinkedIn} from '@mui/icons-material'; // Import the shoes icon
+import { useNavigate } from "react-router-dom";
+
 
 const Footer = () => {
+
+  const navigate = useNavigate();
+
+
   return (
     <Fragment>
       <footer className="footer">
         <div className="section">
           <h2>SpectaStyle</h2>
           <div className="email-signup">
-            <input type="email" placeholder="Enter Your Email" />
+          <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter Email"
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                    />
             <button>Get monthly updates and free resources</button>
           </div>
         </div>
@@ -17,9 +28,9 @@ const Footer = () => {
         <div className="section">
           <h2>Routes</h2>
           <ul>
-            <li>About Us</li>
+            <li onClick={()=>navigate('/about')}>About Us</li>
             <li>Services</li>
-            <li>Get In Touch</li>
+            <li onClick={()=>navigate('/contact')}>Get In Touch</li>
             <div className="social-icons">
               <Facebook />
               <Twitter />

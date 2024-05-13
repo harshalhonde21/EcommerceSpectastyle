@@ -85,14 +85,15 @@ const ProductDetail = ({ productId, onClose }) => {
               alt={product.productName}
               className="product-detail-image"
             />
-            <div className="product-detail-reviews">
-              {reviews.map((review) => (
-                <div key={review._id} className="product-review-card">
-                  <h3 className="customer-name">{userName} </h3>
-                  <h5 className="rating">{review.text}</h5>
-                </div>
-              ))}
-            </div>
+           <div className="product-detail-reviews">
+            {reviews.slice(0, 2).map((review) => (
+              <div key={review._id} className="product-review-card">
+                <h3 className="customer-name">{userName}</h3>
+                <h5 className="rating">{review.text}</h5>
+              </div>
+            ))}
+          </div>
+
           </div>
           <div className="product-detail-right">
             <h2 className="product-detail-name">Name: {product.productName}</h2>

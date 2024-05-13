@@ -38,7 +38,7 @@ const Profile = () => {
     toast("Just Do It And Shop With Us", {
       icon: "😎",
       style: {
-        borderRadius: "rgb(189, 224, 254)",
+        borderRadius: "r0b(189, 224, 254)",
         background: "rgb(70, 11, 70)",
         color: "rgb(255, 210, 255)",
       },
@@ -48,12 +48,11 @@ const Profile = () => {
 
 
   const handleLoginFormSubmit = async (e) => {
-
     e.preventDefault();
-
+  
     const email = e.target.email.value;
     const password = e.target.password.value;
-
+  
     if (!email || !password) {
       setError("Please fill in all fields.");
     } else {
@@ -71,33 +70,35 @@ const Profile = () => {
             }),
           }
         );
-
+  
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-
+  
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
-
+  
           setError("success");
           setUserData(data.user);
           toast("You Are Success Login Welcome to Your Profile!", {
             icon: "😁",
             style: {
-              borderRadius: "rgb(189, 224, 254)",
+              borderRadius: "r0b(189, 224, 254)",
               background: "rgb(70, 11, 70)",
               color: "rgb(255, 210, 255)",
             },
           });
           navigate("/user");
         } else {
-          setError("Login failed. Please check your credentials.");
+          const errorData = await response.json();
+          setError(errorData.message || "Login failed. Please check your credentials.");
         }
       } catch (error) {
         setError("An error occurred while logging in.");
       }
     }
   };
+  
 
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
@@ -138,7 +139,7 @@ const Profile = () => {
           toast("You Are Success Signup Saved Me In Your Mind Welcome to Your Profile!", {
             icon: "😁",
             style: {
-              borderRadius: "rgb(189, 224, 254)",
+              borderRadius: "r0b(189, 224, 254)",
               background: "rgb(70, 11, 70)",
               color: "rgb(255, 210, 255)",
             },
@@ -178,7 +179,7 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
 
                     />
                   </div>
@@ -186,7 +187,7 @@ const Profile = () => {
                     <input type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow: "none", width: "100%", border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ boxShadow: "none", width: "100%", border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -211,7 +212,7 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -220,7 +221,7 @@ const Profile = () => {
                       type="text"
                       name="username"
                       placeholder="Enter Username"
-                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -228,7 +229,7 @@ const Profile = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                      style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -245,7 +246,7 @@ const Profile = () => {
                       Profile Picture
                       <AttachmentIcon className="icon" style={{ top: "8px" }} />
                       <input
-                        style={{ border: "3px solid var(--color-6)", borderRadius: "15px" }}
+                        style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
                         type="file"
                         id="fileInput"
                         className="file-input"

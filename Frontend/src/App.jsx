@@ -14,10 +14,11 @@ import { Toaster } from "react-hot-toast";
 import PlaceOrder from "./Pages/PlaceOrder";
 import ConformOrder from "./Pages/ConformOrder";
 import Success from "./Pages/Success"
+import PageNotFound from "./Pages/404page";
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,10 +31,11 @@ function App() {
         <Route path="/address-payment-placeOrder" element={<PlaceOrder />} />
         <Route path="/address-payment-placeOrder/confirmOrder" element={<ConformOrder />} ></Route>
         <Route path="/success" element={<Success />} ></Route>
+        <Route path="*"  element={<PageNotFound/>} />
       </Routes>
       <Footer />
-      <Toaster position="top-right" reverseOrder={false} />
-    </div>
+      <Toaster position="top-left" reverseOrder={false} />
+    </>
   );
 }
 
