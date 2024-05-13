@@ -79,7 +79,7 @@
   font-family: var(--font-rubik);
   font-weight: bold;
   text-shadow: 2px 2px 10px black;
-
+}
 
 .top-right {
   width: 50%;
@@ -194,6 +194,7 @@
 
   .home-left h1{
     font-size: 1.5rem;
+  }
   .top-left {
     padding: 0 2rem;
     text-align: center;
@@ -214,7 +215,7 @@
   
   .home-left p{
     font-size: 1rem;
-
+  }
   .top-left-2 {
     font-size: 1.2rem;
   width: 100%;
@@ -232,3 +233,4 @@
     margin-top: 2rem; /* Add some space between the image and text */
   }
 }
+  
