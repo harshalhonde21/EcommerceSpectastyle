@@ -1,21 +1,6 @@
   import User from "../Models/User.js";
   import jwt from "jsonwebtoken";
   import bcrypt from "bcryptjs";
-  import multer from "multer";
-  import path from 'path';
-
-  const storage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-      cb(null,'public/Images');
-    },
-    filename:(req,file,cb)=>{
-      cb(null,file.fieldname+"_"+Date.now() + path.extname(file.originalname))
-    }
-  })
-  
-  const upload = multer({
-    storage:storage
-  }).single('profilePic'); 
 
   export const getMyUsers = async (req, res, next) => {
     let users;
@@ -31,17 +16,8 @@
 
   export const signup = async (req, res, next) => {
     try {
-      upload(req,res,async(err)=>{
-        if (err instanceof multer.MulterError) {
-          return res.status(400).json({ error: "Error uploading file" });
-        } else if (err) {
-          return res.status(500).json({ error: "Internal server error" });
-        }
       const { name, email, password } = req.body;
-      let profilePic;
-      if (req.file) {
-        profilePic = req.file.filename;
-      }
+
       const existingUser = await User.findOne({ email });
   
       if (existingUser) {
@@ -50,12 +26,11 @@
   
       const hashPassword = await bcrypt.hash(password, 10);
   
-      const user = new User({ name, email, password: hashPassword , profilePic});
+      const user = new User({ name, email, password: hashPassword});
       await user.save();
   
       const token = jwt.sign({ _id: user._id }, process.env.SECRET);
       res.status(201).json({ token, user });
-    })
     } catch (error) {
       if (error.code === 11000 && error.keyPattern.email) {
         return res.status(400).json({ message: "Email already exists." });
@@ -93,4 +68,32 @@
       res.status(500).json({ message: "Internal server error" });
     }
   };
+
+  export const reset_password = async(req,res)=>{
+    try{
+      const {email,password,confirmPassword} = req.body;
+      const user = await User.findOne({email});
+      if(!user)
+      {
+        return res.status(400).json({ error: "Invalid username" })
+      }
+      if (password !== confirmPassword) {
+        return res.status(400).json({ error: "Passwords don't match" });
+      }
+      const newpassword = await bcrypt.hash(password, 10);
+      User.updateOne({ email : email }, { $set: { password:newpassword } })
+     .then(() => {
+      res.status(200).json({_id:user._id,email:user.email})
+     })
+     .catch(err => {
+      console.log(err)
+      return res.status(400).json({ error: "Unable change password" })
+     });
+    }
+    catch(err)
+    {
+      console.log(err)
+      return res.status(500).json({ error: "Internal server error" })
+    }
+  }
 

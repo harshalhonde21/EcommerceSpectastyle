@@ -4,6 +4,7 @@ import "../CSS/UserProfile.css";
 import Logo from "/Logo.png";
 import Error from "../Components/Error";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [error, setError] = useState(null);
@@ -44,7 +45,7 @@ const UserProfile = () => {
     <Fragment>
       <div className="profile-container">
         <div className="profile-image">
-          <img src={`https://ecommerce-backend-0wr7.onrender.com/Images/${user.profilePic}`} alt="User Profile" />
+          <img src={Logo} alt="User Profile" />
         </div>
         <div className="profile-details">
           <div className="user-info">
@@ -52,7 +53,7 @@ const UserProfile = () => {
             <p className="userProfile-paragraph">Email: {user.email}</p>
           </div>
           <div className="buttons">
-            <button className="reset-password">Reset Password</button>
+          <Link to="/resetpw"> <button className="reset-password">Reset Password</button></Link>
             <button className="logo-out" onClick={handleLogout}>
               Log-Out
             </button>

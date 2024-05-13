@@ -24,7 +24,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
-app.use(express.static('public'));
 app.use("/ecommerce/user", router);
 app.use("/ecommerce/product", routers);
 app.use("/ecommerce/manager", routerss);
