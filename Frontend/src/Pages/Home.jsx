@@ -16,7 +16,7 @@ const Home = () => {
       <div className="home-container">
         <div className="top">
           <div className="top-left">
-            <h1 className="top-left-1">SPECTRASTYLE</h1>
+            <h1 className="top-left-1">SPECTASTYLE</h1>
             <h6 className="top-left-2">
               Your one stop Sneaker Shop!
             </h6>
