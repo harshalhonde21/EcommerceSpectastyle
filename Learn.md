@@ -2,7 +2,7 @@
 
 ## Setup of Ecommerce and Warehouse Management System
 
-### 1. Installation of Warehouse Mangement System.
+### 1. Installation of Warehouse Management System.
 
 #### Setting up MERN Stack:
 
