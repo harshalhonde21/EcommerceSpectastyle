@@ -5,3 +5,10 @@
   color: rgb(189, 224, 254);
   color: rgb(255, 210, 255);
 } */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  height: 100%;
+}
