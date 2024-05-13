@@ -10,16 +10,16 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
   const images = [
-    "/poster1.jpg",
-    "/poster2.jpg",
+    "/carousel-1.jpg",
+    "/carousel-2.jpg",
+    "/carousel-3.jpg",
     
     
     // Add more image paths here if needed
   ];
   const settings = {
-    dots: true,
     infinite: true,
-    speed: 500,
+    speed: 100,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -57,7 +57,7 @@ const Home = () => {
         {images.map((image, index) => (
 
           <div className=" h-[100vh] w-[100vw]  " >
-            <div className=" h-full md:bg-left-top bg-cover bg-no-repeat bg-center home-left" style={{ backgroundImage: `url(${image})` }} >
+            <div className=" h-[100vh] md:bg-left-top bg-cover bg-no-repeat bg-center home-left" style={{ backgroundImage: `url(${image})` }} >
               <h1>
                 NEW TRENDS FOR SHOES
               </h1>
