@@ -4,6 +4,8 @@
 
 <p id="description">It is Full Stack Web Application made in MERN Stack it is End-to-End Encrypted website to order in shoe.</p>
 
+<a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
+
 <h2>🚀 Demo</h2>
 
 [Website](https://spectastyle.vercel.app/)<br />

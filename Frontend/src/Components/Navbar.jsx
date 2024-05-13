@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
             <h3 style={{ marginTop: "1rem" }}>
-              SPECTRASTYLE
+              SPECTASTYLE
               <br />
               <span>Shop With Us</span>
             </h3>
