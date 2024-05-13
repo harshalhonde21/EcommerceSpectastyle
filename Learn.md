@@ -2,7 +2,7 @@
 
 ## Setup of Ecommerce and Warehouse Management System
 
-### 1. Installation of Warehouse Mangement System.
+### 1. Installation of Warehouse Management System.
 
 #### Setting up MERN Stack:
 
@@ -37,7 +37,7 @@ npm start
 ```
 ### 2. Start With Backend of Whole Project.
 
-<p>1. Go to the Backedn</p>
+<p>1. Go to the Backend</p>
 
 ```
 cd Backend
