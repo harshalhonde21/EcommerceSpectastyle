@@ -71,7 +71,7 @@ const port = process.env.PORT || 4000;
 const url = process.env.MONGO_URL;
 
 mongoose
-  .connect(url, {
+  .connect( {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

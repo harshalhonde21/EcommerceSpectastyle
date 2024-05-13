@@ -1,0 +1,37 @@
+/* NotFound.css */
+
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .not-found-content {
+    text-align: center;
+  }
+  
+  .not-found-image {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-link {
+    font-size: 1.5rem;
+    background-color: #4299e1;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .not-found-link:hover {
+    background-color: #2b6cb0;
+  }
+  

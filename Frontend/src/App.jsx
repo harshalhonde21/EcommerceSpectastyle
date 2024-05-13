@@ -14,12 +14,14 @@ import { Toaster } from "react-hot-toast";
 import PlaceOrder from "./Pages/PlaceOrder";
 import ConformOrder from "./Pages/ConformOrder";
 import Success from "./Pages/Success"
+import NotFound from "./Components/NotFound";
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
