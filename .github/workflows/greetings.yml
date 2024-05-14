@@ -1,9 +1,9 @@
-name: 'Greetings'
+name: Greetings
 
 on:
   fork:
   push:
-    branches: [main]
+    branches: [master]
   issues:
     types: [opened]
   pull_request_target:
@@ -18,7 +18,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: |
-            Congratulations, @${{ github.actor }}! 🎉 Thank you for creating your issue. Your contribution is greatly appreciated and we look forward to working with you to resolve the issue. Keep up the great work!
+            Congratulations, @${{ github.actor }}! 🎉 Thank you for creating your issue. Your contribution is greatly appreciated, and we look forward to working with you to resolve the issue. Keep up the great work!
           pr-message: |
-            Great job, @${{ github.actor }}! 🎉 Thank you for submitting your pull request. Your contribution is valuable and we appreciate your efforts to improve our project.
+            Great job, @${{ github.actor }}! 🎉 Thank you for submitting your pull request. Your contribution is valuable, and we appreciate your efforts to improve our project.
           footer: 'We will promptly review your changes and offer feedback. Keep up the excellent work! Kindly remember to check our [contributing guidelines](https://github.com/harshalhonde21/EcommerceSpectastyle/blob/main/README.md)'
