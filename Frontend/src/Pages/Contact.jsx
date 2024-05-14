@@ -82,7 +82,6 @@ const Contact = () => {
             />
           </div>
         </div>
-
         <div className="contact-form">
           <h2 className="contact-subheading">Contact Form</h2>
           <form>
@@ -153,7 +152,6 @@ const Contact = () => {
                 required
               />
             </div>
-
             <button type="submit">Submit</button>
           </form>
         </div>
