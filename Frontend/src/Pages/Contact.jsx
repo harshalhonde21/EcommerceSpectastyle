@@ -111,23 +111,6 @@ const Contact = () => {
                   fontSize: "16px", // Font size set to 16px
                   padding: "10px", // Padding set to 10px
                 }}
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Good Name"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                style={{
-                  width: "100%",
-                  marginBottom: "-2rem",
-                  border: "2px solid rgb(70, 11, 70)",
-                  borderRadius: "8px",
-                  fontSize: "16px", // Font size set to 16px
-                  padding: "10px", // Padding set to 10px
-                }}
                 type="email"
                 id="email"
                 name="email"
