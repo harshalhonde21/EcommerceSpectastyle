@@ -1,4 +1,4 @@
-name: "🐞 Bug Report"
+  name: "🐞 Bug Report"
   description: "Create a report to help us improve"
   title: "BUG:"
   labels: ["Bug"]
@@ -12,7 +12,7 @@ name: "🐞 Bug Report"
             required: true
     - type: textarea
       attributes:
-        label: "What happened?"
+        label: "What went down?"
         description: "A concise description of what you're experiencing."
       validations:
         required: true
