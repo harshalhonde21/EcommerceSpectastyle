@@ -10,6 +10,12 @@
 
 [Website](https://spectastyle.vercel.app/)<br />
 [Warehouse](https://spectadash.vercel.app/)
+___
+
+## ✅ Internal Implemenation : MERN + JWT 🔐
+<p align="center">
+<img width="750" alt="app_design" class="center" src="https://github.com/Chitransh-j/EcommerceSpectastyle/assets/135858715/6cfcd6fc-ac14-4402-aeef-b51a442aac71">
+</p>
 
 # 🚀 Don't Forget to Star the Repo 🚀
 
