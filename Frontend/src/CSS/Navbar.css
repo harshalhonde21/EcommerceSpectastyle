@@ -92,6 +92,7 @@ span {
   height: 2.5px;
   bottom: 1px;
   left: 50%;
+  top: 3.5rem !important;
   background-color: #460B46;
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
@@ -168,7 +169,18 @@ span {
   }
 
   .menu-open .navbar_list li:hover {
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    animation: navbar-animate ease-in-out both 0.4s;
+  }
+
+  @keyframes navbar-animate {
+      from{
+        position: relative;
+        font-size: 2rem;
+      }to{
+        position: relative;
+        font-size: 2.5rem;
+      }
   }
 
   .btn {
