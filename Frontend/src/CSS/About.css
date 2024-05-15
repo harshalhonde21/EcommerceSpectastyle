@@ -22,34 +22,28 @@
 }
 
 .about-container {
-  width: 100%;
-  min-height: 80vh;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8rem 1.5rem;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
-  padding: 10rem 10rem;
-}
-
-.about-specta,
-.goal-specta,
-.delivary,
-.thanksforchoosing {
-  font-family: var(--font-1);
+  font-family: var(--font-rubik);
   color: var(--color-6);
-  margin-top: 5rem;
+}
+
+.about-specta{
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
 .about-specta,
 .goal-specta,
 .delivary,
 .thanksforchoosing {
-  position: absolute;
+  font-size: 2rem;
   left: 3.5rem;
-}
-
-.about-specta {
-  font-size: 3rem;
-  top: 2rem;
   text-decoration: underline;
+  padding-top: 1rem;
 }
 
 p,  
@@ -58,185 +52,45 @@ d,
 e {
   font-family: var(--font-rubik);
   color: var(--color-6);
-  position: absolute;
-  left: 3.5rem;
-  margin-top: 5rem;
+  font-size: 1.3rem;
 }
-
-p {
-  font-size: 1.5rem;
-  top: 6.5rem;
-}
-
-.goal-specta {
-  font-size: 2rem;
-  top: 12rem;
-  text-decoration: underline;
-}
-
-c {
-  font-size: 1.2rem;
-  top: 15rem;
-}
-
-.delivary {
-  font-size: 2rem;
-  top: 19.5rem;
-  text-decoration: underline;
-}
-
-d {
-  font-size: 1.2rem;
-  top: 23rem;
-}
-
-.thanksforchoosing {
-  font-size: 2rem;
-  top: 28rem;
-  text-decoration: underline;
-}
-
-e {
-  font-size: 1.2rem;
-  top: 32rem;
-}
-
 @media (max-width: 768px) {
   .about-container {
     padding: 6rem 1.5rem;
-    min-height: 100vh;
   }
-
-  .goal-specta {
-    top: 15rem;
-  }
-
-  c {
-    top: 18rem;
-  }
-
-  .delivary {
-    top: 27rem;
-  }
-
-  d {
-    top: 30rem;
-  }
-
+  
+  .about-specta,
+  .goal-specta,
+  .delivary,
   .thanksforchoosing {
-    top: 38rem;
+      font-size: 1.5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0rem;
   }
-
+  p,
+  d,
+  c,
   e {
-    top: 42rem;
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .about-container {
     padding: 6rem 1.5rem;
-    min-height: 100vh;
   }
-
-  .about-specta {
-    font-size: 2rem;
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
-  p {
-    font-size: 0.8rem;
-    top: 4rem;
-    left: 1.5rem;
-  }
-
-  .goal-specta {
-    font-size: 1.5rem;
-    top: 10rem;
-    left: 1.5rem;
-  }
-
-  c {
-    font-size: 0.8rem;
-    top: 12rem;
-    left: 1.5rem;
-  }
-
-  .delivary {
-    font-size: 1.5rem;
-    top: 20rem;
-    left: 1.5rem;
-  }
-
-  d {
-    font-size: 0.8rem;
-    top: 22rem;
-    left: 1.5rem;
-  }
-
+  
+  .about-specta,
+  .goal-specta,
+  .delivary,
   .thanksforchoosing {
-    font-size: 1.5rem;
-    top: 29rem;
-    left: 1.5rem;
+      font-size: 1.5rem;
+      padding-top: 0.5rem 0.2rem;
   }
-
+  p,
+  d,
+  c,
   e {
-    font-size: 0.8rem;
-    top: 31rem;
-    left: 1.5rem;
-  }
-}
-
-@media (min-width: 500px) and (max-width: 1100px) {
-  .about-container {
-    padding: 6rem 1.5rem; 
-  }
-
-  .about-specta {
-    font-size: 2rem;
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-    top: 4rem;
-    left: 1.5rem;
-  }
-
-  .goal-specta {
-    font-size: 1.5rem;
-    top: 10rem;
-    left: 1.5rem;
-  }
-
-  c {
-    font-size: 1rem;
-    top: 12rem;
-    left: 1.5rem;
-  }
-
-  .delivary {
-    font-size: 1.5rem;
-    top: 20rem;
-    left: 1.5rem;
-  }
-
-  d {
-    font-size: 1rem;
-    top: 22rem;
-    left: 1.5rem;
-  }
-
-  .thanksforchoosing {
-    font-size: 1.5rem;
-    top: 29rem;
-    left: 1.5rem;
-  }
-
-  e {
-    font-size: 1rem;
-    top: 31rem;
-    left: 1.5rem;
+    font-size: 0.5rem;
   }
 }
