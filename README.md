@@ -6,6 +6,10 @@
 
 <a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
 
+<h1>✅ Note</h1>
+
+### All the Contributors take the note all join discord server of GSSOC and go to FORUM and project-intro all should join in our project card and if any diffculty then you can ask there.
+
 <h2>🚀 Demo</h2>
 
 [Website](https://spectastyle.vercel.app/)<br />
