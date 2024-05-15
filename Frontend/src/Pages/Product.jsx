@@ -4,7 +4,8 @@ import "../CSS/Product.css";
 import Loader from "../Components/Loader";
 import ProductDetail from "../Components/ProductDetail";
 import toast from "react-hot-toast";
-
+import searchIcon from '../search-img.png'
+import Noproduct from '../NoProduct.png'
 const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
@@ -42,14 +43,14 @@ const Product = () => {
   };
 
   const filterProducts = () => {
-    return products.filter((product) => {
-      return (
-        (product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.productPrice.toString().includes(searchText))&&
-        (selectedCategory=='' || product.category.toLowerCase()===selectedCategory.toLocaleLowerCase())
-      );
-    });
+      return products.filter((product) => {
+        return (
+          (product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.category.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.productPrice.toString().includes(searchText))&&
+          (selectedCategory=='' || product.category.toLowerCase()===selectedCategory.toLocaleLowerCase())
+        );
+      });
   };
 
   // Get unique categories using Set
@@ -70,19 +71,24 @@ const Product = () => {
 <Fragment>
   <div className="product-container">
     <h1 className="product-heading">Products</h1>
+    <div className="search-container">
     <input
-      type="text"
+      type="search"
       placeholder="Search by Name, category or price..."
       value={searchText}
       onChange={(e) => setSearchText(e.target.value)}
+      id="inputSearch"
+      className="input-search"
     />
+    <label htmlFor="inputSearch"><img className="search-img" src={searchIcon} alt="search-img"/></label>
+    </div>
     {loading ? (
       <div className="loader-container">
         <Loader />
       </div>
     ) : (
       <div className="product-all-container">
-        {filterProducts().map((product) => (
+        {  filterProducts().length>0 ? filterProducts().map((product) => (
           <div
             className="product-card"
             key={product._id}
@@ -97,7 +103,9 @@ const Product = () => {
             <h5 className="product-price">Rs. {product.productPrice}</h5>
             <h4 className="product-status">{product.status}</h4>
           </div>
-        ))}
+        )): <div><img className="noproductimg" src={Noproduct} alt="No Found Img"/></div>
+        }
+       
       </div>
     )}
   </div>
