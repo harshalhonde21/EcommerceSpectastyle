@@ -10,14 +10,22 @@
   --color-5: rgb(255, 210, 255);
   --color-6: rgb(70, 11, 70);
 
+  /* font family */
 
-/* font family */
+  --font-1: "Bebas Neue", sans-serif;
+  --font-2: "Croissant One", cursive;
+  --font-inconsolata: "Inconsolata", monospace;
+  --font-rubik: "Rubik", sans-serif;
+}
 
---font-1: "Bebas Neue", sans-serif;
---font-2: "Croissant One", cursive;
---font-inconsolata: "Inconsolata", monospace;
---font-rubik: "Rubik", sans-serif;
-
+.product-detail-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 100vh;
+  background-color: #725c6f00;
 }
 
 .product-detail-container {
@@ -54,7 +62,7 @@
   transition: transform 0.5s ease;
 }
 
-.product-detail-image:hover{
+.product-detail-image:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -95,7 +103,7 @@
   font-family: var(--font-rubik);
 }
 
-.product-date-status{
+.product-date-status {
   margin-top: 10px;
   color: var(--color-6);
   font-family: var(--font-rubik);
@@ -126,8 +134,7 @@
   letter-spacing: 0.5px;
   font-family: var(--font-1);
   color: var(--color-6);
-  text-transform:capitalize !important;
-  
+  text-transform: capitalize !important;
 }
 
 .product-detail-close-button {
@@ -162,7 +169,7 @@
   width: 100%;
   height: 3px;
   background-color: var(--color-6);
-  border-radius: 3px; 
+  border-radius: 3px;
 }
 
 .cross-line::before {
@@ -173,12 +180,9 @@
   transform: rotate(-45deg);
 }
 
-
 .product-detail-close-button:hover {
   background-color: purple;
 }
-
-
 
 .product-detail-reviews {
   display: flex;
@@ -211,9 +215,8 @@
 .rating {
   font-family: var(--font-1);
   font-size: 20px;
-  color: rgb(107, 107, 104); 
+  color: rgb(107, 107, 104);
 }
-
 
 @media (max-width: 998px) {
   .product-detail-right {
@@ -229,7 +232,7 @@
     font-weight: 200;
   }
 
-  .product-detail-left{
+  .product-detail-left {
     margin-top: -20px;
   }
 }
@@ -247,27 +250,27 @@
     color: var(--color-6);
   }
 
-  .product-detail-left{
+  .product-detail-left {
     margin-top: -20px;
   }
 
-  .product-date-status{
+  .product-date-status {
     font-size: 0.8rem;
   }
 
-  .product-detail-status{
+  .product-detail-status {
     font-size: 0.8rem;
   }
 
-  .product-detail-id{
+  .product-detail-id {
     font-size: 1rem;
   }
 
-  .product-detail-name{
+  .product-detail-name {
     font-size: 1.5rem;
   }
 
-  .product-detail-price{
+  .product-detail-price {
     font-size: 1rem;
   }
 }
@@ -281,7 +284,7 @@
   .product-detail-left {
     width: 50%;
   }
-  
+
   .product-detail-image {
     max-width: 80%;
     max-height: 80%;
@@ -291,20 +294,19 @@
     transition: transform 0.5s ease;
   }
 
-  .product-detail-reviews{
+  .product-detail-reviews {
     position: relative;
     left: -30px;
   }
 
-  .customer-name{
+  .customer-name {
     font-size: 0.8rem;
   }
 
-  .rating{
+  .rating {
     font-size: 0.8rem;
   }
 }
-
 
 @media (max-width: 530px) {
   .product-detail-right {
@@ -318,7 +320,7 @@
     top: 2rem;
     left: 3rem;
   }
-  
+
   .product-detail-image {
     max-width: 80%;
     max-height: 80%;
@@ -328,24 +330,23 @@
     transition: transform 0.5s ease;
   }
 
-  .product-detail-reviews{
+  .product-detail-reviews {
     position: relative;
     left: -50px;
     display: none;
   }
 
-  .product-review-card{
+  .product-review-card {
     width: 50%;
   }
 
-  .customer-name{
+  .customer-name {
     font-size: 0.6rem;
   }
 
-  .rating{
+  .rating {
     font-size: 0.6rem;
   }
-
 
   .product-detail-container {
     display: flex;
@@ -354,42 +355,41 @@
     left: 25px;
   }
 
-  .product-detail-left{
+  .product-detail-left {
     display: flex;
   }
 
-  .product-detail-right{
+  .product-detail-right {
     width: 80%;
     flex: 1;
     padding: 7px;
     padding-bottom: -65px;
   }
 
-  .product-detail-name{
+  .product-detail-name {
     font-size: 1rem;
   }
 
-  .product-date-status{
+  .product-date-status {
     font-size: 0.5rem;
   }
 
-  .product-detail-price{
+  .product-detail-price {
     font-size: 0.8rem;
   }
 
-  .product-detail-description{
+  .product-detail-description {
     font-size: 0.5rem;
   }
-
 }
 
 @media (max-width: 425px) {
-  .product-detail-image{
+  .product-detail-image {
     width: 65%;
     height: 50%;
   }
 
-  .product-detail-right{
+  .product-detail-right {
     position: relative;
     top: -40px;
     left: 15px;
