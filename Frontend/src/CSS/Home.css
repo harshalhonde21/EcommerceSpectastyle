@@ -19,18 +19,18 @@
 .home-container{
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-
+  /* gap: 3rem; */
+height: auto;
 }
 
 .top {
   display: flex;
-  margin: 2rem;
+  margin: 6rem 2rem 2rem 2rem;
 }
 
 .top-left {
@@ -89,8 +89,8 @@
 }
 
 .down-arrow{
-  position: absolute;
-  bottom: 4rem;
+  position: relative;
+  /* bottom: 4rem; */
 }
 
 #arrow {
@@ -132,8 +132,8 @@
     flex-direction: column;
   }
   .down-arrow{
-    position: absolute;
-    bottom: 1rem;
+    position: relative;
+    height: 4rem;
   }
 
   .top-left,
