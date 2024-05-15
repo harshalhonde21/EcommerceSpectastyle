@@ -10,6 +10,12 @@
 
 [Website](https://spectastyle.vercel.app/)<br />
 [Warehouse](https://spectadash.vercel.app/)
+___
+
+## ✅ Internal Implemenation : MERN + JWT 🔐
+<p align="center">
+<img width="750" alt="app_design" class="center" src="https://github.com/Chitransh-j/EcommerceSpectastyle/assets/135858715/6cfcd6fc-ac14-4402-aeef-b51a442aac71">
+</p>
 
 # 🚀 Don't Forget to Star the Repo 🚀
 
@@ -130,3 +136,10 @@ Technologies used in the project:
 *   Node.js
 *   Mongodb
 *   mongoose
+
+
+<div align=center>
+  <h2>This Project is part of GSSOC24</h2>
+  <img alt="GSSoC" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png#gh-light-mode-only" width=87%>
+  <img alt="GSSoC" src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only"/>
+</div>
