@@ -59,7 +59,7 @@ const ResetPassword = () => {
         }
       } catch (error) {
         console.log(error)
-        setError("An error occurred while logging in.");
+        setError("An error occurred while changing password in.");
       }
     }
   };

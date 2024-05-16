@@ -59,7 +59,6 @@ const Profile = () => {
       try {
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/login",
-          //"http://localhost:4000/ecommerce/user/login",
           {
             method: "POST",
             headers: {
@@ -115,7 +114,6 @@ const Profile = () => {
       try {
         const response = await fetch(
          "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
-         //"http://localhost:4000/ecommerce/user/signup",
           {
             method: "POST",
             headers: {
