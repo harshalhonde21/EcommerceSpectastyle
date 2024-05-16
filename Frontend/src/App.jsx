@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import ScrollToTop from "./Components/ScrollToTop";
 // import Cursor from "./Components/Cursor";
 import "./App.css";
 import Home from "./Pages/Home";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/resetpw" element={<ResetPassword/>} />
       </Routes>
       <Footer />
+      <ScrollToTop /> 
       <Toaster position="top-left" reverseOrder={false} />
     </>
   );
