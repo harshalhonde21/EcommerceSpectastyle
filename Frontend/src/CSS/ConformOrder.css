@@ -135,3 +135,31 @@ h3 {
   border: 2px solid var(--color-6);
   margin: 1rem;
 }
+
+@media screen and (max-width: 1000px){
+  .order-summary{
+    flex-direction: column;
+    gap:2rem;
+    /* align-items: center; */
+  }
+}
+
+@media screen and (max-width: 500px){
+  .conform-order-container{
+    padding: 6rem 0.5rem
+  }
+  .product-details{
+    padding: 0.5rem;
+  }
+  .inner-product-confirmOrder{
+    gap:0.3rem;
+    padding:0.3rem;
+  }
+
+}
+
+@media screen and (max-width: 300px){
+  .inner-product-confirmOrder{
+    flex-direction: column;
+  }
+}
