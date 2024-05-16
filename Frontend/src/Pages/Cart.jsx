@@ -68,8 +68,12 @@ const Cart = () => {
             color: "rgb(255, 210, 255)",
           },
         });
-        navigate("/product");
-      })
+      //   navigate("/cart");
+      // })
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000); // Wait 1 seconds before refreshing to let the user see the toast message
+    })
       .catch((error) => {
         setError(error);
       });
