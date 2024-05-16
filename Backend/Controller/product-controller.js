@@ -76,17 +76,23 @@ export const addProductToCart = async (req, res, next) => {
       return res.status(404).json({ error: "User not found" });
     }
 
+    // retrieve the user's cart
     let user_cart = user.shoppingCart;
+
+    // getting the existing item from the cart
     const existing_item = user_cart.filter(item => {
       return item.product._id == productId
     })
 
+
+    // if the item already exists increment the existing quantity by 1 and save it
     if (existing_item.length!==0) {
       // console.log("exists")
       user_cart.remove(existing_item[0]);
       existing_item[0].quantity = existing_item[0].quantity + 1;
       user_cart.push(existing_item[0])
     }
+    // If item does not exists create a new cart item and save it
     else {
       // console.log("new")
       const new_item = {
