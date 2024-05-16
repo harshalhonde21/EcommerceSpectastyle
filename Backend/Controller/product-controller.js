@@ -76,15 +76,34 @@ export const addProductToCart = async (req, res, next) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const cartItem = {
-      product: productId,
-    };
+    let user_cart = user.shoppingCart;
+    const existing_item = user_cart.filter(item => {
+      return item.product._id == productId
+    })
 
-    user.shoppingCart.push(cartItem);
+    if (existing_item.length!==0) {
+      // console.log("exists")
+      user_cart.remove(existing_item[0]);
+      existing_item[0].quantity = existing_item[0].quantity + 1;
+      user_cart.push(existing_item[0])
+    }
+    else {
+      // console.log("new")
+      const new_item = {
+        product: productId,
+        quantity: 1
+      };
+  
+      user_cart.push(new_item);
+    }
+
+
+    user.shoppingCart = user_cart
     await user.save();
 
     res.status(201).json({ message: "Product added to cart" });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: "Unable to add product to cart" });
   }
 };
