@@ -49,7 +49,11 @@ const ProductDetail = ({ productId, onClose }) => {
 
     if (!token) {
       setError("Login first to add the product to the cart");
-    } else {
+    } 
+    else if ( token == product){
+      setError("aleby");
+    }
+    else{
       const userData = JSON.parse(localStorage.getItem("userData"));
       const userId = userData._id;
       axios
