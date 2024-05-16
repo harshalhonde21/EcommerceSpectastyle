@@ -29,7 +29,7 @@ const Footer = () => {
           <h2>Routes</h2>
           <ul>
             <li onClick={()=>navigate('/about')}>About Us</li>
-            <li>Services</li>
+            <li onClick={()=>navigate('/product')}>Services</li>
             <li onClick={()=>navigate('/contact')}>Get In Touch</li>
             <div className="social-icons">
               <Facebook />
