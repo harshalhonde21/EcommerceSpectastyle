@@ -28,8 +28,7 @@
   height: 6rem;
   display: flex;
   gap: 25rem;
-  /* background-color: var(--color-1);
-  color: whitesmoke; */
+  
   justify-content: center;
   z-index: 999;
   background-color: rgba(194, 139, 187, 0.5);
