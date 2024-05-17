@@ -27,12 +27,18 @@
   width: 100%;
   height: 6rem;
   display: flex;
-  gap: 32rem;
+  gap: 25rem;
   /* background-color: var(--color-1);
   color: whitesmoke; */
+  justify-content: center;
   z-index: 999;
   background-color: rgba(194, 139, 187, 0.5);
   backdrop-filter: blur(10px);
+}
+
+.logo {
+  padding: 2px;
+  /* margin-left:5rem; */
 }
 
 .head-main {
@@ -56,7 +62,6 @@
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-
 span {
   margin-left: 1rem;
   font-size: 2rem;
@@ -75,7 +80,7 @@ span {
   font-family: var(--font-rubik);
   font-weight: 500;
   cursor: pointer;
-  color: #460B46;
+  color: #460b46;
   font-size: 20px;
   position: relative;
 }
@@ -86,20 +91,20 @@ span {
 }
 
 #nav-hov::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 2.5px;
   bottom: 1px;
   left: 50%;
   top: 3.5rem !important;
-  background-color: #460B46;
+  background-color: #460b46;
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
 #nav-hov:hover::after {
   width: 100%;
-  left: 0; 
+  left: 0;
 }
 
 .button {
@@ -107,7 +112,6 @@ span {
 }
 
 @media screen and (max-width: 1000px) {
-
   span {
     font-size: 1.5rem;
   }
@@ -115,7 +119,12 @@ span {
   .routes ul {
     display: none;
   }
-
+  .main-component{
+    justify-content: unset;
+  }
+  .logo {
+    padding: 5px;
+}
   .button {
     position: absolute;
     display: flex;
@@ -174,13 +183,14 @@ span {
   }
 
   @keyframes navbar-animate {
-      from{
-        position: relative;
-        font-size: 2rem;
-      }to{
-        position: relative;
-        font-size: 2.5rem;
-      }
+    from {
+      position: relative;
+      font-size: 2rem;
+    }
+    to {
+      position: relative;
+      font-size: 2.5rem;
+    }
   }
 
   .btn {
