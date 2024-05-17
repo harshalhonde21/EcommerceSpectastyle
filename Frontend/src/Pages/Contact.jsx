@@ -1,8 +1,48 @@
 import { Fragment } from "react";
 import "../CSS/Contact.css";
 import { Email, Phone, Store } from "@mui/icons-material";
+import { useState } from "react";
+import axios from "axios"; 
+import toast from "react-hot-toast";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+
+  const onChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async e => {
+    e.preventDefault();
+
+    try {              //Replace this api url with your online server url   
+      const res = await axios.post('http://localhost:3000/api/contact', formData);
+      console.log(res.data);
+      toast("Message sent successfully!", {
+        icon: "😄",
+        style: {
+          borderRadius: "rgb(189, 224, 254)",
+          background: "rgb(70, 11, 70)",
+          color: "rgb(255, 210, 255)",
+        },
+      });
+    } catch (err) {
+      console.error(err);
+      toast("Error sending message", {
+        icon: "😢",
+        style: {
+          borderRadius: "rgb(189, 224, 254)",
+          background: "rgb(70, 11, 70)",
+          color: "rgb(255, 210, 255)",
+        },
+      });
+    }
+  };
   return (
     <Fragment>
       <div className="contact-container">
@@ -84,7 +124,7 @@ const Contact = () => {
         </div>
         <div className="contact-form">
           <h2 className="contact-subheading">Contact Form</h2>
-          <form>
+          <form onSubmit={onSubmit} >
             <div className="form-group">
               <input
                 style={{
@@ -96,6 +136,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
+                onChange={onChange}
                 placeholder="Good Name"
                 required
               />
@@ -114,6 +155,7 @@ const Contact = () => {
                 id="email"
                 name="email"
                 placeholder="Email"
+                onChange={onChange}
                 required
               />
             </div>
@@ -128,9 +170,10 @@ const Contact = () => {
                   padding: "10px", // Padding set to 10px
                 }}
                 type="Number"
-                id="email"
-                name="email"
+                id="phone"
+                name="phone"
                 placeholder="Phone Number"
+                onChange={onChange}
                 required
               />
             </div>
@@ -149,6 +192,7 @@ const Contact = () => {
                 name="message"
                 placeholder="Your Message"
                 rows="3"
+                onChange={onChange}
                 required
               />
             </div>

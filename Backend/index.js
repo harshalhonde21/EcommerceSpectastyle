@@ -13,6 +13,7 @@ import routerss from "./Routes/dashboard-routes.js";
 import routersss from "./Routes/dashboardagent-routes.js";
 import routerAddress from "./Routes/user-address-routes.js";
 import visitCountRoutes from "./Routes/visit-count-routes.js";
+import contactRoutes from "./Routes/contact-routes.js";
 
 const app = express();
 const stripe = new Stripe(
@@ -27,6 +28,7 @@ app.use("/ecommerce/manager", routerss);
 app.use("/ecommerce/agent", routersss);
 app.use("/ecommerce/user-address", routerAddress);
 app.use("/visitcount", visitCountRoutes); // added newly
+app.use('/api/contact', contactRoutes);
 
 app.post("/checkout", async (req, res) => {
   try {
@@ -79,4 +81,4 @@ mongoose
   .then(() => console.log(`connected to db at port ${port} :)`))
   .catch((err) => console.log(`${err} is error`));
 
-// updated with the ports
+  
