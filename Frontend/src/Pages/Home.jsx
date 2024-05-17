@@ -17,7 +17,7 @@ const Home = () => {
         <div className="top">
           <div className="top-left">
             <h1 className="top-left-1">SPECTASTYLE</h1>
-            <h6 className="top-left-2">
+            <h6 className="top-left-2-h6" >
               Your one stop Sneaker Shop!
             </h6>
             <h6 className="top-left-2">

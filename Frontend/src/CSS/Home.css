@@ -30,7 +30,7 @@ height: auto;
 
 .top {
   display: flex;
-  margin: 6rem 2rem 2rem 2rem;
+  margin: 6rem 2rem 5rem 2rem;
 }
 
 .top-left {
@@ -42,6 +42,7 @@ height: auto;
   gap: 10px;
 }
 
+
 .top-right {
   width: 50%;
   display: flex;
@@ -51,7 +52,7 @@ height: auto;
 .top-right img {
   filter: drop-shadow(2px 2px 20px var(--color-6));
   animation: glow 1s infinite alternate;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .bottom {
@@ -117,7 +118,9 @@ height: auto;
 }
 
 .top-left-1 {
-  font-size: 6rem;
+  font-size: 6.6rem;
+    letter-spacing: 1px;
+    font-family: 'Inconsolata';
 }
 
 .top-left-2 {
@@ -125,11 +128,26 @@ height: auto;
   font-size: 1.5rem;
   text-align: center;
   width: 80%;
+  letter-spacing: 1px;
+  line-height: 2rem;
+  font-weight: 300;
+}
+.top-left-2-h6{
+  font-family: var(--font-rubik);
+  font-size: 1.5rem;
+  text-align: center;
+  width: 80%;
+  letter-spacing: 1px;
+  line-height: 2rem;
+  font-weight: 300;
+  font-weight: 500;
+  font-size: 1.8em;
 }
 
 @media (max-width: 900px) {
   .top {
     flex-direction: column;
+    margin-bottom: 2rem;
   }
   .down-arrow{
     position: relative;
@@ -147,7 +165,7 @@ height: auto;
   }
 
   .top-left-1 {
-    font-size: 3rem; /* Further reduced font size */
+    font-size: 4rem; /* Further reduced font size */
   }
 
   .top-left-2 {
@@ -161,8 +179,16 @@ height: auto;
   }
 
   .top-right img {
-    width: 70%; /* Adjust the width of the image as needed */
+    width:64%; /* Adjust the width of the image as needed */
     max-width: 300px; /* Limit the maximum width of the image */
     margin-top: 2rem; /* Add some space between the image and text */
+  }
+
+  .top-left-2-h6 {
+    font-size: 1.4em;
+  }
+  .top-left-2 {
+    font-size: 1.2em;
+    line-height: 1.5rem;
   }
 }
