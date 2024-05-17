@@ -114,46 +114,50 @@ const Cart = () => {
         <>
           {cartItems.map((item) => (
             <div key={item._id} className="outer-product-container">
-              <div className="image-product">
-                <img
-                  src={item.product.productImage}
-                  alt={item.product.productName}
-                />
+              <div className="outer-product-container-block">
+                <div className="image-product">
+                  <img
+                    src={item.product.productImage}
+                    alt={item.product.productName}
+                  />
+                </div>
+                <div className="detail-product">
+                  <h4>Name: {item.product.productName}</h4>
+                  <h5>Price: Rs. {item.product.productPrice}</h5>
+                  <input
+                    type="button"
+                    value="Remove"
+                    onClick={() => removeProductFromCart(item.product._id)}
+                  />
+                </div>
               </div>
-              <div className="detail-product">
-                <h4>Name: {item.product.productName}</h4>
-                <h5>Price: Rs. {item.product.productPrice}</h5>
-                <input
-                  type="button"
-                  value="Remove"
-                  onClick={() => removeProductFromCart(item.product._id)}
-                />
-              </div>
-              <div className="increase-product">
-                <RemoveIcon
-                  style={{
-                    border: "1px solid var(--color-6)",
-                    fontSize: "35px",
-                    cursor: "pointer",
-                    
-                  }}
-                  onClick={() => handleDecrementQuantity(item._id)}
-                />
-                <h3>{itemQuantities[item._id] || 1}</h3>
-                <AddIcon
-                  style={{
-                    border: "1px solid var(--color-6)",
-                    fontSize: "35px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => handleIncrementQuantity(item._id)}
-                />
-              </div>
-              <div className="product-price-cart">
-                <h1>
-                  Rs.{" "}
-                  {item.product.productPrice * (itemQuantities[item._id] || 1)}
-                </h1>
+              <div className="product-container-block">
+                <div className="increase-product">
+                  <RemoveIcon
+                    style={{
+                      border: "1px solid var(--color-6)",
+                      fontSize: "35px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleDecrementQuantity(item._id)}
+                  />
+                  <h3>{itemQuantities[item._id] || 1}</h3>
+                  <AddIcon
+                    style={{
+                      border: "1px solid var(--color-6)",
+                      fontSize: "35px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleIncrementQuantity(item._id)}
+                  />
+                </div>
+                <div className="product-price-cart">
+                  <h1>
+                    Rs.{" "}
+                    {item.product.productPrice *
+                      (itemQuantities[item._id] || 1)}
+                  </h1>
+                </div>
               </div>
             </div>
           ))}
