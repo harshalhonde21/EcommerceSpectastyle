@@ -96,6 +96,8 @@ const Product = () => {
             <h2 className="product-name">{product.productName}</h2>
             <h5 className="product-price">Rs. {product.productPrice}</h5>
             <h4 className="product-status">{product.status === "In Status" ? "In Stock" : product.status}</h4>
+            
+              <br />
           </div>
         ))}
       </div>

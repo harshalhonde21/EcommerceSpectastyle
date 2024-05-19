@@ -17,8 +17,35 @@ const Cart = () => {
     const itemQuantity = itemQuantities[item._id] || 1;
     return total + item.product.productPrice * itemQuantity;
   }, 0);
+  
+  // useEffect(() => {
+  //   const userData = JSON.parse(localStorage.getItem("userData"));
+  //   const userId = userData ? userData._id : null;
 
-  useEffect(() => {
+  //   if (!userId) {
+  //     console.error("User ID not found in localStorage.");
+  //     return;
+  //   }
+
+  //   const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}`;
+
+  //   axios
+  //     .get(apiUrl)
+  //     .then((response) => {
+  //       const shoppingCart = response.data.shoppingCart;
+  //       setCartItems(shoppingCart);
+
+  //       const initialQuantities = {};
+  //       shoppingCart.forEach((item) => {
+  //         initialQuantities[item._id] = item.quantity;
+  //       });
+  //       setItemQuantities(initialQuantities);
+  //     })
+  //     .catch((error) => {
+  //       setError(error);
+  //     });
+  // }, []);
+  const fetchCartItems = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
 
@@ -44,6 +71,10 @@ const Cart = () => {
       .catch((error) => {
         setError(error);
       });
+  };
+
+  useEffect(() => {
+    fetchCartItems();
   }, []);
 
   const removeProductFromCart = (itemId) => {
@@ -60,7 +91,7 @@ const Cart = () => {
     axios
       .delete(apiUrl)
       .then(() => {
-        toast("Item Removed success!", {
+        toast("Item Removed successfully!", {
           icon: "😞",
           style: {
             borderRadius: "rgb(189, 224, 254)",
@@ -68,11 +99,16 @@ const Cart = () => {
             color: "rgb(255, 210, 255)",
           },
         });
-      //   navigate("/cart");
+        // navigate("/cart");
       // })
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000); // Wait 1 seconds before refreshing to let the user see the toast message
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 1000); // Wait 1 seconds before refreshing to let the user see the toast message
+      // window.location.reload();
+      setCartItems((prevCartItems) =>
+        prevCartItems.filter((item) => item._id !== itemId)
+      );
+      fetchCartItems();
     })
       .catch((error) => {
         setError(error);
