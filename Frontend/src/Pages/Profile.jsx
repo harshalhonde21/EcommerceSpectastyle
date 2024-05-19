@@ -5,6 +5,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
+import { FormLoader } from "../Components/Loader";
 
 // components
 import toast from 'react-hot-toast';
@@ -14,6 +15,8 @@ import { useCart } from "../Components/CartContext";
 import ".././CSS/Profile.css";
 
 const Profile = () => {
+  // a simple usestate to handle loading state. initially set to off.
+  const [isLoading, setLoading] = useState(false)
   const [isLogin, setIsLogin] = useState(true);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [error, setError] = useState(null);
@@ -56,6 +59,8 @@ const Profile = () => {
     if (!email || !password) {
       setError("Please fill in all fields.");
     } else {
+      // when user submits the login form, loading state is activated
+      setLoading(true)
       try {
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/login",
@@ -95,6 +100,9 @@ const Profile = () => {
         }
       } catch (error) {
         setError("An error occurred while logging in.");
+        // user `finally` to finally toggle the loading state to off, no matter the request is a success or error.
+      } finally {
+        setLoading(false)
       }
     }
   };
@@ -111,6 +119,8 @@ const Profile = () => {
     if (!email || !username || !password || !fileInput) {
       setError("Please fill in all fields.");
     } else {
+      // when user submits the login form, loading state is activated
+      setLoading(true)
       try {
         const response = await fetch(
           "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
@@ -150,6 +160,9 @@ const Profile = () => {
         }
       } catch (error) {
         setError("An error occurred while signing up.");
+        // user `finally` to finally toggle the loading state to off, no matter the request is a success or error.
+      } finally {
+        setLoading(false)
       }
     }
   };
@@ -201,7 +214,9 @@ const Profile = () => {
                       />
                     )}
                   </div>
-                  <button  type="submit">Login</button>
+                  <button type="submit" disabled={isLoading}>
+                    {isLoading? <FormLoader/>:"Login"}
+                  </button>
 
                 </form>
               ) : (
@@ -255,11 +270,15 @@ const Profile = () => {
                       />
                     </label>
                   </div>
-                  <button type="submit">Signup</button>
+                  {/* same loading state for the signup form */}
+                  <button type="submit" disabled={isLoading}>
+                    {isLoading?<FormLoader/>:"Signup"}
+                  </button>
                 </form>
               )}
               <div className="toggle-btn">
-                <button onClick={toggleLoginSignup}>
+                {/* also disable changing the form to another mode while processing request */}
+                <button onClick={toggleLoginSignup} disabled={isLoading}>
                   {isLogin
                     ? "Don't have an account? Signup"
                     : "Already have an account? Login"}
