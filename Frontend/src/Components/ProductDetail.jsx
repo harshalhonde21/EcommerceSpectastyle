@@ -6,6 +6,7 @@ import { useCart } from "./CartContext";
 import ErrorComponent from "../Components/Error";
 import toast from "react-hot-toast";
 import AddReview from "./AddReview";
+import prodDefault from "../../public/prodDefault.jpg"
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
@@ -15,6 +16,7 @@ const ProductDetail = ({ productId, onClose }) => {
   const [error, setError] = useState(null);
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const [imgSrc, setImageSrc] = useState()
 
   const userName =
     (localStorage.getItem("userData") &&
@@ -35,6 +37,7 @@ const ProductDetail = ({ productId, onClose }) => {
       )
       .then((response) => {
         const productData = response.data;
+        setImageSrc(productData.productImage);
         productData.quantity = 1;
         setProduct(productData);
         setReviews(productData.reviews);
@@ -84,8 +87,9 @@ const ProductDetail = ({ productId, onClose }) => {
           <>
             <div className="product-detail-left">
               <img
-                src={product.productImage}
+                src={imgSrc}
                 alt={product.productName}
+                onError={()=>{setImageSrc(prodDefault)}}
                 className="product-detail-image"
               />
               <div className="product-detail-reviews">
