@@ -77,7 +77,6 @@ const ProductDetail = ({ productId, onClose }) => {
   };
 
   return (
-    <div className="product-detail-layer">
       <div className="product-detail-container">
         {error ? <ErrorComponent message={error} onClose={clearError} /> : null}
 
@@ -92,32 +91,33 @@ const ProductDetail = ({ productId, onClose }) => {
               <div className="product-detail-reviews">
                 {reviews.slice(0, 2).map((review) => (
                   <div key={review._id} className="product-review-card">
-                    <h3 className="customer-name">{userName}</h3>
-                    <h5 className="rating">{review.text}</h5>
+                    <div className="customer-name">{userName}</div>
+                    <div className="rating">{review.text}</div>
                   </div>
                 ))}
               </div>
             </div>
             <div className="product-detail-right">
-              <h2 className="product-detail-name">
-                Name: {product.productName}
-              </h2>
-              <h3 className="product-detail-id">Product ID: {product._id}</h3>
-              <h5 className="product-detail-price">
-                Price: Rs. {product.productPrice}
-              </h5>
-              <h3 className="product-detail-description">
-                Description: {product.productDescription}
-              </h3>
-              <h3 className="product-detail-status">
-                Status: {product.status}
-              </h3>
-              <h3 className="product-detail-status">
-                Category: {product.category}
-              </h3>
-              <h3 className="product-date-status">
-                Date: {product.publishDate}
-              </h3>
+              <div className="product-detail-name">
+                {product.productName}
+              </div>
+              <div className="product-detail-id">Product ID: {product._id}</div>
+              <div className="product-detail-price">
+                ₹{product.productPrice}
+              </div>
+              <div className="product-detail-description">
+                <span>About this item:</span>
+                 {product.productDescription} 
+              </div>
+              <div className="product-detail-status">
+                <span>Status:</span>{product.status}
+              </div>
+              <div className="product-detail-status">
+                <span>Category:</span>{product.category}
+              </div>
+              <div className="product-date-status">
+                <span>Date:</span>{product.publishDate}
+              </div>
               <button
                 className="product-detail-add-to-cart"
                 onClick={handleAddToCart}
@@ -154,7 +154,6 @@ const ProductDetail = ({ productId, onClose }) => {
           <p>Loading product details...</p>
         )}
       </div>
-    </div>
   );
 };
 
