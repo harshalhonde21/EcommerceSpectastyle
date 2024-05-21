@@ -1,104 +1,123 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
 
 :root {
-  --color-1: rgb(205, 180, 219);
-  --color-2: rgb(255, 200, 221);
-  --color-3: rgba(255, 175, 204, 50%);
-  --color-4: rgb(189, 224, 254);
-  --color-5: rgb(255, 210, 255);
-  --color-6: rgb(70, 11, 70);
+	--color-1: rgb(205, 180, 219);
+	--color-2: rgb(255, 200, 221);
+	--color-3: rgba(255, 175, 204, 50%);
+	--color-4: rgb(189, 224, 254);
+	--color-5: rgb(255, 210, 255);
+	--color-6: rgb(70, 11, 70);
 
-  /* font family */
+	/* font family */
 
-  --font-1: "Bebas Neue", sans-serif;
-  --font-2: "Croissant One", cursive;
-  --font-inconsolata: "Inconsolata", monospace;
-  --font-rubik: "Rubik", sans-serif;
+	--font-1: "Bebas Neue", sans-serif;
+	--font-2: "Croissant One", cursive;
+	--font-inconsolata: "Inconsolata", monospace;
+	--font-rubik: "Rubik", sans-serif;
 }
 
 /* Footer.css */
 .footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 120px;
-  background-color: var(--color-1);
-  color: var(--color-6);
-  padding: 5rem 3rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 120px;
+	background-color: var(--color-1);
+	color: var(--color-6);
+	padding: 5rem 3rem;
 }
 
 .section {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 z {
-  font-family: var(--font-rubik);
-  font-size: 1rem;
+	font-family: var(--font-rubik);
+	font-size: 1rem;
 }
 
 .section h2 {
-  font-family: var(--font-1);
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+	font-family: var(--font-1);
+	font-size: 1.5rem;
+	margin-bottom: 10px;
 }
 
 .section ul li {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .email-signup {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .email-signup input[type="email"] {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
 }
 
 .email-signup button {
-  background-color: var(--color-1);
-  color: var(--color-6);
-  padding: 10px;
-  cursor: pointer;
-  border: 2px solid var(--color-6);
-  transition: 0.3s ease;
+	background-color: var(--color-1);
+	color: var(--color-6);
+	padding: 10px;
+	cursor: pointer;
+	border: 2px solid var(--color-6);
+	transition: 0.3s ease;
 }
 
 .email-signup button:hover {
-  background-color: var(--color-3);
+	background-color: var(--color-3);
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 ul li {
-  margin-bottom: 5px;
-  font-family: var(--font-rubik);
-  font-size: 1rem;
+	margin-bottom: 15px;
+	font-family: var(--font-rubik);
+	font-size: 1rem;
+}
+ul li:hover {
+	font-size: 1.1rem; /* Increase the font size on hover */
+	color: rgba(23, 3, 23, 0.948); /* Darken the text color on hover */
+	transition: all 0.2s ease-in-out; /* Smooth transition for scaling and color change */
+	animation-delay: 0.2s; /* Delay before the animation starts */
 }
 
 .social-icons {
-  display: flex;
-  gap: 10px;
-  font-size: 1.5rem;
-  margin-top: 10px;
+	display: flex;
+	gap: 10px;
+	font-size: 1.5rem;
+	margin-top: 10px;
 }
 
 .social-icons svg {
-  color: var(--color-6);
-  cursor: pointer;
+	color: var(--color-6);
+	cursor: pointer;
 }
 
 .social-icons svg:hover {
-  color: rgb(255, 0, 251);
+	transform: scale(1.2); /* Increase the size of the icon */
+	transition: all 0.2s ease-in-out; /* Smooth transition for scaling and color change */
+	animation-delay: 0.2s; /* Delay before the animation starts */
 }
 
 @media (max-width: 768px) {
-  .footer {
-    gap: 50px;
-  }
+	.footer {
+		gap: 50px;
+	}
+}
+
+.contact-info {
+	cursor: pointer; /* Ensure the cursor indicates interactivity */
+	margin-bottom: 15px; /* Adds a 15px gap below each element */
+}
+
+.contact-info:hover {
+	transform: scale(1.05); /* Increase the size of the icon */
+	transition: all 0.2s ease-in-out; /* Smooth transition for scaling and color change */
+	animation-delay: 0.2s; /* Delay before the animation starts */
 }

@@ -1,206 +1,213 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
-  --color-1: rgb(205, 180, 219);
-  --color-2: rgb(255, 200, 221);
-  --color-3: rgb(255, 175, 204);
-  --color-4: rgb(189, 224, 254);
-  --color-5: rgb(255, 210, 255);
-  --color-6: rgb(70, 11, 70);
+	--color-1: rgb(205, 180, 219);
+	--color-2: rgb(255, 200, 221);
+	--color-3: rgb(255, 175, 204);
+	--color-4: rgb(189, 224, 254);
+	--color-5: rgb(255, 210, 255);
+	--color-6: rgb(70, 11, 70);
 
-  /* font family */
+	/* font family */
 
-  --font-1: "Bebas Neue", sans-serif;
-  --font-2: "Croissant One", cursive;
-  --font-inconsolata: "Inconsolata", monospace;
-  --font-rubik: "Rubik", sans-serif;
+	--font-1: "Bebas Neue", sans-serif;
+	--font-2: "Croissant One", cursive;
+	--font-inconsolata: "Inconsolata", monospace;
+	--font-rubik: "Rubik", sans-serif;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .main-component {
-  position: fixed;
-  width: 100%;
-  height: 6rem;
-  display: flex;
-  gap: 25rem;
-  
-  justify-content: center;
-  z-index: 999;
-  background-color: rgba(194, 139, 187, 0.5);
-  backdrop-filter: blur(10px);
+	position: fixed;
+	width: 100%;
+	height: 6rem;
+	display: flex;
+	gap: 25rem;
+
+	justify-content: center;
+	z-index: 999;
+	background-color: rgba(194, 139, 187, 0.5);
+	backdrop-filter: blur(10px);
 }
 
 .logo {
-  padding: 2px;
-  /* margin-left:5rem; */
+	padding: 2px;
+	/* margin-left:5rem; */
 }
 
 .head-main {
-  display: flex;
-  cursor: pointer;
+	display: flex;
+	cursor: pointer;
 }
 
 .head-main h3 {
-  position: relative;
-  top: -0.5rem;
-  margin-left: 3rem;
-  font-family: var(--font-1);
-  font-size: 2.5rem;
-  color: var(--color-6);
-  font-weight: 700;
-  text-shadow: 1px 1px 1px #919191;
-  transition: 0.5s ease-in;
+	position: relative;
+	top: -0.5rem;
+	margin-left: 3rem;
+	font-family: var(--font-1);
+	font-size: 2.5rem;
+	color: var(--color-6);
+	font-weight: 700;
+	text-shadow: 1px 1px 1px #919191;
+	transition: 0.5s ease-in;
 }
 
 .head-main h3:hover {
-  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+	text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 span {
-  margin-left: 1rem;
-  font-size: 2rem;
-  position: relative;
-  top: -1rem;
+	margin-left: 1rem;
+	font-size: 2rem;
+	position: relative;
+	top: -1rem;
 }
 
 .routes ul {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2.2rem;
+	display: flex;
+	gap: 2rem;
+	margin-top: 2.2rem;
 }
 
 .routes ul li {
-  list-style: none;
-  font-family: var(--font-rubik);
-  font-weight: 500;
-  cursor: pointer;
-  color: #460b46;
-  font-size: 20px;
-  position: relative;
+	list-style: none;
+	font-family: var(--font-rubik);
+	font-weight: 500;
+	cursor: pointer;
+	color: #460b46;
+	font-size: 20px;
+	position: relative;
 }
 
 .routes ul li:hover::after {
-  width: 100%;
-  left: 0;
+	width: 100%;
+	left: 0;
 }
 
 #nav-hov::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2.5px;
-  bottom: 1px;
-  left: 50%;
-  top: 3.5rem !important;
-  background-color: #460b46;
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 2.5px;
+	bottom: 1px;
+	left: 50%;
+	top: 3.5rem !important;
+	background-color: #460b46;
+	transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
 #nav-hov:hover::after {
-  width: 100%;
-  left: 0;
+	width: 100%;
+	left: 0;
 }
 
 .button {
-  display: none;
+	display: none;
 }
 
 @media screen and (max-width: 1000px) {
-  span {
-    font-size: 1.5rem;
-  }
+	span {
+		font-size: 1.5rem;
+	}
 
-  .routes ul {
-    display: none;
-  }
-  .main-component{
-    justify-content: unset;
-  }
-  .logo {
-    padding: 5px;
-}
-  .button {
-    position: absolute;
-    display: flex;
-    right: 1rem;
-    top: 2rem;
-  }
+	.routes ul {
+		display: none;
+	}
+	.main-component {
+		justify-content: unset;
+	}
+	.logo {
+		padding: 5px;
+	}
+	.button {
+		position: absolute;
+		display: flex;
+		right: 1rem;
+		top: 2rem;
+	}
 
-  .menu-open {
-    background-color: rgba(194, 139, 187, 0.5);
-    backdrop-filter: blur(10px);
-    height: 100vh;
-    width: 15rem;
-    position: fixed;
-    top: 0;
-    left: -15rem;
-    transition: left 0.5s ease;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: slideInLeft 0.5s ease;
-  }
+	.menu-open {
+		background-color: rgba(194, 139, 187, 0.5);
+		backdrop-filter: blur(10px);
+		height: 100vh;
+		width: 15rem;
+		position: fixed;
+		top: 0;
+		left: -15rem;
+		transition: left 0.5s ease;
+		z-index: 999;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		animation: slideInLeft 0.5s ease;
+	}
 
-  @keyframes slideInLeft {
-    from {
-      left: -15rem;
-    }
-    to {
-      left: 0;
-    }
-  }
+	@keyframes slideInLeft {
+		from {
+			left: -15rem;
+		}
+		to {
+			left: 0;
+		}
+	}
 
-  .menu-open.show {
-    left: 0;
-  }
+	.menu-open.show {
+		left: 0;
+	}
 
-  .menu-open .navbar_list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
+	.menu-open .navbar_list {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		text-align: center;
+	}
 
-  .menu-open .navbar_list li {
-    position: relative;
-    top: -20rem;
-    font-size: 2rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
+	.menu-open .navbar_list li {
+		position: relative;
+		top: -20rem;
+		font-size: 2rem;
+		cursor: pointer;
+		text-decoration: none;
+	}
 
-  .menu-open .navbar_list li:hover {
-    /* border: 2px solid black; */
-    animation: navbar-animate ease-in-out both 0.4s;
-  }
+	.menu-open .navbar_list li:hover {
+		/* border: 2px solid black; */
+		animation: navbar-animate ease-in-out both 0.4s;
+	}
 
-  @keyframes navbar-animate {
-    from {
-      position: relative;
-      font-size: 2rem;
-    }
-    to {
-      position: relative;
-      font-size: 2.5rem;
-    }
-  }
+	@keyframes navbar-animate {
+		from {
+			position: relative;
+			font-size: 2rem;
+		}
+		to {
+			position: relative;
+			font-size: 2.5rem;
+		}
+	}
 
-  .btn {
-    position: relative;
-    top: -1rem;
-    left: -2rem;
-  }
+	.btn {
+		position: relative;
 
-  .btn1 {
-    position: relative;
-    top: -2rem;
-    left: 0.5rem;
-  }
+		top: -1rem;
+		left: -2rem;
+	}
+
+	.btn:hover {
+		transform: scale(
+			1.1
+		); /* Increase the size of the icon by 10% on hover */
+	}
+
+	.btn1 {
+		position: relative;
+		top: -2rem;
+		left: 0.5rem;
+	}
 }
