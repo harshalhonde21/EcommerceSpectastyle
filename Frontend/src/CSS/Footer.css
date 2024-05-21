@@ -90,6 +90,7 @@ ul li {
 
 .social-icons svg {
   color: var(--color-6);
+  transition: color 0.3s ease;
   cursor: pointer;
 }
 
@@ -101,4 +102,25 @@ ul li {
   .footer {
     gap: 50px;
   }
+}
+
+.section li {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.section li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.section li:hover::after {
+  width: 100%;
 }

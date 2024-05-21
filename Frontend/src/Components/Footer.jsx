@@ -32,11 +32,11 @@ const Footer = () => {
             <li>Services</li>
             <li onClick={()=>navigate('/contact')}>Get In Touch</li>
             <div className="social-icons">
-              <Facebook />
-              <Twitter />
-              <Instagram />
-              <LinkedIn />
-            </div>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><Facebook /></a>
+            <a href="https://x.com/harshal_honde21" target="_blank" rel="noopener noreferrer"><Twitter /></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><Instagram /></a>
+            <a href="https://www.linkedin.com/in/harshalhonde/" target="_blank" rel="noopener noreferrer"><LinkedIn /></a>
+          </div>
           </ul>
         </div>
 
