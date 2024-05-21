@@ -32,7 +32,7 @@ const Navbar = () => {
               <br />
               <span>Shop With Us</span>
             </h3> */}
-            <img src={logo} alt="LOGO" className="logo"  />
+            <img src={logo} alt="LOGO" className="logo "  />
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>

@@ -35,9 +35,9 @@
   backdrop-filter: blur(10px);
 }
 
-.logo {
+.logo{
   padding: 2px;
-  /* margin-left:5rem; */
+ font-size: 2rem;
 }
 
 .head-main {
@@ -114,7 +114,11 @@ span {
   span {
     font-size: 1.5rem;
   }
-
+  .logo {
+    margin-top: 13rem;
+    margin-right: 1rem;
+   width: 13rem;
+  }
   .routes ul {
     display: none;
   }
@@ -142,6 +146,7 @@ span {
     transition: left 0.5s ease;
     z-index: 999;
     display: flex;
+    
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -204,3 +209,11 @@ span {
     left: 0.5rem;
   }
 }
+@media (max-width: 768px) {
+  .logo {
+    margin-top: 13rem;
+    margin-right: 1rem;
+   width: 13rem;
+  }
+}
+
