@@ -18,34 +18,7 @@ const Cart = () => {
     return total + item.product.productPrice * itemQuantity;
   }, 0);
   
-  // useEffect(() => {
-  //   const userData = JSON.parse(localStorage.getItem("userData"));
-  //   const userId = userData ? userData._id : null;
-
-  //   if (!userId) {
-  //     console.error("User ID not found in localStorage.");
-  //     return;
-  //   }
-
-  //   const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}`;
-
-  //   axios
-  //     .get(apiUrl)
-  //     .then((response) => {
-  //       const shoppingCart = response.data.shoppingCart;
-  //       setCartItems(shoppingCart);
-
-  //       const initialQuantities = {};
-  //       shoppingCart.forEach((item) => {
-  //         initialQuantities[item._id] = item.quantity;
-  //       });
-  //       setItemQuantities(initialQuantities);
-  //     })
-  //     .catch((error) => {
-  //       setError(error);
-  //     });
-  // }, []);
-  const fetchCartItems = () => {
+    const fetchCartItems = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
 
