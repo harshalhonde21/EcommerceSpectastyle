@@ -6,6 +6,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import VisitCount from "./VisitCount";
+import logo from "../../public/WebLogo.png";
 
 
 const Navbar = () => {
@@ -26,11 +27,12 @@ const Navbar = () => {
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-            <h3 style={{ marginTop: "1rem" }}>
+            {/* <h3 style={{ marginTop: "1rem" }}>
               SPECTASTYLE
               <br />
               <span>Shop With Us</span>
-            </h3>
+            </h3> */}
+            <img src={logo} alt="LOGO" className="logo"  />
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>
