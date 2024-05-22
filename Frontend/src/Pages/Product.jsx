@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
+import Fuse from "fuse.js";
 import "../CSS/Product.css";
 import Loader from "../Components/Loader";
 import ProductDetail from "../Components/ProductDetail";
@@ -42,15 +43,28 @@ const Product = () => {
   };
 
   const filterProducts = () => {
-    return products.filter((product) => {
-      return (
-        (product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.productPrice.toString().includes(searchText))&&
-        (selectedCategory=='' || product.category.toLowerCase()===selectedCategory.toLocaleLowerCase())
-      );
+    if (searchText.trim() === '') {
+    
+      return products.filter((product) => (
+        selectedCategory === '' || product.category.toLowerCase() === selectedCategory.toLowerCase()
+      ));
+    }
+  
+    const fuse = new Fuse(products, {
+      keys: ["productName", "category", "productPrice"],
+      includeScore: true,
+      threshold: 0.4, // Adjust this value for desired search sensitivity
     });
+  
+    const result = fuse.search(searchText);
+    const filteredProducts = result.map((item) => item.item);
+    
+    return filteredProducts.filter((product) => (
+      selectedCategory === '' || product.category.toLowerCase() === selectedCategory.toLowerCase()
+    ));
   };
+  
+  
 
   // Get unique categories using Set
   const uniqueCategories = [...new Set(products.map((product) => product.category))]; 
