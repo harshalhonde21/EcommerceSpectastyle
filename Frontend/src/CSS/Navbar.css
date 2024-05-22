@@ -28,7 +28,6 @@
   height: 6rem;
   display: flex;
   gap: 25rem;
-  
   justify-content: center;
   z-index: 999;
   background-color: rgba(194, 139, 187, 0.5);
@@ -76,12 +75,15 @@ span {
 
 .routes ul li {
   list-style: none;
-  font-family: var(--font-rubik);
-  font-weight: 500;
+  /* font-family: var(--font-rubik); */
   cursor: pointer;
   color: #460b46;
-  font-size: 20px;
+  font-size: 30px;
   position: relative;
+  font-optical-sizing: auto;
+  font-family: "Satisfy", cursive;
+  font-style: normal;
+  font-weight: bold;
 }
 
 .routes ul li:hover::after {
