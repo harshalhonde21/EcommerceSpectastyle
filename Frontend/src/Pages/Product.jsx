@@ -43,6 +43,13 @@ const Product = () => {
   };
 
   const filterProducts = () => {
+    if (searchText.trim() === '') {
+    
+      return products.filter((product) => (
+        selectedCategory === '' || product.category.toLowerCase() === selectedCategory.toLowerCase()
+      ));
+    }
+  
     const fuse = new Fuse(products, {
       keys: ["productName", "category", "productPrice"],
       includeScore: true,
@@ -53,9 +60,10 @@ const Product = () => {
     const filteredProducts = result.map((item) => item.item);
     
     return filteredProducts.filter((product) => (
-      selectedCategory === '' || product.category.toLowerCase() === selectedCategory.toLocaleLowerCase()
+      selectedCategory === '' || product.category.toLowerCase() === selectedCategory.toLowerCase()
     ));
   };
+  
   
 
   // Get unique categories using Set
