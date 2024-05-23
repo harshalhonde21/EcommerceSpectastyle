@@ -9,11 +9,14 @@
   --color-6: rgb(70, 11, 70);
 
   /* font family */
-
   --font-1: "Bebas Neue", sans-serif;
   --font-2: "Croissant One", cursive;
   --font-inconsolata: "Inconsolata", monospace;
   --font-rubik: "Rubik", sans-serif;
+
+  /* colors for hover effects */
+  --hover-color: rgba(70, 11, 70, 0.8);
+  --button-hover-bg: rgba(255, 200, 221, 0.2);
 }
 
 * {
@@ -25,53 +28,35 @@
 .main-component {
   position: fixed;
   width: 100%;
-  height: 6rem;
+  height: 4rem;
   display: flex;
-  gap: 25rem;
-  
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
   z-index: 999;
   background-color: rgba(194, 139, 187, 0.5);
   backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.main-component:hover {
+  background-color: rgba(194, 139, 187, 0.7);
 }
 
 .logo {
-  padding: 2px;
-  /* margin-left:5rem; */
-}
-
-.head-main {
-  display: flex;
+  height: 3rem;
   cursor: pointer;
 }
 
-.head-main h3 {
-  position: relative;
-  top: -0.5rem;
-  margin-left: 3rem;
-  font-family: var(--font-1);
-  font-size: 2.5rem;
-  color: var(--color-6);
-  font-weight: 700;
-  text-shadow: 1px 1px 1px #919191;
-  transition: 0.5s ease-in;
-}
-
-.head-main h3:hover {
-  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-span {
-  margin-left: 1rem;
-  font-size: 2rem;
-  position: relative;
-  top: -1rem;
+.routes {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .routes ul {
   display: flex;
   gap: 2rem;
-  margin-top: 2.2rem;
 }
 
 .routes ul li {
@@ -80,7 +65,7 @@ span {
   font-weight: 500;
   cursor: pointer;
   color: #460b46;
-  font-size: 20px;
+  font-size: 1rem;
   position: relative;
 }
 
@@ -88,16 +73,23 @@ span {
   width: 100%;
   left: 0;
 }
+.routes ul li:hover a {
+  color: var(--hover-color);
+  transition: color 0.3s ease-in-out;
+}
 
+.routes ul li a:hover svg {
+  fill: var(--hover-color);
+  transition: fill 0.3s ease-in-out;
+}
 #nav-hov::after {
   content: "";
   position: absolute;
   width: 0;
   height: 2.5px;
-  bottom: 1px;
+  bottom: -0.5rem;
   left: 50%;
-  top: 3.5rem !important;
-  background-color: #460b46;
+  background-color: var(--hover-color);
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
@@ -106,29 +98,40 @@ span {
   left: 0;
 }
 
+#nav-hov:hover {
+  color: var(--hover-color);
+}
+
+.btn, .btn1 {
+  font-size: 1.5rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.btn:hover, .btn1:hover {
+  color: var(--hover-color);
+}
+
 .button {
   display: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--button-hover-bg);
+  border-radius: 50%;
+  padding: 0.5rem;
 }
 
 @media screen and (max-width: 1000px) {
-  span {
-    font-size: 1.5rem;
-  }
-
   .routes ul {
     display: none;
   }
-  .main-component{
-    justify-content: unset;
-  }
-  .logo {
-    padding: 5px;
-}
+
   .button {
+    display: block;
     position: absolute;
-    display: flex;
     right: 1rem;
-    top: 2rem;
+    top: 1rem;
   }
 
   .menu-open {
@@ -145,16 +148,6 @@ span {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: slideInLeft 0.5s ease;
-  }
-
-  @keyframes slideInLeft {
-    from {
-      left: -15rem;
-    }
-    to {
-      left: 0;
-    }
   }
 
   .menu-open.show {
@@ -169,38 +162,10 @@ span {
   }
 
   .menu-open .navbar_list li {
-    position: relative;
-    top: -20rem;
+    font-size: 1.5rem;
+  }
+
+  .btn, .btn1 {
     font-size: 2rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .menu-open .navbar_list li:hover {
-    /* border: 2px solid black; */
-    animation: navbar-animate ease-in-out both 0.4s;
-  }
-
-  @keyframes navbar-animate {
-    from {
-      position: relative;
-      font-size: 2rem;
-    }
-    to {
-      position: relative;
-      font-size: 2.5rem;
-    }
-  }
-
-  .btn {
-    position: relative;
-    top: -1rem;
-    left: -2rem;
-  }
-
-  .btn1 {
-    position: relative;
-    top: -2rem;
-    left: 0.5rem;
   }
 }
