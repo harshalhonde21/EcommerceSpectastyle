@@ -115,7 +115,7 @@ span {
     font-size: 1.5rem;
   }
   .logo {
-    margin-top: 13rem;
+    margin-top: 15rem;
     margin-right: 1rem;
    width: 13rem;
   }
@@ -211,7 +211,7 @@ span {
 }
 @media (max-width: 768px) {
   .logo {
-    margin-top: 13rem;
+    margin-top: 15rem;
     margin-right: 1rem;
    width: 13rem;
   }
