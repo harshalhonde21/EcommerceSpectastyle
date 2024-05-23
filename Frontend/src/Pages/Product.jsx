@@ -38,7 +38,8 @@ const Product = () => {
     setSelectedProductId(productId);
     setStyle({
       filter:"blur(6px)",
-      pointerEvents:"none"
+      pointerEvents:"none",
+      position:"fixed"
     })
   };
   
