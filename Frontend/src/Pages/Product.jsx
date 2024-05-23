@@ -11,6 +11,7 @@ const Product = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(''); 
+  const [style, setStyle] = useState({})
 
   useEffect(() => {
     axios
@@ -35,10 +36,15 @@ const Product = () => {
       },
     });
     setSelectedProductId(productId);
+    setStyle({
+      filter:"blur(6px)",
+      pointerEvents:"none"
+    })
   };
-
+  
   const closeProductDetail = () => {
     setSelectedProductId(null);
+    setStyle({});
   };
 
   const filterProducts = () => {
@@ -68,7 +74,7 @@ const Product = () => {
   
   return (
 <Fragment>
-  <div className="product-container">
+  <div style={style} className="product-container">
     <h1 className="product-heading">Products</h1>
     <input
       type="text"
@@ -108,7 +114,6 @@ const Product = () => {
     />
   )}
 </Fragment>
-
   );
 };
 
