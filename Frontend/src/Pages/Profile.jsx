@@ -192,7 +192,8 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                      // style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                      style={{ border: "none", borderRadius: "5px" }}
 
                     />
                   </div>
@@ -200,7 +201,7 @@ const Profile = () => {
                     <input type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow: "none", width: "100%", border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                      style={{ border: "none", borderRadius: "5px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -214,7 +215,7 @@ const Profile = () => {
                       />
                     )}
                   </div>
-                  <button type="submit" disabled={isLoading}>
+                  <button type="submit" className="login-btn" disabled={isLoading}>
                     {isLoading? <FormLoader/>:"Login"}
                   </button>
 
@@ -222,12 +223,12 @@ const Profile = () => {
               ) : (
                 <form onSubmit={handleSignupFormSubmit}>
                   <div className="input-group">
-                    <EmailIcon className="icon" />
+                    <EmailIcon className="icon1" />
                     <input
                       type="email"
                       name="email"
                       placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                      // style={{ border: "1px solid var(--color-6)", borderRadius: "10px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -236,7 +237,7 @@ const Profile = () => {
                       type="text"
                       name="username"
                       placeholder="Enter Username"
-                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                      // style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                   </div>
                   <div className="input-group">
@@ -244,7 +245,7 @@ const Profile = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
-                      style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                      // style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "1px solid var(--color-6)", borderRadius: "3px" }}
                     />
                     {isPasswordVisible ? (
                       <RemoveRedEyeIcon
@@ -261,7 +262,7 @@ const Profile = () => {
                       Profile Picture
                       <AttachmentIcon className="icon" style={{ top: "8px" }} />
                       <input
-                        style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                        // style={{ border: "1px solid var(--color-6)", borderRadius: "2px" }}
                         type="file"
                         id="fileInput"
                         className="file-input"
@@ -279,9 +280,15 @@ const Profile = () => {
               <div className="toggle-btn">
                 {/* also disable changing the form to another mode while processing request */}
                 <button onClick={toggleLoginSignup} disabled={isLoading}>
-                  {isLogin
-                    ? "Don't have an account? Signup"
-                    : "Already have an account? Login"}
+                {isLogin ? (
+                  <>
+                    <span className="toggle-text">Don't have an account? </span><span className="toggle-action">Signup</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="toggle-text">Already have an account? </span><span className="toggle-action">Login</span>
+                  </>
+                )}
                 </button>
               </div>
             </div>
