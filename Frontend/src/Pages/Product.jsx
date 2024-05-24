@@ -8,14 +8,22 @@ import toast from "react-hot-toast";
 const Product = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [searchText, setSearchText] = useState(""); 
+  const [searchText, setSearchText] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortByDate, setSortByDate] = useState("");
 
   useEffect(() => {
     axios
       .get("https://ecommerce-backend-0wr7.onrender.com/ecommerce/product")
       .then((response) => {
         setProducts(response.data);
+        const uniqueCategories = Array.from(
+          new Set(response.data.map((product) => product.category))
+        );
+        setCategories(uniqueCategories);
         setLoading(false);
       })
       .catch((error) => {
@@ -41,15 +49,48 @@ const Product = () => {
   };
 
   const filterProducts = () => {
-    return products.filter((product) => {
-      return (
-        product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchText.toLowerCase()) ||
-        product.productPrice.toString().includes(searchText)
+    let filteredProducts = products;
+
+    if (searchText) {
+      filteredProducts = filteredProducts.filter((product) => {
+        return (
+          product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.category.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.productPrice.toString().includes(searchText)
+        );
+      });
+    }
+
+    if (selectedCategory) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.category === selectedCategory
       );
-    });
+    }
+
+    if (sortOrder) {
+      filteredProducts = filteredProducts.sort((a, b) => {
+        if (sortOrder === "price-asc") {
+          return a.productPrice - b.productPrice;
+        } else if (sortOrder === "price-desc") {
+          return b.productPrice - a.productPrice;
+        }
+        return 0;
+      });
+    }
+
+    if (sortByDate) {
+      filteredProducts = filteredProducts.sort((a, b) => {
+        if (sortByDate === "date-asc") {
+          return new Date(a.publishDate) - new Date(b.publishDate);
+        } else if (sortByDate === "date-desc") {
+          return new Date(b.publishDate) - new Date(a.publishDate);
+        }
+        return 0;
+      });
+    }
+
+    return filteredProducts;
   };
-  
 
   return (
     <Fragment>
@@ -61,6 +102,35 @@ const Product = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
+        <div className="filters">
+          <select
+            onChange={(e) => setSortOrder(e.target.value)}
+            value={sortOrder}
+          >
+            <option value="">Sort by Price</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+          <select
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            value={selectedCategory}
+          >
+            <option value="">Filter by Category</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <select
+            onChange={(e) => setSortByDate(e.target.value)}
+            value={sortByDate}
+          >
+            <option value="">Sort by Publish Date</option>
+            <option value="date-asc">Date: Oldest to Newest</option>
+            <option value="date-desc">Date: Newest to Oldest</option>
+          </select>
+        </div>
         {loading ? (
           <Loader />
         ) : (
