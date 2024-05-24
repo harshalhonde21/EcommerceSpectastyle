@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import AttachmentIcon from "@mui/icons-material/Attachment";
@@ -52,10 +52,10 @@ const Profile = () => {
 
   const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
-  
+
     const email = e.target.email.value;
     const password = e.target.password.value;
-  
+
     if (!email || !password) {
       setError("Please fill in all fields.");
     } else {
@@ -63,7 +63,7 @@ const Profile = () => {
       setLoading(true)
       try {
         const response = await fetch(
-          "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/login",
+          "http://localhost:4000/ecommerce/user/login",
           {
             method: "POST",
             headers: {
@@ -75,14 +75,13 @@ const Profile = () => {
             }),
           }
         );
-  
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-  
+
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
-  
+
           setError("success");
           setUserData(data.user);
           toast("You Are Success Login Welcome to Your Profile!", {
@@ -101,12 +100,13 @@ const Profile = () => {
       } catch (error) {
         setError("An error occurred while logging in.");
         // user `finally` to finally toggle the loading state to off, no matter the request is a success or error.
+        console.log("login error", error)
       } finally {
         setLoading(false)
       }
     }
   };
-  
+
 
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
@@ -215,9 +215,11 @@ const Profile = () => {
                     )}
                   </div>
                   <button type="submit" disabled={isLoading}>
-                    {isLoading? <FormLoader/>:"Login"}
+                    {isLoading ? <FormLoader /> : "Login"}
                   </button>
 
+                  {/* navigating to the reset password page */}
+                  <NavLink to="/resetPassword" className="resetPassNavLink">Reset Password</NavLink>
                 </form>
               ) : (
                 <form onSubmit={handleSignupFormSubmit}>
@@ -272,7 +274,7 @@ const Profile = () => {
                   </div>
                   {/* same loading state for the signup form */}
                   <button type="submit" disabled={isLoading}>
-                    {isLoading?<FormLoader/>:"Signup"}
+                    {isLoading ? <FormLoader /> : "Signup"}
                   </button>
                 </form>
               )}

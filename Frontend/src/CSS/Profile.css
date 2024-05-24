@@ -60,7 +60,7 @@ h2 {
 
 .input-group {
   position: relative;
-  
+
 }
 
 .icon {
@@ -92,7 +92,22 @@ button {
 }
 
 button:disabled {
-  opacity:0.5
+  opacity: 0.5
+}
+
+.resetPassNavLink {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: var(--color-6);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-rubik);
+  font-size: 18px;
+  color: var(--color-2);
+  cursor: pointer;
 }
 
 .toggle-btn button {
@@ -112,7 +127,7 @@ button:disabled {
   left: 0;
   opacity: 0;
   cursor: pointer;
-} 
+}
 
 .file-label {
   display: inline-block;
