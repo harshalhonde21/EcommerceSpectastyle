@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import Stripe from "stripe";
 import cors from "cors";
 import dotenv from "dotenv";
+import swaggerUi from 'swagger-ui-express';
 dotenv.config({
   path: "./.env",
 });
@@ -13,6 +14,7 @@ import routerss from "./Routes/dashboard-routes.js";
 import routersss from "./Routes/dashboardagent-routes.js";
 import routerAddress from "./Routes/user-address-routes.js";
 import visitCountRoutes from "./Routes/visit-count-routes.js";
+import { openspispec } from "./openapispec.js";
 
 const app = express();
 const stripe = new Stripe(
@@ -27,6 +29,7 @@ app.use("/ecommerce/manager", routerss);
 app.use("/ecommerce/agent", routersss);
 app.use("/ecommerce/user-address", routerAddress);
 app.use("/visitcount", visitCountRoutes); // added newly
+app.use('/documentation', swaggerUi.serve, swaggerUi.setup(openspispec));
 
 app.post("/checkout", async (req, res) => {
   try {
