@@ -140,7 +140,7 @@ h3 {
   .order-summary{
     flex-direction: column;
     gap:2rem;
-    /* align-items: center; */
+    align-items: center;
   }
 }
 
