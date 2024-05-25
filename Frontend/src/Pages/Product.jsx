@@ -11,6 +11,7 @@ const Product = () => {
   const [categories, setCategories] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [searchText, setSearchText] = useState("");
+
   const [sortOrder, setSortOrder] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortByDate, setSortByDate] = useState("");
@@ -90,6 +91,12 @@ const Product = () => {
     }
 
     return filteredProducts;
+  };
+
+  // Sorting the products on the basis of views
+  const sortMostViewed = () => {
+    const sortedProducts = products.slice().sort((a, b) => b.views - a.views);
+    setProducts(sortedProducts);
   };
 
   return (

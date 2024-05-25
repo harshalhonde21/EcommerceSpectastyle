@@ -1,0 +1,24 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.not-found-container img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    align-self: center; /* Align the image horizontally in its container */
+}
+
+.not-found-container h1 {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 20px; /* Adjust top margin as needed */
+}
+
+.not-found-container p {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 20px; /* Adjust top margin as needed */
+}

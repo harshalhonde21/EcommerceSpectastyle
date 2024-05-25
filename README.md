@@ -4,10 +4,22 @@
 
 <p id="description">It is Full Stack Web Application made in MERN Stack it is End-to-End Encrypted website to order in shoe.</p>
 
+<a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
+
+<h1>✅ Note</h1>
+
+### All the Contributors take the note all join discord server of GSSOC and go to FORUM and project-intro all should join in our project card and if any diffculty then you can ask there.
+
 <h2>🚀 Demo</h2>
 
 [Website](https://spectastyle.vercel.app/)<br />
 [Warehouse](https://spectadash.vercel.app/)
+___
+
+## ✅ Internal Implemenation : MERN + JWT 🔐
+<p align="center">
+<img width="750" alt="app_design" class="center" src="https://github.com/Chitransh-j/EcommerceSpectastyle/assets/135858715/6cfcd6fc-ac14-4402-aeef-b51a442aac71">
+</p>
 
 # 🚀 Don't Forget to Star the Repo 🚀
 
@@ -128,3 +140,10 @@ Technologies used in the project:
 *   Node.js
 *   Mongodb
 *   mongoose
+
+
+<div align=center>
+  <h2>This Project is part of GSSOC24</h2>
+  <img alt="GSSoC" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png#gh-light-mode-only" width=87%>
+  <img alt="GSSoC" src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only"/>
+</div>

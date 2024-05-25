@@ -16,7 +16,10 @@ const ProductDetail = ({ productId, onClose }) => {
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
 
-  const userName = (localStorage.getItem("userData") && JSON.parse(localStorage.getItem("userData")).name) || "Demo";
+  const userName =
+    (localStorage.getItem("userData") &&
+      JSON.parse(localStorage.getItem("userData")).name) ||
+    "Demo";
 
   const userId = localStorage.getItem("userData");
 
@@ -74,75 +77,83 @@ const ProductDetail = ({ productId, onClose }) => {
   };
 
   return (
-    <div className="product-detail-container">
-      {error ? <ErrorComponent message={error} onClose={clearError} /> : null}
+    <div className="product-detail-layer">
+      <div className="product-detail-container">
+        {error ? <ErrorComponent message={error} onClose={clearError} /> : null}
 
-      {product ? (
-        <>
-          <div className="product-detail-left">
-            <img
-              src={product.productImage}
-              alt={product.productName}
-              className="product-detail-image"
-            />
-            <div className="product-detail-reviews">
-              {reviews.map((review) => (
-                <div key={review._id} className="product-review-card">
-                  <h3 className="customer-name">{userName} </h3>
-                  <h5 className="rating">{review.text}</h5>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="product-detail-right">
-            <h2 className="product-detail-name">Name: {product.productName}</h2>
-            <h3 className="product-detail-id">Product ID: {product._id}</h3>
-            <h5 className="product-detail-price">
-              Price: Rs. {product.productPrice}
-            </h5>
-            <h3 className="product-detail-description">
-              Description: {product.productDescription}
-            </h3>
-            <h3 className="product-detail-status">Status: {product.status}</h3>
-            <h3 className="product-detail-status">
-              Category: {product.category}
-            </h3>
-            <h3 className="product-date-status">Date: {product.publishDate}</h3>
-            <button
-              className="product-detail-add-to-cart"
-              onClick={handleAddToCart}
-            >
-              Add to Cart
-            </button>
-            <br />
-            {/* Updated the onClick handler to toggle the modal */}
-            <button
-              className="product-detail-close-button"
-              onClick={() => {
-                if(userId){
-                setShowAddReview(!showAddReview)
-                }else{
-                  setError("First Login to add the review")
-                }
-                }}
-            >
-              Add review
-            </button>
-            <div className="close-button" onClick={onClose}>
-              <div className="cross-line"></div>
-            </div>
-
-            {showAddReview && (
-              <AddReview
-                productId={product._id}
-                onClose={() => setShowAddReview(false)}
+        {product ? (
+          <>
+            <div className="product-detail-left">
+              <img
+                src={product.productImage}
+                alt={product.productName}
+                className="product-detail-image"
               />
-            )}
-          </div>
-        </>
-      ) : (
-        <p>Loading product details...</p>
-      )}
+              <div className="product-detail-reviews">
+                {reviews.slice(0, 2).map((review) => (
+                  <div key={review._id} className="product-review-card">
+                    <h3 className="customer-name">{userName}</h3>
+                    <h5 className="rating">{review.text}</h5>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="product-detail-right">
+              <h2 className="product-detail-name">
+                Name: {product.productName}
+              </h2>
+              <h3 className="product-detail-id">Product ID: {product._id}</h3>
+              <h5 className="product-detail-price">
+                Price: Rs. {product.productPrice}
+              </h5>
+              <h3 className="product-detail-description">
+                Description: {product.productDescription}
+              </h3>
+              <h3 className="product-detail-status">
+                Status: {product.status}
+              </h3>
+              <h3 className="product-detail-status">
+                Category: {product.category}
+              </h3>
+              <h3 className="product-date-status">
+                Date: {product.publishDate}
+              </h3>
+              <button
+                className="product-detail-add-to-cart"
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </button>
+              <br />
+              {/* Updated the onClick handler to toggle the modal */}
+              <button
+                className="product-detail-close-button"
+                onClick={() => {
+                  if (userId) {
+                    setShowAddReview(!showAddReview);
+                  } else {
+                    setError("First Login to add the review");
+                  }
+                }}
+              >
+                Add review
+              </button>
+              <div className="close-button" onClick={onClose}>
+                <div className="cross-line"></div>
+              </div>
+
+              {showAddReview && (
+                <AddReview
+                  productId={product._id}
+                  onClose={() => setShowAddReview(false)}
+                />
+              )}
+            </div>
+          </>
+        ) : (
+          <p>Loading product details...</p>
+        )}
+      </div>
     </div>
   );
 };
