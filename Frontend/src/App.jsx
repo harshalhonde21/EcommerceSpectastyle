@@ -16,6 +16,7 @@ import PlaceOrder from "./Pages/PlaceOrder";
 import ConformOrder from "./Pages/ConformOrder";
 import Success from "./Pages/Success"
 import PageNotFound from "./Pages/404page";
+import ProductDetail from "./Components/ProductDetail";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/productdetail/:productId" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
         <Route path="/contact" element={<Contact />} />

@@ -68,10 +68,10 @@ app.post("/checkout", async (req, res) => {
 });
 
 const port = process.env.PORT || 4000;
-const url = process.env.MONGO_URL;
+// const url = process.env.MONGO_URL;
 
 mongoose
-  .connect(url, {
+  .connect("mongodb+srv://shivhanu:HArkirats1ngh@cluster0.al1a4sv.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

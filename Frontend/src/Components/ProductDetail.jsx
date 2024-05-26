@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
@@ -7,7 +7,8 @@ import ErrorComponent from "../Components/Error";
 import toast from "react-hot-toast";
 import AddReview from "./AddReview";
 
-const ProductDetail = ({ productId, onClose }) => {
+const ProductDetail = ({ onClose }) => {
+  const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const ProductDetail = ({ productId, onClose }) => {
   const [error, setError] = useState(null);
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const [referringPage, setReferringPage] = useState(null);
 
   const userName =
     (localStorage.getItem("userData") &&
@@ -29,6 +31,10 @@ const ProductDetail = ({ productId, onClose }) => {
   };
 
   useEffect(() => {
+    // Save the referring page (either "products" or "cart")
+    const referringPage = localStorage.getItem("referringPage");
+    setReferringPage(referringPage);
+
     axios
       .get(
         `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}`
@@ -74,6 +80,15 @@ const ProductDetail = ({ productId, onClose }) => {
           console.error("Error adding product to cart:", error);
         });
     }
+  };
+
+  const handleClose = () => {
+    if (referringPage === "products") {
+      navigate("/product");
+    } else {
+      navigate("/cart");
+    }
+    onClose();
   };
 
   return (
@@ -125,7 +140,6 @@ const ProductDetail = ({ productId, onClose }) => {
                 Add to Cart
               </button>
               <br />
-              {/* Updated the onClick handler to toggle the modal */}
               <button
                 className="product-detail-close-button"
                 onClick={() => {
@@ -138,7 +152,7 @@ const ProductDetail = ({ productId, onClose }) => {
               >
                 Add review
               </button>
-              <div className="close-button" onClick={onClose}>
+              <div className="close-button" onClick={handleClose}>
                 <div className="cross-line"></div>
               </div>
 

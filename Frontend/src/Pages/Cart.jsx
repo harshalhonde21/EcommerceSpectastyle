@@ -102,6 +102,10 @@ const Cart = () => {
   const navigateToOther = () => {
     navigate("/address-payment-placeOrder", { state: { totalCartValue } });
   };
+  const navigateToProductDetails = (productId) => {
+    localStorage.setItem("referringPage", "cart");
+    navigate(`/productdetail/${productId}`);
+  };
   return (
     <div className="cart-container">
       <h1 className="cart-heading">Cart</h1>
@@ -118,6 +122,9 @@ const Cart = () => {
                 <img
                   src={item.product.productImage}
                   alt={item.product.productName}
+
+                  onClick={() => navigateToProductDetails(item.product._id)}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
               <div className="detail-product">
