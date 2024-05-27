@@ -19,21 +19,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+.main-screen{
+  width: 100%;
+  background: linear-gradient(to right, var(--color-1), var(--color-2));
 
+}
 .homeSecond-container {
-    width: 99.15vw;
-    min-height: 100vh;
+    width: 59.15%;
+    min-height: 40vh;
+    height: 50%;
     position: relative;
-    background: linear-gradient(to right, var(--color-1), var(--color-2));
-    padding: 6rem 3.5rem;
+    padding: 3rem 1.5rem;
     text-align: center;
+    margin: 0 auto; 
   }
-  
+
   .main-heading {
     font-family: var(--font-1);
     font-size: 4rem;
     color: var(--color-6);
-    margin-bottom: 2rem;
   }
   
   .decorative-slider {
