@@ -9,14 +9,13 @@
   --color-6: rgb(70, 11, 70);
 
   /* font family */
-
   --font-1: "Bebas Neue", sans-serif;
   --font-2: "Croissant One", cursive;
   --font-inconsolata: "Inconsolata", monospace;
   --font-rubik: "Rubik", sans-serif;
 }
 
-.home-container{
+.home-container {
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   width: 100%;
   min-height: 100vh;
@@ -24,17 +23,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 3rem; */
-height: auto;
+  height: auto;
 }
 
 .top {
   display: flex;
   margin: 6rem 2rem 5rem 2rem;
+  transform: translateY(-9%);
 }
 
 .top-left {
-  margin-top: 5rem;
+  margin-top: 9rem;
+  margin-left: 4rem;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -42,74 +42,85 @@ height: auto;
   justify-content: center;
   gap: 20px;
 }
+
 .top-left .top-left-1 {
-  font-size: 3.9rem; 
+  font-size: 3.9rem;
   margin-bottom: -15px;
-  text-align: left; 
+  text-align: left;
 }
 
 .top-left .top-left-2-h6 {
   font-size: 1.5rem;
   margin-top: -10px;
-  text-align: left; 
+  text-align: left;
   line-height: 1.2;
 }
 
 .top-left .top-left-2 {
   font-size: 1rem;
-  text-align: left; 
+  text-align: left;
   line-height: 1.7;
 }
 
-.top-right {
+.top-left .btn-container {
+  display: flex;
+  justify-content: flex-start;
   width: 50%;
+  margin-top: 20px;
+}
+
+.top-right {
+  width: 60%;
   display: flex;
   justify-content: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
 }
 
 .top-right img {
   filter: drop-shadow(2px 2px 20px var(--color-6));
   animation: glow 1s infinite alternate;
-  margin-top: 2rem;
+  margin-top: 9rem;
+  margin-left: 8rem;
+  /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+
 }
 
 .bottom {
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  display: none;
 }
 
 .btn-1,
 .btn-2 {
-    font-family: var(--font-rubik);
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    overflow: hidden;
-    color: var(--color-6);
-    background-color: var(--color-2);
-    background: linear-gradient(to bottom, transparent 50%, var(--color-3) 50%), var(--color-2);
-    background-size: 100% 200%;
-    border: 2px solid var(--color-6);
-    transition: all 0.4s ease;
-    user-select: none;
-    margin: 10px;
-    display: flex;
-    font-size: 1vmax;
-    justify-content: center;
-    align-items: center;
+  font-family: var(--font-rubik);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  color: var(--color-6);
+  background-color: var(--color-2);
+  background: linear-gradient(to bottom, transparent 50%, var(--color-3) 50%), var(--color-2);
+  background-size: 100% 200%;
+  border: 2px solid var(--color-6);
+  transition: all 0.4s ease;
+  user-select: none;
+  margin: 10px;
+  display: flex;
+  font-size: 1vmax;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-1:hover,
 .btn-2:hover {
-    background-position: 0% 100%;
-    transform: scale(1.05);
+  background-position: 0% 100%;
+  transform: scale(1.05);
 }
 
-.down-arrow{
+.down-arrow {
   position: relative;
-  /* bottom: 4rem; */
+
 }
 
 #arrow {
@@ -118,11 +129,12 @@ height: auto;
 }
 
 @keyframes smoothUpDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(20px);  
+    transform: translateY(20px);
   }
 }
 
@@ -137,8 +149,8 @@ height: auto;
 
 .top-left-1 {
   font-size: 6.6rem;
-    letter-spacing: 1px;
-    font-family: 'Inconsolata';
+  letter-spacing: 1px;
+  font-family: 'Inconsolata';
 }
 
 .top-left-2 {
@@ -150,14 +162,14 @@ height: auto;
   line-height: 2rem;
   font-weight: 300;
 }
-.top-left-2-h6{
+
+.top-left-2-h6 {
   font-family: var(--font-rubik);
   font-size: 1.5rem;
   text-align: center;
   width: 80%;
   letter-spacing: 1px;
   line-height: 2rem;
-  font-weight: 300;
   font-weight: 500;
   font-size: 1.8em;
 }
@@ -167,7 +179,8 @@ height: auto;
     flex-direction: column;
     margin-bottom: 2rem;
   }
-  .down-arrow{
+
+  .down-arrow {
     position: relative;
     height: 4rem;
   }
@@ -183,12 +196,12 @@ height: auto;
   }
 
   .top-left-1 {
-    font-size: 4rem; 
+    font-size: 4rem;
   }
 
   .top-left-2 {
     font-size: 1.2rem;
-  width: 100%;
+    width: 100%;
   }
 
   .top-right {
@@ -197,14 +210,15 @@ height: auto;
   }
 
   .top-right img {
-    width:64%; 
-    max-width: 300px; 
-    margin-top: 2rem; 
+    width: 64%;
+    max-width: 300px;
+    margin-top: 2rem;
   }
 
   .top-left-2-h6 {
     font-size: 1.4em;
   }
+
   .top-left-2 {
     font-size: 1.2em;
     line-height: 1.5rem;
