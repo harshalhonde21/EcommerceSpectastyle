@@ -23,6 +23,7 @@
   gap: 120px;
   background-color: var(--color-1);
   color: var(--color-6);
+  position: relative;
   padding: 5rem 3rem;
 }
 
@@ -101,4 +102,31 @@ ul li {
   .footer {
     gap: 50px;
   }
+}
+
+#back-to-top-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px; 
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.circle1 {
+  background-color:  rgb(205, 180, 219);;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+#back-to-top {
+  width: 40px; 
+  height: 40px; 
+  fill:  rgb(70, 11, 70);
+  transition: fill 0.3s;
+}
+#back-to-top:hover {
+  fill: hsl(300, 73%, 26%);
 }
