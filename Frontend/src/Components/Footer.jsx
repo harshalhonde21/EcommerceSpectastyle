@@ -48,6 +48,7 @@ const Footer = () => {
             <li onClick={()=>navigate('/about')}>About Us</li>
             <li>Services</li>
             <li onClick={()=>navigate('/contact')}>Get In Touch</li>
+            <li onClick={()=>navigate('/faq')}>FAQ</li>
             <div className="social-icons">
               <Facebook />
               <Twitter />
