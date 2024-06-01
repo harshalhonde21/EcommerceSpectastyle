@@ -6,17 +6,26 @@ import "../CSS/HomeSecond.css";
 const HomeSecond = () => {
     return (
         <Fragment>
-            <div className="homeSecond-container">
-                <h1 className="main-heading">Offers</h1>
-                <div className="decorative-slider">
-                    <Carousel>
-                        <div>
-                            <img src="/poster4.jpg" alt="Poster 1" />
-                        </div>
-                        <div>
-                            <img src="/poster3.jpg" alt="Poster 2" />
-                        </div>
-                    </Carousel>
+            <div className="main-screen">
+                <div className="homeSecond-container">
+                    <h1 className="main-heading">Offers</h1>
+                    <div className="decorative-slider">
+                        <Carousel
+                            showThumbs={false} 
+                            showStatus={false} 
+                            infiniteLoop 
+                            useKeyboardArrows 
+                            autoPlay 
+                            swipeable
+                        >
+                            <div>
+                                <img src="/poster4.jpg" alt="Poster 1" />
+                            </div>
+                            <div>
+                                <img src="/poster3.jpg" alt="Poster 2" />
+                            </div>
+                        </Carousel>
+                    </div>
                 </div>
             </div>
         </Fragment>

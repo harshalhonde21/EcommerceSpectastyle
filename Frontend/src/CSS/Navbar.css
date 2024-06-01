@@ -122,20 +122,22 @@ span {
     justify-content: unset;
   }
   .logo {
+    margin-top: 100%;
     padding: 5px;
 }
   .button {
     position: absolute;
     display: flex;
-    right: 1rem;
+    right: 3rem;
     top: 2rem;
   }
 
   .menu-open {
+    overflow-y: auto;
     background-color: rgba(194, 139, 187, 0.5);
     backdrop-filter: blur(10px);
     height: 100vh;
-    width: 15rem;
+    /* width: 15rem; */
     position: fixed;
     top: 0;
     left: -15rem;
@@ -204,3 +206,10 @@ span {
     left: 0.5rem;
   }
 }
+@media (min-width:320px) and (max-width:421px){
+  .logo{
+    margin-top: 160%;
+    width: 97%;
+  }
+}
+

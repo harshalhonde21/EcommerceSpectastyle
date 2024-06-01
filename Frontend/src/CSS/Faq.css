@@ -1,0 +1,59 @@
+.faq-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: linear-gradient(to left, var(--color-4), var(--color-5));
+}
+
+.faq-heading {
+    margin-top: 3rem;
+    font-size: 38px;
+}
+
+.main-faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+  .main-heading {
+    display: flex;
+    margin-top: 30px;
+    width: 75%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    cursor: pointer;
+    align-items: center;
+    vertical-align: middle;
+    background: linear-gradient(to left, var(--color-4), var(--color-5));
+  }
+  
+  .main-heading h3 {
+    margin-left: 30px;
+    color: #303243;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .main-heading p {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .answers {
+    padding: 30px 20px 40px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(to left,var(--color-5));
+    color: rgb(40, 37, 53);
+    border-radius: 0 0 5px 5px;
+    width: 75%;
+  }
+
+  body.dark .answers {
+    color: rgb(40, 37, 53);
+  }
