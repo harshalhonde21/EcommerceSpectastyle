@@ -1,4 +1,3 @@
-/* about.css */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
 
 :root {
@@ -24,73 +23,62 @@
 .about-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2rem;
   padding: 8rem 1.5rem;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   font-family: var(--font-rubik);
   color: var(--color-6);
 }
 
-.about-specta{
+.section-box {
+  padding: 1.5rem;
+  background-color: var(--color-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to right, #845ec2, #8d69c5, #9775c8, #9f80ca, #a88ccd, #b297d2, #bca3d6, #c6afdb, #d4bde4, #e1ccec, #eedbf6, #fbeaff);
+}
+
+.section-heading {
   margin-bottom: 1rem;
   text-align: left;
-}
-
-.about-specta,
-.goal-specta,
-.delivary,
-.thanksforchoosing {
   font-size: 2rem;
-  left: 3.5rem;
-  text-decoration: underline;
-  padding-top: 1rem;
+ 
 }
 
-p,  
-c,
-d,
-e {
-  font-family: var(--font-rubik);
-  color: var(--color-6);
+.section-content {
   font-size: 1.3rem;
 }
+
 @media (max-width: 768px) {
   .about-container {
     padding: 6rem 1.5rem;
   }
-  
-  .about-specta,
-  .goal-specta,
-  .delivary,
-  .thanksforchoosing {
-      font-size: 1.5rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0rem;
+
+  .section-heading {
+    font-size: 1.5rem;
   }
-  p,
-  d,
-  c,
-  e {
+  
+  .section-content {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .about-container {
-    padding: 6rem 1.5rem;
+    padding: 4rem 1rem;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
   }
   
-  .about-specta,
-  .goal-specta,
-  .delivary,
-  .thanksforchoosing {
-      font-size: 1.5rem;
-      padding-top: 0.5rem 0.2rem;
-  }
-  p,
-  d,
-  c,
-  e {
-    font-size: 0.5rem;
+  .section-content {
+    font-size: 1rem;
   }
 }
