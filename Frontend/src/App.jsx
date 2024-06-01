@@ -16,6 +16,7 @@ import PlaceOrder from "./Pages/PlaceOrder";
 import ConformOrder from "./Pages/ConformOrder";
 import Success from "./Pages/Success"
 import PageNotFound from "./Pages/404page";
+import Faq from './Pages/FAQ';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/address-payment-placeOrder" element={<PlaceOrder />} />
         <Route path="/address-payment-placeOrder/confirmOrder" element={<ConformOrder />} ></Route>
         <Route path="/success" element={<Success />} ></Route>
+        <Route path="/faq" element={<Faq/>}/>
         <Route path="*"  element={<PageNotFound/>} />
       </Routes>
       <Footer />
