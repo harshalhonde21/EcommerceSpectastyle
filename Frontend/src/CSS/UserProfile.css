@@ -18,12 +18,19 @@
 .profile-container {
   display: flex;
   align-items: center;
-  justify-content: center; 
-  flex-direction: column; 
+  justify-content: center;
+  flex-direction: column;
   padding: 20px;
-  min-height: 100vh; 
+  min-height: 100vh;
   background: linear-gradient(to left, var(--color-4), var(--color-5));
-  overflow: hidden; 
+  overflow: hidden;
+}
+
+.profile-image {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-image img {
@@ -33,33 +40,33 @@
   object-fit: cover;
   border: 5px solid var(--color-5);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   margin-top: 100px;
 }
 
 .profile-details {
-  text-align: center; 
+  text-align: center;
 }
 
 .user-info {
-  text-align: center; 
+  text-align: center;
+  margin: 10px;
 }
 
 .userProfile-subheading {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--color-6);
-  margin: 0;
+  margin: 10px;
   font-family: var(--font-rubik);
 }
 
 .userProfile-paragraph {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: var(--color-6);
   font-family: var(--font-rubik);
   position: relative;
-  left: -1rem;
-  top: -5rem;
-  margin-bottom: -5rem;
+  color: var(--color-6);
+  margin: 10px;
 }
 
 .buttons {

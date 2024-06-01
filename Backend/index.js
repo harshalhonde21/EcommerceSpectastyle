@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import Stripe from "stripe";
 import cors from "cors";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 dotenv.config({
   path: "./.env",
 });
@@ -18,6 +19,11 @@ const app = express();
 const stripe = new Stripe(
   "sk_test_51O96wfSH8i1UqUchc81vmn8Mka2bbbMrCW2vZKLEvGRTZDqWx2KlxkbLzdQnAJ0ipNA1UtO9Y83vX4x7KXjz5E4Z00JxrbAflY"
 );
+
+
+//incresing limit to store image in database
+app.use(bodyParser.json({ limit: '10mb' })); 
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true })); 
 
 app.use(cors());
 app.use(express.json());
