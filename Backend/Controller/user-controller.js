@@ -64,7 +64,6 @@
         name: user.name,
         email: user.email,
         profileImg: user.profileImg, 
-        _id: user._id
       } }); 
   
     } catch (error) {
