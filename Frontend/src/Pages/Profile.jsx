@@ -29,9 +29,9 @@ const Profile = () => {
 
   //the backendUrl is suppose to be in .env file and that's how you can use it from .env file
 
-  // const backendUrl = import.meta.env.REACT_APP_backendUrl || "http://localhost:8000/";
+  const backendUrl = import.meta.env.REACT_APP_backendUrl || "http://localhost:5500/";
 
-  const backendUrl = "https://ecommerce-backend-0wr7.onrender.com/";
+  // const backendUrl = "https://ecommerce-backend-0wr7.onrender.com/";
 
   const [file, setFile] = useState(null);
 
@@ -117,19 +117,22 @@ const Profile = () => {
     }
   };
 
-  //signup
+  //signup with email validation
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
-
+  
     const email = e.target.email.value;
     const username = e.target.username.value;
     const password = e.target.password.value;
-
+  
     if (!email || !username || !password || !file) {
       setError("Please fill in all fields.");
+    } else if (!email.endsWith("@gmail.com")) {
+      // Check if email ends with @gmail.com
+      setError("Email must be a Gmail address.");
     } else {
       // when user submits the login form, loading state is activated
-      setLoading(true)
+      setLoading(true);
       try {
         const response = await fetch(
           `${backendUrl}ecommerce/user/signup`,
@@ -146,43 +149,40 @@ const Profile = () => {
             }),
           }
         );
-
+  
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-
-
+  
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
-
+  
           setError("success");
-          toast("You Are Success Signup Saved Me In Your Mind Welcome to Your Profile!", {
+          toast("You Are Successfully Signed Up! Welcome to Your Profile!", {
             icon: "😁",
             style: {
-              borderRadius: "r0b(189, 224, 254)",
+              borderRadius: "10px",
               background: "rgb(70, 11, 70)",
               color: "rgb(255, 210, 255)",
             },
           });
-
-          //moving to login page after registering 
+  
+          // moving to login page after registering 
           setIsLogin(!isLogin);
-        }
-        else {
+        } else {
           const errorData = await response.json();
           setError(errorData.message || "Signup failed. Please check your credentials.");
-          return;
         }
       } catch (error) {
-        setError("An error occurred while signing up ");
+        setError("An error occurred while signing up.");
         console.log(error);
-        // user `finally` to finally toggle the loading state to off, no matter the request is a success or error.
       } finally {
-        setLoading(false)
+        // toggle the loading state off, no matter the request is a success or error.
+        setLoading(false);
       }
     }
   };
-
+  
   const handleFileChange = async (e) => {
     const fileInput = e.target.files[0];
     if (fileInput) {
