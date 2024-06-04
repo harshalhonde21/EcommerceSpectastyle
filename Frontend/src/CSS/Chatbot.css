@@ -1,0 +1,90 @@
+.chatbot{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 10%;
+    right: 0;
+    z-index: 999;
+    align-items: end;
+    height: 50%;
+    width: 20%;
+    background-color: transparent;
+  }
+  .chatbot-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+    background-color: white;
+    color: white;
+    cursor: pointer;
+    border-radius: 8%;
+  }
+
+  .chatbot-icon{
+  
+    background-color: transparent;
+    position: relative;
+    right: 0;
+    padding-right: 10%;
+  }
+  .input-box{
+    position: absolute;
+    bottom: 10%;
+    margin-bottom: 10px;
+    justify-items: center;
+    gap: 10px;
+  }
+  .input-box input{
+    width: 70%;
+    height: 40px;
+    font-size: 12px;
+  }
+  .input-box button{
+   width: 50px;
+   font-size:12px;
+   height: 30px;
+  }
+  .chats {
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 70%;
+ 
+    /* Hide scrollbar for modern browsers */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+      margin-top: 0;
+    /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+        width: 0.5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+}
+    .ch{
+        display: flex;
+        margin: 10px;
+        padding: 20px 30px;
+        font-size: 12px;
+        align-items: flex-start;
+        color: white;
+        text-align: justify;
+        background: rgba(144, 63, 219, 0.3);
+    }
+    .ch img{
+        object-fit: cover;
+        height: 20px;
+        margin-right: 20px;
+        border-radius: 5px;
+    }
+    .boo{
+        background: rgba(165, 61, 179, 0.6);
+        width: fit-content;
+        border-radius: 10px;
+    }

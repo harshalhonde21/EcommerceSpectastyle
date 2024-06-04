@@ -17,6 +17,7 @@ import ConformOrder from "./Pages/ConformOrder";
 import Success from "./Pages/Success"
 import PageNotFound from "./Pages/404page";
 import Faq from './Pages/FAQ';
+import Chatbot from "./Components/chatbot";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/faq" element={<Faq/>}/>
         <Route path="*"  element={<PageNotFound/>} />
       </Routes>
+       <Chatbot/>
       <Footer />
       <ScrollToTop /> 
       <Toaster position="top-left" reverseOrder={false} />
