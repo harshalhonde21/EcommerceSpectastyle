@@ -33,11 +33,11 @@ function App() {
         <Route path="/address-payment-placeOrder" element={<PlaceOrder />} />
         <Route path="/address-payment-placeOrder/confirmOrder" element={<ConformOrder />} ></Route>
         <Route path="/success" element={<Success />} ></Route>
-        <Route path="/faq" element={<Faq/>}/>
-        <Route path="*"  element={<PageNotFound/>} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
-      <ScrollToTop /> 
+      <ScrollToTop />
       <Toaster position="top-left" reverseOrder={false} />
     </>
   );
