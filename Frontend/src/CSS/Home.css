@@ -24,17 +24,19 @@
   justify-content: center;
   align-items: center;
   height: auto;
+  overflow-x: hidden;
 }
 
 .top {
   display: flex;
   margin: 6rem 2rem 5rem 2rem;
   transform: translateY(-9%);
+  overflow-x: hidden;
 }
 
 .top-left {
   margin-top: 9rem;
-  margin-left: 4rem;
+  /* margin-left: 4rem; */
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -47,6 +49,7 @@
   font-size: 3.9rem;
   margin-bottom: -15px;
   text-align: left;
+  width: 70%;
 }
 
 .top-left .top-left-2-h6 {
@@ -60,6 +63,7 @@
   font-size: 0.85rem;
   text-align: left;
   line-height: 1.7;
+  width: 80%;
 }
 
 .top-left .btn-container {
