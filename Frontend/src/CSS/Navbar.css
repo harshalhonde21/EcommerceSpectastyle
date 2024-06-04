@@ -28,7 +28,7 @@
   height: 6rem;
   display: flex;
   gap: 25rem;
-  
+
   justify-content: center;
   z-index: 999;
   background-color: rgba(194, 139, 187, 0.5);
@@ -43,6 +43,10 @@
 .head-main {
   display: flex;
   cursor: pointer;
+}
+
+.head-main .logo {
+  display: none;
 }
 
 .head-main h3 {
@@ -112,23 +116,21 @@ span {
 
 @media screen and (max-width: 1000px) {
   span {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
   }
 
   .routes ul {
     display: none;
   }
-  .main-component{
-    justify-content: unset;
+
+  .main-component {
+    gap: rem;
   }
-  .logo {
-    margin-top: 100%;
-    padding: 5px;
-}
+
   .button {
     position: absolute;
     display: flex;
-    right: 3rem;
+    right: 1rem;
     top: 2rem;
   }
 
@@ -137,7 +139,6 @@ span {
     background-color: rgba(194, 139, 187, 0.5);
     backdrop-filter: blur(10px);
     height: 100vh;
-    /* width: 15rem; */
     position: fixed;
     top: 0;
     left: -15rem;
@@ -150,10 +151,19 @@ span {
     animation: slideInLeft 0.5s ease;
   }
 
+  .menu-open .head-main .logo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150%;
+    padding: 30px;
+    width: 100%;
+  }
+
   @keyframes slideInLeft {
     from {
       left: -15rem;
     }
+
     to {
       left: 0;
     }
@@ -166,7 +176,7 @@ span {
   .menu-open .navbar_list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.8rem;
     text-align: center;
   }
 
@@ -179,7 +189,6 @@ span {
   }
 
   .menu-open .navbar_list li:hover {
-    /* border: 2px solid black; */
     animation: navbar-animate ease-in-out both 0.4s;
   }
 
@@ -188,6 +197,7 @@ span {
       position: relative;
       font-size: 2rem;
     }
+
     to {
       position: relative;
       font-size: 2.5rem;
@@ -206,10 +216,10 @@ span {
     left: 0.5rem;
   }
 }
-@media (min-width:320px) and (max-width:421px){
-  .logo{
-    margin-top: 160%;
-    width: 97%;
+
+@media (min-width:320px) and (max-width:421px) {
+  .logo {
+    margin-top: 0;
+    padding: 8px;
   }
 }
-

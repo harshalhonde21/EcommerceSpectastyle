@@ -7,7 +7,7 @@
   --color-4: rgb(189, 224, 254);
   --color-5: rgb(255, 210, 255);
   --color-6: rgb(70, 11, 70);
-  
+
   --font-1: "Bebas Neue", sans-serif;
   --font-2: "Croissant One", cursive;
   --font-inconsolata: "Inconsolata", monospace;
@@ -19,37 +19,49 @@
   padding: 0;
   box-sizing: border-box;
 }
-.main-screen{
+
+.main-screen {
   width: 100%;
   background: linear-gradient(to right, var(--color-1), var(--color-2));
 
 }
+
 .homeSecond-container {
-    width: 59.15%;
-    min-height: 40vh;
-    height: 50%;
-    position: relative;
-    padding: 3rem 1.5rem;
-    text-align: center;
-    margin: 0 auto; 
+  width: 59.15%;
+  min-height: 40vh;
+  height: 50%;
+  position: relative;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.main-heading {
+  font-family: var(--font-1);
+  font-size: 4rem;
+  color: var(--color-6);
+}
+
+.decorative-slider {
+  background-color: rgba(var(--color-1-rgb), 0.9);
+  padding: 2rem;
+  font-family: var(--font-inconsolata);
+  color: var(--color-6);
+  border: 5px solid var(--color-3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.decorative-slider img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .homeSecond-container {
+    width: 100%;
   }
 
   .main-heading {
-    font-family: var(--font-1);
-    font-size: 4rem;
-    color: var(--color-6);
+    font-size: 2rem;
   }
-  
-  .decorative-slider {
-    background-color: rgba(var(--color-1-rgb), 0.9); 
-    padding: 2rem;
-    font-family: var(--font-inconsolata);
-    color: var(--color-6);
-    border: 5px solid var(--color-3);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
-  }
-  
-  .decorative-slider img {
-    max-width: 100%;
-    height: auto;
-  }
+}

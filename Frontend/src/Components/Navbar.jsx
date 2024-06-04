@@ -27,12 +27,7 @@ const Navbar = () => {
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-            {/* <h3 style={{ marginTop: "1rem" }}>
-              SPECTASTYLE
-              <br />
-              <span>Shop With Us</span>
-            </h3> */}
-            <img src={logo} alt="LOGO" className="logo"  />
+            <img src={logo} alt="LOGO" className="logo" />
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>
@@ -41,6 +36,7 @@ const Navbar = () => {
                   to="/"
                   id="nav-hov"
                   style={{ color: "#460B46", textDecoration: "none" }}
+                  onClick={toggleMenu}
                 >
                   Home
                 </NavLink>
@@ -50,6 +46,7 @@ const Navbar = () => {
                   to="/about"
                   id="nav-hov"
                   style={{ color: "#460B46", textDecoration: "none" }}
+                  onClick={toggleMenu}
                 >
                   About
                 </NavLink>
@@ -59,6 +56,7 @@ const Navbar = () => {
                   to="/product"
                   id="nav-hov"
                   style={{ color: "#460B46", textDecoration: "none" }}
+                  onClick={toggleMenu}
                 >
                   Products
                 </NavLink>
@@ -68,6 +66,7 @@ const Navbar = () => {
                   to="/contact"
                   id="nav-hov"
                   style={{ color: "#460B46", textDecoration: "none" }}
+                  onClick={toggleMenu}
                 >
                   Contact
                 </NavLink>
@@ -76,7 +75,8 @@ const Navbar = () => {
                 <NavLink to="/cart">
                   <ShoppingCartIcon
                     className="btn"
-                    style={{ color: "#460B46", marginLeft: "5rem"}}
+                    style={{ color: "#460B46", marginLeft: "5rem" }}
+                    onClick={toggleMenu}
                   />
                 </NavLink>
               </li>
@@ -85,33 +85,33 @@ const Navbar = () => {
                   <AccountBoxIcon
                     className="btn1"
                     style={{ color: "#460B46" }}
+                    onClick={toggleMenu}
                   />
                 </NavLink>
               </li>
 
               <li>
-              <VisitCount></VisitCount>
+                <VisitCount></VisitCount>
               </li>
-              
+
 
             </ul>
-
-            <div className="button" onClick={toggleMenu}>
-              {menuOpen ? (
-                <CloseIcon
-                  className="icon1"
-                  style={{ fontSize: "2rem", color: "rgb(70, 11, 70)" }}
-                />
-              ) : (
-                <MenuIcon
-                  style={{
-                    fontSize: "2rem",
-                    color: "rgb(70, 11, 70)",
-                    zIndex: "-1",
-                  }}
-                />
-              )}
-            </div>
+          </div>
+          <div className="button" onClick={toggleMenu}>
+            {menuOpen ? (
+              <CloseIcon
+                className="icon1"
+                style={{ fontSize: "2rem", color: "rgb(70, 11, 70)" }}
+              />
+            ) : (
+              <MenuIcon
+                style={{
+                  fontSize: "2rem",
+                  color: "rgb(70, 11, 70)",
+                  zIndex: "-1",
+                }}
+              />
+            )}
           </div>
         </div>
       </nav>
