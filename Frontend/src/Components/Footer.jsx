@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState} from "react";
 import '../CSS/Footer.css';
 import { Facebook, Twitter, Instagram, LinkedIn} from '@mui/icons-material'; // Import the shoes icon
+import XIcon from '@mui/icons-material/X';
 import { useNavigate } from "react-router-dom";
 
 
@@ -51,7 +52,7 @@ const Footer = () => {
             <li onClick={()=>navigate('/faq')}>FAQ</li>
             <div className="social-icons">
               <Facebook />
-              <Twitter />
+              <XIcon />
               <Instagram />
               <LinkedIn />
             </div>
