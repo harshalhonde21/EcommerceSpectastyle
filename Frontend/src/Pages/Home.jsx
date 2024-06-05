@@ -32,7 +32,7 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <Tilt 
+          <Tilt
             scale={1.05}
             transitionSpeed={3000}
             tiltMaxAngleX={20}
