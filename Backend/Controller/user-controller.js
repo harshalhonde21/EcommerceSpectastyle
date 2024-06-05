@@ -12,11 +12,11 @@
     }
 
     return res.status(200).json({ users });
-  };
+};
 
   export const signup = async (req, res, next) => {
     try {
-      const { name, email, password } = req.body;
+      const { name, email, password, profileImg } = req.body;
       const existingUser = await User.findOne({ email });
   
       if (existingUser) {
@@ -24,8 +24,8 @@
       }
   
       const hashPassword = await bcrypt.hash(password, 10);
-  
-      const user = new User({ name, email, password: hashPassword });
+
+      const user = new User({ name, email, password: hashPassword, profileImg });
       await user.save();
   
       const token = jwt.sign({ _id: user._id }, process.env.SECRET);
@@ -34,7 +34,6 @@
       if (error.code === 11000 && error.keyPattern.email) {
         return res.status(400).json({ message: "Email already exists." });
       }
-      console.log(error);
       res.status(500).json({ message: "Internal server error" });
     }
   };
@@ -43,7 +42,7 @@
     try {
       const { email, password } = req.body;
       const user = await User.findOne({ email });
-  
+
       if (!user) {
         return res.status(404).json({
           success: false,
@@ -61,10 +60,55 @@
       }
   
       const token = jwt.sign({ _id: user._id }, process.env.SECRET);
-      res.status(201).json({ token, user }); 
+      res.status(201).json({ token, user: {
+        name: user.name,
+        email: user.email,
+        profileImg: user.profileImg, 
+        _id: user._id
+      } }); 
   
     } catch (error) {
       res.status(500).json({ message: "Internal server error" });
     }
   };
+
+  export const updateProfileImage = async(req, res, next) => {
+    
+    try {
+      const { email, profileImg } = req.body;
+      const user = await User.findOneAndUpdate(
+        { email: email },
+        { profileImg: profileImg },
+        { new: true }
+      );
+
+      if (!user) {
+        return res.status(404).json({ message: "User not found." });
+      }
+  
+      res.status(200).json({ message: "Profile image updated successfully.", user });
+    } catch (error) {
+      res.status(500).json({ message: "Internal server error" });
+    }
+  };
+
+  export const resetPassword = async(req, res, next) => {
+    const {email, newPassword} = req.body;
+
+    try{
+      const user = await User.findOne({email});
+
+      if(!user){
+        return res.status(404).json({message: "User not found."}); 
+      }
+
+      user.password = await bcrypt.hash(newPassword, 10);
+
+      await user.save();
+
+      return res.status(200).json({ message: "Password updated successfully." });
+    }catch (error) {
+      res.status(500).json({ message: "Internal server error" });
+    }
+  }
 

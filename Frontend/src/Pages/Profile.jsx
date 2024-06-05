@@ -6,6 +6,7 @@ import AttachmentIcon from "@mui/icons-material/Attachment";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
 import { FormLoader } from "../Components/Loader";
+import convertToBase64 from "./convertToBase64";
 
 // components
 import toast from 'react-hot-toast';
@@ -13,6 +14,7 @@ import Error from "../Components/Error";
 import UserProfile from "./UserProfile";
 import { useCart } from "../Components/CartContext";
 import ".././CSS/Profile.css";
+import Reg from "/reg.png";
 
 const Profile = () => {
   // a simple usestate to handle loading state. initially set to off.
@@ -24,6 +26,14 @@ const Profile = () => {
   const [user, setUser] = useState('');
   const navigate = useNavigate();
   const { setUserData } = useCart();
+
+  //the backendUrl is suppose to be in .env file and that's how you can use it from .env file
+
+  // const backendUrl = import.meta.env.REACT_APP_backendUrl || "http://localhost:8000/";
+
+  const backendUrl = "https://ecommerce-backend-0wr7.onrender.com/";
+
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -49,13 +59,13 @@ const Profile = () => {
     setIsLogin(!isLogin);
   };
 
-
+  //login
   const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
-  
+
     const email = e.target.email.value;
     const password = e.target.password.value;
-  
+
     if (!email || !password) {
       setError("Please fill in all fields.");
     } else {
@@ -63,7 +73,7 @@ const Profile = () => {
       setLoading(true)
       try {
         const response = await fetch(
-          "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/login",
+          `${backendUrl}ecommerce/user/login`,
           {
             method: "POST",
             headers: {
@@ -75,14 +85,14 @@ const Profile = () => {
             }),
           }
         );
-  
+
         if (response.ok) {
           const data = await response.json();
           const token = data.token;
-  
+
           localStorage.setItem("token", token);
           localStorage.setItem("userData", JSON.stringify(data.user));
-  
+
           setError("success");
           setUserData(data.user);
           toast("You Are Success Login Welcome to Your Profile!", {
@@ -106,33 +116,33 @@ const Profile = () => {
       }
     }
   };
-  
 
+  //signup
   const handleSignupFormSubmit = async (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const username = e.target.username.value;
     const password = e.target.password.value;
-    const fileInput = e.target.fileInput.files[0];
 
-    if (!email || !username || !password || !fileInput) {
+    if (!email || !username || !password || !file) {
       setError("Please fill in all fields.");
     } else {
       // when user submits the login form, loading state is activated
       setLoading(true)
       try {
         const response = await fetch(
-          "https://ecommerce-backend-0wr7.onrender.com/ecommerce/user/signup",
+          `${backendUrl}ecommerce/user/signup`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              email: email,
-              password: password,
+              email,
+              password,
               name: username,
+              profileImg: file,
             }),
           }
         );
@@ -154,16 +164,30 @@ const Profile = () => {
               color: "rgb(255, 210, 255)",
             },
           });
-          navigate("/user");
-        } else {
-          setError("Signup failed. Please check your credentials.");
+
+          //moving to login page after registering 
+          setIsLogin(!isLogin);
+        }
+        else {
+          const errorData = await response.json();
+          setError(errorData.message || "Signup failed. Please check your credentials.");
+          return;
         }
       } catch (error) {
-        setError("An error occurred while signing up.");
+        setError("An error occurred while signing up ");
+        console.log(error);
         // user `finally` to finally toggle the loading state to off, no matter the request is a success or error.
       } finally {
         setLoading(false)
       }
+    }
+  };
+
+  const handleFileChange = async (e) => {
+    const fileInput = e.target.files[0];
+    if (fileInput) {
+      const base64 = await convertToBase64(fileInput);
+      setFile(base64); // Update the file state with the base64 string.
     }
   };
 
@@ -182,7 +206,7 @@ const Profile = () => {
         <div className="profile-container">
           <div className="profile-outer_box">
             <div className="profile-card" style={{ boxShadow: "25px 25px 100px rgba(0, 0, 0, 0.2)" }}>
-              <h2>{isLogin ? "Login" : "Signup"}</h2>
+              <h2>{isLogin ? "Login" : "Sign Up"}</h2>
               {isLogin ? (
                 <form onSubmit={handleLoginFormSubmit}>
                   <div className="input-group">
@@ -215,12 +239,29 @@ const Profile = () => {
                     )}
                   </div>
                   <button type="submit" disabled={isLoading}>
-                    {isLoading? <FormLoader/>:"Login"}
+                    {isLoading ? <FormLoader /> : "Login"}
                   </button>
 
                 </form>
               ) : (
                 <form onSubmit={handleSignupFormSubmit}>
+
+                  <div className="input-group">
+                    <img src={file || Reg} alt="profile image" className="profile_img" />
+                    <label className="file-label" htmlFor="fileInput">
+                      Select Profile Picture
+                      <AttachmentIcon className="icon" style={{ top: "8px" }} />
+                      <input
+                        style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                        type="file"
+                        id="fileInput"
+                        className="file-input"
+                        accept="image/*"
+                        name="fileInput"
+                        onChange={handleFileChange}
+                      />
+                    </label>
+                  </div>
                   <div className="input-group">
                     <EmailIcon className="icon" />
                     <input
@@ -256,23 +297,9 @@ const Profile = () => {
                       />
                     )}
                   </div>
-                  <div className="input-group">
-                    <label className="file-label" htmlFor="fileInput">
-                      Profile Picture
-                      <AttachmentIcon className="icon" style={{ top: "8px" }} />
-                      <input
-                        style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
-                        type="file"
-                        id="fileInput"
-                        className="file-input"
-                        accept="image/*"
-                        name="fileInput"
-                      />
-                    </label>
-                  </div>
                   {/* same loading state for the signup form */}
                   <button type="submit" disabled={isLoading}>
-                    {isLoading?<FormLoader/>:"Signup"}
+                    {isLoading ? <FormLoader /> : "Sign Up"}
                   </button>
                 </form>
               )}

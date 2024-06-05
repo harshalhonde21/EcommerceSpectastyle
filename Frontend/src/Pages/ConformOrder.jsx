@@ -10,13 +10,15 @@ const ConformOrder = () => {
   const totalValue = totalCartValue + gstValue;
   const discount = (0.2 * totalValue).toFixed(2);
   const finalValue = (totalValue - Number(discount)).toFixed(2);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
   localStorage.setItem("cartValue", finalValue);
 
   const [userAddresses, setUserAddresses] = useState("");
   const [cartItems, setCartItems] = useState([]);
 
   const fetchUserAddresses = async () => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
+    
     const userId = userData._id;
     try {
       const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/getAddresses/${userId}`;
@@ -38,7 +40,6 @@ const ConformOrder = () => {
   }, []);
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
 
     if (!userId) {
@@ -146,7 +147,7 @@ const ConformOrder = () => {
           <div className="payment-summary">
             <h3 id="heading-summary-payment">Payment Summary</h3>
             <h3 id="info-summary-payment">
-              Hey Harshal, thanks for odering in spectastyle thanks for giving
+              Hey {userData.name}, thanks for odering in spectastyle thanks for giving
               us chance to use our service pay the payment and enjoy our
               products 😄🎉
             </h3>
