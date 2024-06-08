@@ -35,50 +35,101 @@ Here're some of the project's best features:
 *   Review Functionality
 *   and many more..
 
-<h2>🛠️ Installation Steps:</h2>
+The icons used in your instructions are relevant and intuitive for the steps described. However, here are a few suggestions for improvement, with some changes to make the icons more visually aligned with their respective actions:
 
-<p>1. Clone the Project</p>
+## 🛠️ Installation Steps
 
-```
-git clone https://github.com/harshalhonde21/EcommerceSpectastyle.git
-```
+1. 🍴 **Fork this repository.**
+   - Click the `Fork` button at the top-right corner of this repository page to create a copy of the repository under your GitHub account.
 
+2. 📥 **Clone your forked copy of the project.**
 
-<p>1. Go to Frontend folder</p>
+   ```sh
+   git clone https://github.com/<your-username>/EcommerceSpectastyle.git
+   ```
 
-```
-cd Frontend
-```
+3. 📂 **Change the working directory.**
 
-<p>3. Install Dependencies</p>
+   ```sh
+   cd EcommerceSpectastyle
+   ```
 
-```
-npm install
-```
+4. 📁 **Navigate to the Frontend folder.**
 
-<p>4. Start</p>
+   ```sh
+   cd Frontend
+   ```
 
-```
-npm run dev
-```
+5. 📦 **Install Frontend dependencies.**
 
-<p>5. Go to server path</p>
+   ```sh
+   npm install
+   ```
 
-```
-cd backend
-```
+6. 🚀 **Start the Frontend development server.**
 
-<p>6. Install server Dependencies</p>
+   ```sh
+   npm run dev
+   ```
 
-```
-npm install
-```
+7. 📁 **Navigate to the Backend folder.**
 
-<p>7. Start Server</p>
+   ```sh
+   cd backend
+   ```
 
-```
-npm start
-```
+8. 📦 **Install Backend dependencies.**
+
+   ```sh
+   npm install
+   ```
+
+9. 🚀 **Start the Backend server.**
+
+   ```sh
+   npm start
+   ```
+
+You are all set! 🎉
+
+## 🔧 Creating a Pull Request
+
+1. 🌿 **Create a new branch.**
+
+   ```sh
+   git checkout -b <your_branch_name>
+   ```
+
+2. 📊 **Track your changes.**
+
+   ```sh
+   git add .
+   ```
+
+3. 💬 **Commit your changes with a relevant commit message.**
+   - For example, if you added a new feature, you could use:
+
+     ```sh
+     git commit -m "Add feature X"
+     ```
+
+   - Or if you fixed a bug, you could use:
+
+     ```sh
+     git commit -m "Fix issue Y"
+     ```
+
+4. 🚀 **Push the committed changes in your feature branch to your remote repository.**
+
+   ```sh
+   git push -u origin <your_branch_name>
+   ```
+
+5. 🔄 **Create a pull request.**
+   - Go to your forked repository on GitHub and click on `Compare & pull request`.
+   - Ensure you compare your feature branch to the desired branch of the repository you are making a PR to.
+
+**🎉 Voila!** You have successfully made a PR to the EcommerceSpectastyle project. Now, sit back, relax, and wait for the project maintainers to review your PR.
 
 <h2>🍰 Contribution Guidelines:</h2>
 
