@@ -93,11 +93,7 @@ const Product = () => {
     return filteredProducts;
   };
 
-  // Sorting the products on the basis of views
-  const sortMostViewed = () => {
-    const sortedProducts = products.slice().sort((a, b) => b.views - a.views);
-    setProducts(sortedProducts);
-  };
+  const filteredProducts = filterProducts();
 
   return (
     <Fragment>
@@ -142,22 +138,29 @@ const Product = () => {
           <Loader />
         ) : (
           <div className="product-all-container">
-            {filterProducts().map((product) => (
-              <div
-                className="product-card"
-                key={product._id}
-                onClick={() => openProductDetail(product._id)}
-              >
-                <img
-                  src={product.productImage}
-                  alt={product.productName}
-                  className="product-image"
-                />
-                <h2 className="product-name">{product.productName}</h2>
-                <h5 className="product-price">Rs. {product.productPrice}</h5>
-                <h4 className="product-status">{product.status}</h4>
-              </div>
-            ))}
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <div
+                  className="product-card"
+                  key={product._id}
+                  onClick={() => openProductDetail(product._id)}
+                >
+                  <img
+                    src={product.productImage}
+                    alt={product.productName}
+                    className="product-image"
+                  />
+                  <h2 className="product-name">{product.productName}</h2>
+                  <h5 className="product-price">Rs. {product.productPrice}</h5>
+                  <h4 className="product-status">{product.status}</h4>
+                </div>
+              ))
+            ) : (
+              <img
+              src="https://stores.blackberrys.com/VendorpageTheme/Enterprise/EThemeForBlackberrys/images/product-not-found.jpg"
+              alt="product not available"
+              className="product-image"
+            />            )}
           </div>
         )}
       </div>
