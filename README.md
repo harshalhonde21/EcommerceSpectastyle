@@ -1,10 +1,48 @@
 <h1 align="center" id="title">Ecommerce SpectaStyle</h1>
 
+<div align="center">
+ <p>
+
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
+![GitHub contributors](https://img.shields.io/github/contributors/harshalhonde21/EcommerceSpectastyle)
+![GitHub repo size](https://img.shields.io/github/repo-size/harshalhonde21/EcommerceSpectastyle)
+<a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
+ </p>
+</div>
+
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>   Closed Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+            <td><b> last commit</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/harshalhonde21/EcommerceSpectastyle"/></td>
+             <td><img alt="Forks" src="https://img.shields.io/github/forks/harshalhonde21/EcommerceSpectastyle?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/harshalhonde21/EcommerceSpectastyle?style=flat&logo=github"/></td>
+            <td><img alt="closed issues" src="https://img.shields.io/github/issues-closed-raw/harshalhonde21/EcommerceSpectastyle"</td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/harshalhonde21/EcommerceSpectastyle?style=flat&logo=github"/></td>
+            <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/harshalhonde21/EcommerceSpectastyle"/></td>
+           <td><img alt="last commit" src="https://img.shields.io/github/last-commit/harshalhonde21/EcommerceSpectastyle"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <p align="center"><img src="https://socialify.git.ci/harshalhonde21/EcommerceSpectastyle/image?language=1&amp;name=1&amp;owner=1&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
 <p id="description">It is Full Stack Web Application made in MERN Stack it is End-to-End Encrypted website to order in shoe.</p>
 
-<a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
+
+
 
 <h1>✅ Note</h1>
 
@@ -146,4 +184,11 @@ Technologies used in the project:
   <h2>This Project is part of GSSOC24</h2>
   <img alt="GSSoC" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png#gh-light-mode-only" width=87%>
   <img alt="GSSoC" src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only"/>
+</div>
+
+<h2 align = "center">Our Contributors ❤️</h2>
+<div align = "center">
+ <h3>Thank you for your invaluable contributions to our project!</h3>
+  
+  ![Contributors](https://contrib.rocks/image?repo=harshalhonde21/EcommerceSpectastyle)
 </div>
