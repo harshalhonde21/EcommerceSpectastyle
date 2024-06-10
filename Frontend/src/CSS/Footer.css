@@ -47,6 +47,10 @@ z {
   cursor: pointer;
 }
 
+.section ul li:hover{
+  text-decoration: underline;
+}
+
 .email-signup {
   display: flex;
   flex-direction: column;
@@ -56,6 +60,7 @@ z {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
+  outline: none;
 }
 
 .email-signup button {
@@ -94,8 +99,20 @@ ul li {
   cursor: pointer;
 }
 
-.social-icons svg:hover {
-  color: rgb(255, 0, 251);
+.facebook-icon:hover{
+  color: #0B3EBE;
+}
+
+.twitter-icon:hover{
+  color: black;
+}
+
+.insta-icon:hover{
+  color: #A832A8;
+}
+
+.linkedin-icon:hover{
+  color: #007AB5;
 }
 
 @media (max-width: 768px) {
