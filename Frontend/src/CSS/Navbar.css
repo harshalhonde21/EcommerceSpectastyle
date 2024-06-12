@@ -37,6 +37,8 @@
 
 .logo {
   padding: 2px;
+  height: 100px;
+  width: 100px;
   /* margin-left:5rem; */
 }
 
@@ -45,9 +47,7 @@
   cursor: pointer;
 }
 
-.head-main .logo {
-  display: none;
-}
+
 
 .head-main h3 {
   position: relative;
@@ -152,9 +152,10 @@ span {
   }
 
   .menu-open .head-main .logo {
-    display: flex;
+    display: none;
     flex-direction: column;
     margin-top: 150%;
+    margin-left: 2px;
     padding: 30px;
     width: 100%;
   }
