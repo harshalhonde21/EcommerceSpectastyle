@@ -178,3 +178,28 @@ input[type="text"] {
     padding: 7rem 1rem;
   }
 }
+
+.product-not-found {
+  text-align: center;
+  font-size: 1.5em;
+  color: #f00;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.product-not-found h2 {
+  font-size: 2em;
+}
+
+.product-not-found p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

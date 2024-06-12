@@ -156,12 +156,12 @@ const Product = () => {
                 </div>
               ))
             ) : (
-              <img
-              src="https://stores.blackberrys.com/VendorpageTheme/Enterprise/EThemeForBlackberrys/images/product-not-found.jpg"
-              alt="product not available"
-              className="product-image"
-            />            )}
-          </div>
+              <div className="product-not-found">
+              <h2>Product Not Available</h2>
+              <p>Please check back later or try a different search.</p>
+            </div>
+          )}
+        </div>
         )}
       </div>
       {selectedProductId && (
