@@ -6,8 +6,9 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import VisitCount from "./VisitCount";
-import logo from "../../public/WebLogo.png";
-
+import Logo from './assests/Logo.png';
+import Logo1 from './assests/Logo1.png';
+import Logo2 from './assests/Logo2.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,7 +28,9 @@ const Navbar = () => {
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-            <img src={logo} alt="LOGO" className="logo" />
+           {/* my image of logo is in components folder */}
+            <img src={Logo2} alt="logo" className="logo" />
+            
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>
