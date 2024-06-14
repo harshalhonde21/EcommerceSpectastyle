@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import "../CSS/Navbar.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -15,6 +15,7 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    window.scrollTo(0, 0);
   };
 
   const navigate = useNavigate()
@@ -28,9 +29,9 @@ const Navbar = () => {
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-           {/* my image of logo is in components folder */}
+            {/* my image of logo is in components folder */}
             <img src={Logo2} alt="logo" className="logo" />
-            
+
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>
@@ -41,7 +42,7 @@ const Navbar = () => {
                   style={{ color: "#460B46", textDecoration: "none" }}
                   onClick={toggleMenu}
                 >
-                  Home
+                  <a href="#home">Home</a>
                 </NavLink>
               </li>
               <li>

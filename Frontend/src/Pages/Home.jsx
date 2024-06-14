@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <div className="home-container">
+      <div className="home-container bd" id="home">
         <div className="top">
           <div className="top-left">
             <h1 className="top-left-1">SPECTASTYLE</h1>
@@ -24,10 +24,10 @@ const Home = () => {
               pair and step into fashion-forward confidence with us.
             </h6>
             <div className="btn-container">
-              <button className="btn-1" onClick={() => navigate('/product')}>
-                Products
+              <button className="btn-1" >
+                <a href="#products">Products</a>
               </button>
-              <button className="btn-2" onClick={() => navigate('/about')}>
+              <button className="btn-2 " onClick={() => navigate('/about')}>
                 About Us
               </button>
             </div>
