@@ -38,7 +38,7 @@ const Home = () => {
             tiltMaxAngleX={20}
             tiltMaxAngleY={20}
             perspective={1000}>
-            <div className="top-right">
+            <div className="top-right ">
               <img src={Image} alt="Sneaker" />
             </div>
           </Tilt>
