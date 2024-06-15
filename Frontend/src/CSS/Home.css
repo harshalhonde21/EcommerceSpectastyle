@@ -15,7 +15,17 @@
   --font-rubik: "Rubik", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-6);
+}
+
 .home-container {
+
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   width: 100%;
   min-height: 100vh;

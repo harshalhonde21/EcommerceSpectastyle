@@ -101,7 +101,7 @@ const Product = () => {
 
   return (
     <Fragment>
-      <div className="product-container">
+      <div className="product-container" id="products">
         <h1 className="product-heading">Products</h1>
         <input
           type="text"
