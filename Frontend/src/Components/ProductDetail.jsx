@@ -11,8 +11,7 @@ const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
   const navigate = useNavigate();
-
-  const [error, setError] = useState(null);
+        const [error, setError] = useState(null);
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
 
