@@ -124,9 +124,12 @@ const Profile = () => {
     const email = e.target.email.value;
     const username = e.target.username.value;
     const password = e.target.password.value;
+    const confirm_password = e.target.confirm_password.value;
 
     if (!email || !username || !password || !file) {
       setError("Please fill in all fields.");
+    } else if(password !== confirm_password){
+      setError("Passwords do not match");
     } else {
       // when user submits the login form, loading state is activated
       setLoading(true)
@@ -285,6 +288,23 @@ const Profile = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter Password"
+                      style={{ boxShadow: "none", marginBottom: "0.7rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
+                    />
+                    {isPasswordVisible ? (
+                      <RemoveRedEyeIcon
+                        className="icon" onClick={() => setIsPasswordVisible(false)}
+                      />
+                    ) : (
+                      <VisibilityOffIcon className="icon"
+                        onClick={() => setIsPasswordVisible(true)}
+                      />
+                    )}
+                  </div>
+                  <div className="input-group">
+                    <input
+                      type={isPasswordVisible ? "text" : "password"}
+                      name="confirm_password"
+                      placeholder="Confirm Password"
                       style={{ boxShadow: "none", marginBottom: "1.2rem", width: '100%', border: "3px solid var(--color-6)", borderRadius: "10px" }}
                     />
                     {isPasswordVisible ? (
