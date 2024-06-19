@@ -16,16 +16,26 @@
 }
 
 
+.main-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: auto;
+
+}
+
 .home-container {
-  scroll-behavior: smooth;
+  scroll-snap-align: start;
+
+  /* overflow-y: scroll; */
+  /* scroll-behavior: smooth; */
   background: linear-gradient(to left, var(--color-4), var(--color-5));
   width: 100%;
+  height: auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
 
 }
 
