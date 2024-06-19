@@ -14,6 +14,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
+    window.scrollTo(0, 0)
     setMenuOpen(!menuOpen);
   };
 
@@ -28,9 +29,9 @@ const Navbar = () => {
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-           {/* my image of logo is in components folder */}
+            {/* my image of logo is in components folder */}
             <img src={Logo2} alt="logo" className="logo" />
-            
+
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>

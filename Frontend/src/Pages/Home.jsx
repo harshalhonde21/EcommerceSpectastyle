@@ -24,8 +24,8 @@ const Home = () => {
               pair and step into fashion-forward confidence with us.
             </h6>
             <div className="btn-container">
-              <button className="btn-1" onClick={() => navigate('/product')}>
-                Products
+              <button className="btn-1" >
+                <a href="#products">Products</a>
               </button>
               <button className="btn-2" onClick={() => navigate('/about')}>
                 About Us
