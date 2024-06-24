@@ -164,9 +164,9 @@ const Profile = () => {
               color: "rgb(255, 210, 255)",
             },
           });
-
-          //moving to login page after registering 
-          setIsLogin(!isLogin);
+          
+          //moving to user page after registering
+          navigate("/user");
         }
         else {
           const errorData = await response.json();
