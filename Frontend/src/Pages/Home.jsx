@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import "../CSS/Home.css";
 import HomeSecond from "./HomeSecond";
 import Product from "./Product";
+import Testimonials from '../Components/Testimonials/Testimonials.jsx'
 import Image from "../../public/shoes-image5.png";
 import Arrow from "../../public/arrow.png";
 import { useNavigate } from "react-router-dom";
@@ -49,6 +50,7 @@ const Home = () => {
       </div>
       <HomeSecond />
       <Product />
+      <Testimonials />
     </Fragment>
   );
 };
