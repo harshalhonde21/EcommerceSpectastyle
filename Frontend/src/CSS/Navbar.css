@@ -43,6 +43,13 @@
   /* margin-left:5rem; */
 }
 
+
+@media (max-width: 800px) {
+  .logo {
+    margin-left: 5rem;
+  }
+}
+
 .head-main {
   display: flex;
   cursor: pointer;
