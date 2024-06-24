@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { NavLink } from "react-router-dom";
 import "../CSS/Cart.css";
 import axios from "axios";
 import AddIcon from "@mui/icons-material/Add";
@@ -12,11 +11,6 @@ const Cart = () => {
   const [error, setError] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [itemQuantities, setItemQuantities] = useState({});
-
-  const totalCartValue = cartItems.reduce((total, item) => {
-    const itemQuantity = itemQuantities[item._id] || 1;
-    return total + item.product.productPrice * itemQuantity;
-  }, 0);
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -60,24 +54,13 @@ const Cart = () => {
     axios
       .delete(apiUrl)
       .then(() => {
-        toast("Item Removed success!", {
-          icon: "😞",
-          style: {
-            borderRadius: "rgb(189, 224, 254)",
-            background: "rgb(70, 11, 70)",
-            color: "rgb(255, 210, 255)",
-          },
-        });
+        toast.success("Item Removed successfully!");
         navigate("/product");
       })
       .catch((error) => {
         setError(error);
       });
   };
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   const handleIncrementQuantity = (itemId) => {
     setItemQuantities((prevQuantities) => ({
@@ -99,9 +82,19 @@ const Cart = () => {
     });
   };
 
-  const navigateToOther = () => {
+  const navigateToCheckout = () => {
     navigate("/address-payment-placeOrder", { state: { totalCartValue } });
   };
+
+  const totalCartValue = cartItems.reduce((total, item) => {
+    const itemQuantity = itemQuantities[item._id] || 1;
+    return total + item.product.productPrice * itemQuantity;
+  }, 0);
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="cart-container">
       <h1 className="cart-heading">Cart</h1>
@@ -123,6 +116,7 @@ const Cart = () => {
               <div className="detail-product">
                 <h4>Name: {item.product.productName}</h4>
                 <h5>Price: Rs. {item.product.productPrice}</h5>
+                <p>Size: {item.size}</p> {/* Display size here */}
                 <input
                   type="button"
                   value="Remove"
@@ -135,7 +129,6 @@ const Cart = () => {
                     border: "1px solid var(--color-6)",
                     fontSize: "35px",
                     cursor: "pointer",
-                    
                   }}
                   onClick={() => handleDecrementQuantity(item._id)}
                 />
@@ -159,9 +152,7 @@ const Cart = () => {
           ))}
           <div className="total-cart-value">
             <h2>Total Products Value: Rs. {totalCartValue}</h2>
-            {/* <NavLink to="/address-payment-placeOrder"> */}
-            <button onClick={navigateToOther}>Buy Now</button>
-            {/* </NavLink> */}
+            <button onClick={navigateToCheckout}>Buy Now</button>
           </div>
         </>
       )}

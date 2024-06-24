@@ -15,6 +15,7 @@ const ProductDetail = ({ productId, onClose }) => {
   const [error, setError] = useState(null);
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   const userName =
     (localStorage.getItem("userData") &&
@@ -49,25 +50,27 @@ const ProductDetail = ({ productId, onClose }) => {
 
     if (!token) {
       setError("Login first to add the product to the cart");
+    } else if (!selectedSize) {
+      setError("Please select a size");
     } else {
       const userData = JSON.parse(localStorage.getItem("userData"));
       const userId = userData._id;
       axios
         .post(
           `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/addProductToCart/${userId}`,
-          { productId: product._id }
+          { productId: product._id, size: selectedSize }
         )
         .then(() => {
           toast("Item Added To Cart!", {
             icon: "🥳",
             style: {
-              borderRadius: "rgb(189, 224, 254)",
-              background: "rgb(70, 11, 70)",
-              color: "rgb(255, 210, 255)",
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
             },
           });
           navigate("/cart");
-          addToCart(product);
+          addToCart({ ...product, size: selectedSize });
         })
         .catch((error) => {
           setError("Error adding the product to the cart");
@@ -112,12 +115,43 @@ const ProductDetail = ({ productId, onClose }) => {
               <h3 className="product-detail-status">
                 Status: {product.status}
               </h3>
-              <h3 className="product-detail-status">
+              <h3 className="product-detail-category">
                 Category: {product.category}
               </h3>
               <h3 className="product-date-status">
                 Date: {product.publishDate}
               </h3>
+              <div className="product-detail-sizes" style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                <h3>Select Size:</h3>
+                {[4, 6, 10, 12, 14, 16].map((size) => (
+                  <div key={size} className="product-size-option" style={{ position: 'relative' }}>
+                    <input
+                      type="radio"
+                      id={`size-${size}`}
+                      name="size"
+                      value={size}
+                      style={{ display: 'none' }}
+                      onChange={() => setSelectedSize(size)}
+                    />
+                    <label
+                      htmlFor={`size-${size}`}
+                      style={{
+                        display: 'inline-block',
+                        padding: '10px 20px',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        transition: 'background-color 0.3s',
+                        backgroundColor: selectedSize === size ? '#007bff' : '#fff',
+                        color: selectedSize === size ? '#fff' : '#000',
+                        borderColor: selectedSize === size ? '#007bff' : '#ccc',
+                      }}
+                    >
+                      {size}
+                    </label>
+                  </div>
+                ))}
+              </div>
               <button
                 className="product-detail-add-to-cart"
                 onClick={handleAddToCart}
