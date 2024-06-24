@@ -50,6 +50,13 @@
   }
 }
 
+@media (min-width: 200px) {
+  .logo {
+    margin-left: 12rem;
+  }
+}
+
+
 .head-main {
   display: flex;
   cursor: pointer;
