@@ -50,7 +50,13 @@
   }
 }
 
-@media (min-width: 200px) {
+@media (min-width: 500px) {
+  .logo {
+    margin-left: 5rem;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 490px) {
   .logo {
     margin-left: 12rem;
   }
