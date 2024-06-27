@@ -17,8 +17,8 @@ const Cart = () => {
     const itemQuantity = itemQuantities[item._id] || 1;
     return total + item.product.productPrice * itemQuantity;
   }, 0);
-
-  useEffect(() => {
+  
+    const fetchCartItems = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const userId = userData ? userData._id : null;
 
@@ -44,6 +44,10 @@ const Cart = () => {
       .catch((error) => {
         setError(error);
       });
+  };
+
+  useEffect(() => {
+    fetchCartItems();
   }, []);
 
   const removeProductFromCart = (itemId) => {
@@ -60,7 +64,7 @@ const Cart = () => {
     axios
       .delete(apiUrl)
       .then(() => {
-        toast("Item Removed success!", {
+        toast("Item Removed successfully!", {
           icon: "😞",
           style: {
             borderRadius: "rgb(189, 224, 254)",
@@ -68,8 +72,17 @@ const Cart = () => {
             color: "rgb(255, 210, 255)",
           },
         });
-        navigate("/product");
-      })
+        // navigate("/cart");
+      // })
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 1000); // Wait 1 seconds before refreshing to let the user see the toast message
+      // window.location.reload();
+      setCartItems((prevCartItems) =>
+        prevCartItems.filter((item) => item._id !== itemId)
+      );
+      fetchCartItems();
+    })
       .catch((error) => {
         setError(error);
       });

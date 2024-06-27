@@ -114,6 +114,7 @@ const Product = () => {
             onChange={(e) => setSortOrder(e.target.value)}
             value={sortOrder}
           >
+
             <option value="">Sort by Price</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
@@ -158,6 +159,7 @@ const Product = () => {
                 <h4 className="product-status">{product.status}</h4>
               </div>
             ))}
+
           </div>
         )}
       </div>
