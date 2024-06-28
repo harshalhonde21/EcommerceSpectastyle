@@ -179,6 +179,9 @@ input[type="text"] {
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f44ec2f15a1abe996108617d2d46408949c7df13
 
 .product-not-found {
   text-align: center;
@@ -203,7 +206,10 @@ input[type="text"] {
   to {
       opacity: 1;
   }
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> f44ec2f15a1abe996108617d2d46408949c7df13
 .product-detail-add-to-cart {
   margin-top: 20px;
   background-color: rgb(124, 153, 250);
@@ -219,5 +225,8 @@ input[type="text"] {
 
 .product-detail-add-to-cart:hover {
   background-color: purple;
+<<<<<<< HEAD
 >>>>>>> 1a477b5d8c157dec7b7498cb4580a98d154756da
+=======
+>>>>>>> f44ec2f15a1abe996108617d2d46408949c7df13
 }

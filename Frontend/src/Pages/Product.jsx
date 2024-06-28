@@ -159,18 +159,16 @@ const Product = () => {
               ))
             ) : (
               <div className="product-not-found">
-              <img src="/empty_products.png" alt="product not available"/>
-            </div>
-          )}
-</div>
-        )
-      }
-      {selectedProductId && (
-        <ProductDetail
-          productId={selectedProductId}
-          onClose={closeProductDetail}
-        />
-      )}
+                <img src="/empty_products.png" alt="product not available" />
+              </div>
+            )}
+          </div>)}
+        {selectedProductId && (
+          <ProductDetail
+            productId={selectedProductId}
+            onClose={closeProductDetail}
+          />
+        )}
       </div>
     </Fragment>
   );
