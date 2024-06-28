@@ -24,14 +24,14 @@
   justify-content: center;
   align-items: center;
   height: auto;
-  overflow-x: hidden;
+  
 }
 
 .top {
   display: flex;
   margin: 6rem 2rem 5rem 2rem;
   transform: translateY(-9%);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .top-left {

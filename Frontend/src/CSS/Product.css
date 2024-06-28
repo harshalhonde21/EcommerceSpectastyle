@@ -178,6 +178,7 @@ input[type="text"] {
     padding: 7rem 1rem;
   }
 }
+<<<<<<< HEAD
 
 .product-not-found {
   text-align: center;
@@ -202,4 +203,21 @@ input[type="text"] {
   to {
       opacity: 1;
   }
+=======
+.product-detail-add-to-cart {
+  margin-top: 20px;
+  background-color: rgb(124, 153, 250);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--font-rubik);
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.product-detail-add-to-cart:hover {
+  background-color: purple;
+>>>>>>> 1a477b5d8c157dec7b7498cb4580a98d154756da
 }

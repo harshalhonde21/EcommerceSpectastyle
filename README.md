@@ -1,10 +1,48 @@
 <h1 align="center" id="title">Ecommerce SpectaStyle</h1>
 
+<div align="center">
+ <p>
+
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
+![GitHub contributors](https://img.shields.io/github/contributors/harshalhonde21/EcommerceSpectastyle)
+![GitHub repo size](https://img.shields.io/github/repo-size/harshalhonde21/EcommerceSpectastyle)
+<a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
+ </p>
+</div>
+
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>   Closed Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+            <td><b> last commit</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/harshalhonde21/EcommerceSpectastyle"/></td>
+             <td><img alt="Forks" src="https://img.shields.io/github/forks/harshalhonde21/EcommerceSpectastyle?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/harshalhonde21/EcommerceSpectastyle?style=flat&logo=github"/></td>
+            <td><img alt="closed issues" src="https://img.shields.io/github/issues-closed-raw/harshalhonde21/EcommerceSpectastyle"</td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/harshalhonde21/EcommerceSpectastyle?style=flat&logo=github"/></td>
+            <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/harshalhonde21/EcommerceSpectastyle"/></td>
+           <td><img alt="last commit" src="https://img.shields.io/github/last-commit/harshalhonde21/EcommerceSpectastyle"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <p align="center"><img src="https://socialify.git.ci/harshalhonde21/EcommerceSpectastyle/image?language=1&amp;name=1&amp;owner=1&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
 <p id="description">It is Full Stack Web Application made in MERN Stack it is End-to-End Encrypted website to order in shoe.</p>
 
-<a href="https://hits.sh/spectastyle.vercel.app/"><img alt="Hits" src="https://hits.sh/spectastyle.vercel.app.svg?color=f208f2"/></a>
+
+
 
 <h1>✅ Note</h1>
 
@@ -35,50 +73,101 @@ Here're some of the project's best features:
 *   Review Functionality
 *   and many more..
 
-<h2>🛠️ Installation Steps:</h2>
+The icons used in your instructions are relevant and intuitive for the steps described. However, here are a few suggestions for improvement, with some changes to make the icons more visually aligned with their respective actions:
 
-<p>1. Clone the Project</p>
+## 🛠️ Installation Steps
 
-```
-git clone https://github.com/harshalhonde21/EcommerceSpectastyle.git
-```
+1. 🍴 **Fork this repository.**
+   - Click the `Fork` button at the top-right corner of this repository page to create a copy of the repository under your GitHub account.
 
+2. 📥 **Clone your forked copy of the project.**
 
-<p>1. Go to Frontend folder</p>
+   ```sh
+   git clone https://github.com/<your-username>/EcommerceSpectastyle.git
+   ```
 
-```
-cd Frontend
-```
+3. 📂 **Change the working directory.**
 
-<p>3. Install Dependencies</p>
+   ```sh
+   cd EcommerceSpectastyle
+   ```
 
-```
-npm install
-```
+4. 📁 **Navigate to the Frontend folder.**
 
-<p>4. Start</p>
+   ```sh
+   cd Frontend
+   ```
 
-```
-npm run dev
-```
+5. 📦 **Install Frontend dependencies.**
 
-<p>5. Go to server path</p>
+   ```sh
+   npm install
+   ```
 
-```
-cd backend
-```
+6. 🚀 **Start the Frontend development server.**
 
-<p>6. Install server Dependencies</p>
+   ```sh
+   npm run dev
+   ```
 
-```
-npm install
-```
+7. 📁 **Navigate to the Backend folder.**
 
-<p>7. Start Server</p>
+   ```sh
+   cd backend
+   ```
 
-```
-npm start
-```
+8. 📦 **Install Backend dependencies.**
+
+   ```sh
+   npm install
+   ```
+
+9. 🚀 **Start the Backend server.**
+
+   ```sh
+   npm start
+   ```
+
+You are all set! 🎉
+
+## 🔧 Creating a Pull Request
+
+1. 🌿 **Create a new branch.**
+
+   ```sh
+   git checkout -b <your_branch_name>
+   ```
+
+2. 📊 **Track your changes.**
+
+   ```sh
+   git add .
+   ```
+
+3. 💬 **Commit your changes with a relevant commit message.**
+   - For example, if you added a new feature, you could use:
+
+     ```sh
+     git commit -m "Add feature X"
+     ```
+
+   - Or if you fixed a bug, you could use:
+
+     ```sh
+     git commit -m "Fix issue Y"
+     ```
+
+4. 🚀 **Push the committed changes in your feature branch to your remote repository.**
+
+   ```sh
+   git push -u origin <your_branch_name>
+   ```
+
+5. 🔄 **Create a pull request.**
+   - Go to your forked repository on GitHub and click on `Compare & pull request`.
+   - Ensure you compare your feature branch to the desired branch of the repository you are making a PR to.
+
+**🎉 Voila!** You have successfully made a PR to the EcommerceSpectastyle project. Now, sit back, relax, and wait for the project maintainers to review your PR.
 
 <h2>🍰 Contribution Guidelines:</h2>
 
@@ -146,4 +235,11 @@ Technologies used in the project:
   <h2>This Project is part of GSSOC24</h2>
   <img alt="GSSoC" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png#gh-light-mode-only" width=87%>
   <img alt="GSSoC" src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only"/>
+</div>
+
+<h2 align = "center">Our Contributors ❤️</h2>
+<div align = "center">
+ <h3>Thank you for your invaluable contributions to our project!</h3>
+  
+  ![Contributors](https://contrib.rocks/image?repo=harshalhonde21/EcommerceSpectastyle)
 </div>

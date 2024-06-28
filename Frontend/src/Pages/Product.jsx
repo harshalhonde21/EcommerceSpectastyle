@@ -110,6 +110,7 @@ const Product = () => {
             onChange={(e) => setSortOrder(e.target.value)}
             value={sortOrder}
           >
+
             <option value="">Sort by Price</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
@@ -138,6 +139,7 @@ const Product = () => {
           <Loader />
         ) : (
           <div className="product-all-container">
+
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <div
@@ -160,15 +162,16 @@ const Product = () => {
               <img src="/empty_products.png" alt="product not available"/>
             </div>
           )}
-        </div>
-        )}
-      </div>
+</div>
+        )
+      }
       {selectedProductId && (
         <ProductDetail
           productId={selectedProductId}
           onClose={closeProductDetail}
         />
       )}
+      </div>
     </Fragment>
   );
 };
