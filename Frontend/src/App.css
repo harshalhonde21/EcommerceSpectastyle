@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-  /* cursor: none; */
+  cursor: none;
 }
 
 ::-webkit-scrollbar{
@@ -53,4 +53,14 @@ body{
     place-items: center;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 40px;
+  }
+
+  .dot{
+    width: 20px;
+    height: 20px;
+    background: #460b46;
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
   }

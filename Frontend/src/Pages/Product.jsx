@@ -110,6 +110,7 @@ const Product = () => {
             onChange={(e) => setSortOrder(e.target.value)}
             value={sortOrder}
           >
+
             <option value="">Sort by Price</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
@@ -161,6 +162,24 @@ const Product = () => {
             </div>
           )}
         </div>
+            {filterProducts().map((product) => (
+              <div
+                className="product-card"
+                key={product._id}
+                onClick={() => openProductDetail(product._id)}
+              >
+                <img
+                  src={product.productImage}
+                  alt={product.productName}
+                  className="product-image"
+                />
+                <h2 className="product-name">{product.productName}</h2>
+                <h5 className="product-price">Rs. {product.productPrice}</h5>
+                <h4 className="product-status">{product.status}</h4>
+              </div>
+            ))}
+
+          </div>
         )}
       </div>
       {selectedProductId && (

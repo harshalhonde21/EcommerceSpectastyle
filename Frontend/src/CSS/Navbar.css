@@ -36,18 +36,39 @@
 }
 
 .logo {
+  
   padding: 2px;
+  height: 110px;
+  width: 120px;
   /* margin-left:5rem; */
 }
+
+
+@media (max-width: 800px) {
+  .logo {
+    margin-left: 5rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .logo {
+    margin-left: 5rem;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 490px) {
+  .logo {
+    margin-left: 12rem;
+  }
+}
+
 
 .head-main {
   display: flex;
   cursor: pointer;
 }
 
-.head-main .logo {
-  display: none;
-}
+
 
 .head-main h3 {
   position: relative;
@@ -152,9 +173,10 @@ span {
   }
 
   .menu-open .head-main .logo {
-    display: flex;
+    display: none;
     flex-direction: column;
     margin-top: 150%;
+    margin-left: 2px;
     padding: 30px;
     width: 100%;
   }

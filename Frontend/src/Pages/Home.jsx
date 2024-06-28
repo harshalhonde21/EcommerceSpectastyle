@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import "../CSS/Home.css";
 import HomeSecond from "./HomeSecond";
 import Product from "./Product";
+import Testimonials from '../Components/Testimonials/Testimonials.jsx'
 import Image from "../../public/shoes-image5.png";
 import Arrow from "../../public/arrow.png";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +39,7 @@ const Home = () => {
             tiltMaxAngleX={20}
             tiltMaxAngleY={20}
             perspective={1000}>
-            <div className="top-right">
+            <div className="top-right ">
               <img src={Image} alt="Sneaker" />
             </div>
           </Tilt>
@@ -49,6 +50,7 @@ const Home = () => {
       </div>
       <HomeSecond />
       <Product />
+      <Testimonials />
     </Fragment>
   );
 };
