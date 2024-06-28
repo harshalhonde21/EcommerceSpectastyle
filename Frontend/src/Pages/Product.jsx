@@ -157,7 +157,7 @@ const Product = () => {
               ))
             ) : (
               <div className="product-not-found">
-              <img src="/empty_cart.png" alt="product not available"/>
+              <img src="/empty_products.png" alt="product not available"/>
             </div>
           )}
         </div>
