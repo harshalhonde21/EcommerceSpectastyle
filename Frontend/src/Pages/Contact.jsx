@@ -1,8 +1,27 @@
-import { Fragment } from "react";
-import "../CSS/Contact.css";
 import { Email, Phone, Store } from "@mui/icons-material";
+import { Fragment } from "react";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../CSS/Contact.css";
 
 const Contact = () => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    toast.success("Sent Successfully!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+      closeButton: false,
+    });
+  };
+
   return (
     <Fragment>
       <div className="contact-container">
@@ -84,7 +103,7 @@ const Contact = () => {
         </div>
         <div className="contact-form">
           <h2 className="contact-subheading">Contact Form</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 style={{
@@ -128,8 +147,8 @@ const Contact = () => {
                   padding: "10px", // Padding set to 10px
                 }}
                 type="Number"
-                id="email"
-                name="email"
+                id="number"
+                name="number"
                 placeholder="Phone Number"
                 required
               />
@@ -155,6 +174,19 @@ const Contact = () => {
             <button type="submit">Submit</button>
           </form>
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover={false}
+          theme="dark"
+          transition={Bounce}
+        />
       </div>
     </Fragment>
   );
