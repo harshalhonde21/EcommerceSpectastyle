@@ -127,7 +127,21 @@ The icons used in your instructions are relevant and intuitive for the steps des
    ```sh
    npm start
    ```
+<h2></h2>
 
+### 🐬 Local Setup with Docker
+If you have Docker installed, you can easily set up the application locally with the following steps:
+
+**Clone the Repository and navigate to the working directory**
+
+**Make sure you have docker installed on your system**
+```bash
+docker-compose up --build
+```
+**After the Image is build You can access it on:-**
+```bash
+http://localhost:5173/
+```
 You are all set! 🎉
 
 ## 🔧 Creating a Pull Request

@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+      - mongodb
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      MONGO_URL: mongodb://mongodb:27017/ecommerce  # MongoDB URI pointing to the MongoDB service
+      PORT: 4000
+      STRIPE_SECRET_KEY: sk_test_51O96wfSH8i1UqUchc81vmn8Mka2bbbMrCW2vZKLEvGRTZDqWx2KlxkbLzdQnAJ0ipNA1UtO9Y83vX4x7KXjz5E4Z00JxrbAflY
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
