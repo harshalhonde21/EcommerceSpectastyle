@@ -9,7 +9,6 @@
   --color-6: rgb(70, 11, 70);
 
   /* font family */
-
   --font-1: "Bebas Neue", sans-serif;
   --font-2: "Croissant One", cursive;
   --font-inconsolata: "Inconsolata", monospace;
@@ -22,58 +21,39 @@
   box-sizing: border-box;
 }
 
-.main-component {
-  position: fixed;
-  width: 100%;
-  height: 6rem;
-  display: flex;
-  gap: 25rem;
+body {
+  font-family: var(--font-rubik);
+}
 
-  justify-content: center;
-  z-index: 999;
+nav {
   background-color: rgba(194, 139, 187, 0.5);
   backdrop-filter: blur(10px);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
 }
 
 .logo {
-  
-  padding: 2px;
-  height: 110px;
-  width: 120px;
-  /* margin-left:5rem; */
-}
-
-
-@media (max-width: 800px) {
-  .logo {
-    margin-left: 5rem;
-  }
-}
-
-@media (min-width: 500px) {
-  .logo {
-    margin-left: 5rem;
-  }
-}
-
-@media (min-width: 200px) and (max-width: 490px) {
-  .logo {
-    margin-left: 12rem;
-  }
-}
-
-
-.head-main {
-  display: flex;
+  height: 50px;
   cursor: pointer;
 }
 
-
+.head-main {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
 .head-main h3 {
-  position: relative;
-  top: -0.5rem;
-  margin-left: 3rem;
+  margin-left: 1rem;
   font-family: var(--font-1);
   font-size: 2.5rem;
   color: var(--color-6);
@@ -86,162 +66,73 @@
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-span {
-  margin-left: 1rem;
-  font-size: 2rem;
-  position: relative;
-  top: -1rem;
-}
-
-.routes ul {
+.routes {
   display: flex;
-  gap: 2rem;
-  margin-top: 2.2rem;
+  align-items: center;
 }
 
-.routes ul li {
+.navbar_list {
   list-style: none;
-  font-family: var(--font-rubik);
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_list li {
+  margin-left: 2rem;
+}
+
+.navbar_list .btn, .navbar_list .btn1 {
   cursor: pointer;
-  color: #460b46;
-  font-size: 20px;
-  position: relative;
-}
-
-.routes ul li:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-#nav-hov::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2.5px;
-  bottom: 1px;
-  left: 50%;
-  top: 3.5rem !important;
-  background-color: #460b46;
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-}
-
-#nav-hov:hover::after {
-  width: 100%;
-  left: 0;
 }
 
 .button {
   display: none;
 }
 
-@media screen and (max-width: 1000px) {
-  span {
-    font-size: 1.0rem;
-  }
-
-  .routes ul {
+@media (max-width: 768px) {
+  .routes {
     display: none;
-  }
-
-  .main-component {
-    gap: rem;
   }
 
   .button {
-    position: absolute;
-    display: flex;
-    right: 1rem;
-    top: 2rem;
+    display: block;
+    cursor: pointer;
   }
 
-  .menu-open {
-    overflow-y: auto;
+  .main-component.menu-open .routes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background-color: rgba(194, 139, 187, 0.5);
     backdrop-filter: blur(10px);
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -15rem;
-    transition: left 0.5s ease;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: slideInLeft 0.5s ease;
+    padding: 1rem 2rem;
   }
 
-  .menu-open .head-main .logo {
-    display: none;
+  .main-component.menu-open .navbar_list {
     flex-direction: column;
-    margin-top: 150%;
-    margin-left: 2px;
-    padding: 30px;
     width: 100%;
   }
 
-  @keyframes slideInLeft {
-    from {
-      left: -15rem;
-    }
-
-    to {
-      left: 0;
-    }
-  }
-
-  .menu-open.show {
-    left: 0;
-  }
-
-  .menu-open .navbar_list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-    text-align: center;
-  }
-
-  .menu-open .navbar_list li {
-    position: relative;
-    top: -20rem;
-    font-size: 2rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .menu-open .navbar_list li:hover {
-    animation: navbar-animate ease-in-out both 0.4s;
-  }
-
-  @keyframes navbar-animate {
-    from {
-      position: relative;
-      font-size: 2rem;
-    }
-
-    to {
-      position: relative;
-      font-size: 2.5rem;
-    }
-  }
-
-  .btn {
-    position: relative;
-    top: -1rem;
-    left: -2rem;
-  }
-
-  .btn1 {
-    position: relative;
-    top: -2rem;
-    left: 0.5rem;
+  .main-component.menu-open .navbar_list li {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
   }
 }
 
-@media (min-width:320px) and (max-width:421px) {
-  .logo {
-    margin-top: 0;
-    padding: 8px;
+@media (max-width: 480px) {
+  .head-main h3 {
+    font-size: 1.5rem;
+  }
+
+  .navbar_list li {
+    font-size: 1rem;
+    margin-left: 1rem;
   }
 }

@@ -6,8 +6,6 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import VisitCount from "./VisitCount";
-import Logo from './assests/Logo.png';
-import Logo1 from './assests/Logo1.png';
 import Logo2 from './assests/Logo2.png';
 
 const Navbar = () => {
@@ -17,20 +15,19 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const goHome = () => {
-    navigate('/')
-  }
+    navigate('/');
+  };
 
   return (
     <Fragment>
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-           {/* my image of logo is in components folder */}
             <img src={Logo2} alt="logo" className="logo" />
-            
+            <h3>Logo</h3>
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>
@@ -78,7 +75,7 @@ const Navbar = () => {
                 <NavLink to="/cart">
                   <ShoppingCartIcon
                     className="btn"
-                    style={{ color: "#460B46", marginLeft: "5rem" }}
+                    style={{ color: "#460B46", marginLeft: "1rem" }}
                     onClick={toggleMenu}
                   />
                 </NavLink>
@@ -92,12 +89,9 @@ const Navbar = () => {
                   />
                 </NavLink>
               </li>
-
               <li>
-                <VisitCount></VisitCount>
+                <VisitCount />
               </li>
-
-
             </ul>
           </div>
           <div className="button" onClick={toggleMenu}>
@@ -111,7 +105,6 @@ const Navbar = () => {
                 style={{
                   fontSize: "2rem",
                   color: "rgb(70, 11, 70)",
-                  zIndex: "-1",
                 }}
               />
             )}
@@ -120,6 +113,6 @@ const Navbar = () => {
       </nav>
     </Fragment>
   );
-};
+};``
 
 export default Navbar;
