@@ -1,14 +1,13 @@
 import { Email, Phone, Store } from "@mui/icons-material";
 import { Fragment } from "react";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../CSS/Contact.css";
 
 const Contact = () => {
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    toast.success("Sent Successfully!", {
+    toast("✅ Sent Successfully!", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -16,7 +15,7 @@ const Contact = () => {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "light",
       transition: Bounce,
       closeButton: false,
     });
@@ -184,7 +183,7 @@ const Contact = () => {
           pauseOnFocusLoss
           draggable
           pauseOnHover={false}
-          theme="dark"
+          theme="light"
           transition={Bounce}
         />
       </div>
