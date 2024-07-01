@@ -55,7 +55,9 @@ const Product = () => {
     if (searchText) {
       filteredProducts = filteredProducts.filter((product) => {
         return (
-          product.productName.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.productName
+            .toLowerCase()
+            .includes(searchText.toLowerCase()) ||
           product.category.toLowerCase().includes(searchText.toLowerCase()) ||
           product.productPrice.toString().includes(searchText)
         );
@@ -105,21 +107,23 @@ const Product = () => {
         <h1 className="product-heading">Products</h1>
         <input
           type="text"
+          className="search-input"
           placeholder="Search by Name, category or price..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
         <div className="filters">
           <select
+            className="filterSelect"
             onChange={(e) => setSortOrder(e.target.value)}
             value={sortOrder}
           >
-
             <option value="">Sort by Price</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
           </select>
           <select
+            className="filterSelect"
             onChange={(e) => setSelectedCategory(e.target.value)}
             value={selectedCategory}
           >
@@ -131,6 +135,7 @@ const Product = () => {
             ))}
           </select>
           <select
+            className="filterSelect"
             onChange={(e) => setSortByDate(e.target.value)}
             value={sortByDate}
           >
@@ -159,7 +164,6 @@ const Product = () => {
                 <h4 className="product-status">{product.status}</h4>
               </div>
             ))}
-
           </div>
         )}
       </div>
