@@ -1,4 +1,5 @@
 <h1 align="center" id="title">Ecommerce SpectaStyle</h1>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <div align="center">
  <p>
@@ -36,34 +37,52 @@
     </tbody>
 </table>
 </div>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <p align="center"><img src="https://socialify.git.ci/harshalhonde21/EcommerceSpectastyle/image?language=1&amp;name=1&amp;owner=1&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
 <p id="description">It is Full Stack Web Application made in MERN Stack it is End-to-End Encrypted website to order in shoe.</p>
 
-
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 
 <h1>✅ Note</h1>
 
 ### All the Contributors take the note all join discord server of GSSOC and go to FORUM and project-intro all should join in our project card and if any diffculty then you can ask there.
 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+# 💻Techstack Uses:-
+<!-- HTML5 -->
+<img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 logo">
+
+<!-- CSS3 -->
+<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 logo">
+
+<!-- JavaScript -->
+<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript logo">
+
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <h2>🚀 Demo</h2>
 
 [Website](https://spectastyle.vercel.app/)<br />
 [Warehouse](https://spectadash.vercel.app/)
 ___
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## ✅ Internal Implemenation : MERN + JWT 🔐
 <p align="center">
 <img width="750" alt="app_design" class="center" src="https://github.com/Chitransh-j/EcommerceSpectastyle/assets/135858715/6cfcd6fc-ac14-4402-aeef-b51a442aac71">
 </p>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 # 🚀 Don't Forget to Star the Repo 🚀
 
 🌟 If you find this repository useful or interesting, please consider giving it a star! It helps us understand how many users appreciate our work and motivates us to continue improving it. Thank you for your support! 🌟
 
-  
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
@@ -74,6 +93,8 @@ Here're some of the project's best features:
 *   and many more..
 
 The icons used in your instructions are relevant and intuitive for the steps described. However, here are a few suggestions for improvement, with some changes to make the icons more visually aligned with their respective actions:
+
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 🛠️ Installation Steps
 
@@ -129,7 +150,9 @@ The icons used in your instructions are relevant and intuitive for the steps des
    ```
 <h2></h2>
 
-### 🐬 Local Setup with Docker
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+## 🐬 Local Setup with Docker
 If you have Docker installed, you can easily set up the application locally with the following steps:
 
 **Clone the Repository and navigate to the working directory**
@@ -182,10 +205,13 @@ You are all set! 🎉
    - Ensure you compare your feature branch to the desired branch of the repository you are making a PR to.
 
 **🎉 Voila!** You have successfully made a PR to the EcommerceSpectastyle project. Now, sit back, relax, and wait for the project maintainers to review your PR.
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <h2>🍰 Contribution Guidelines:</h2>
 
 Any contributor who wishes to contribute to this project should first read the README thoroughly. Study how the project is built and done; familiarize yourself with its structure and components. Take note of any bugs present in the project. If you find any raise an issue on the project's repository. Wait until a mentor assigns the issue to you. Once assigned start working on the development of the fix or improvement. After completing the development raise a pull request (PR) for the changes to be reviewed and merged into the project.
+
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <h2>🍰 Issue MakingGuidelines:</h2>
 
@@ -231,7 +257,8 @@ Any contributor who wishes to contribute to this project should first read the R
 - If you apply for issue the response will come in 4 to 5 hrs
 
 
-  
+ <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+ 
 <h2>💻 Built with</h2>
 
 Technologies used in the project:
