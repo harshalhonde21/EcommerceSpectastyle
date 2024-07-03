@@ -194,3 +194,29 @@ input[type="text"] {
 .product-detail-add-to-cart:hover {
   background-color: purple;
 }
+
+.filterSelect {
+  padding: 10px 20px; 
+  border: none;
+  background-color: transparent;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  border-radius: 0.375rem;
+  max-width: 300px;
+}
+.filters{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.search-input{
+  width: 80% !important;
+  min-width: 300px;
+  padding: 10px 20px !important; 
+  border: none ;
+  background-color: transparent !important;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  border-radius: 0.375rem; 
+}
