@@ -164,7 +164,7 @@ const Cart = () => {
               </div>
               <div className="product-price-cart">
                 <h1>
-                  Rs.{" "}
+                  Rs.
                   {item.product.productPrice * (itemQuantities[item._id] || 1)}
                 </h1>
               </div>

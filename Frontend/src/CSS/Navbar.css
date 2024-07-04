@@ -135,7 +135,39 @@ span {
   display: none;
 }
 
+.cart-cont{
+  position: relative;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.cart-value{
+  position: absolute;
+  right: 3px;
+  top: -5px;
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  background-color: #ff4343;
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1000px) {
+  .cart-cont{
+    padding-top: 14px;
+  }
+
+  .cart-value{
+    left: 128px;
+    bottom: 0px;
+  }
+
   span {
     font-size: 1.0rem;
   }
