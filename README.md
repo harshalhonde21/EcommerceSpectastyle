@@ -53,14 +53,32 @@
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 # 💻Techstack Uses:-
+<!-- React.js -->
+<img src="https://img.shields.io/badge/react.js-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React.js logo">
+
+<!-- Express.js -->
+<img src="https://img.shields.io/badge/express.js-000000.svg?style=for-the-badge&logo=express&logoColor=white" alt="Express.js logo">
+
+<!-- JSX -->
+<img src="https://img.shields.io/badge/jsx-%23404d59.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="JSX logo">
+
+<!-- CSS -->
+<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS logo">
+
+<!-- Node.js -->
+<img src="https://img.shields.io/badge/node.js-339933.svg?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js logo">
+
+<!-- MongoDB -->
+<img src="https://img.shields.io/badge/mongodb-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB logo">
+
+<!-- Mongoose -->
+<img src="https://img.shields.io/badge/mongoose-%23880000.svg?style=for-the-badge&logo=mongoose&logoColor=white" alt="Mongoose logo">
+
 <!-- HTML5 -->
 <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 logo">
 
 <!-- CSS3 -->
 <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 logo">
-
-<!-- JavaScript -->
-<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript logo">
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
@@ -259,17 +277,6 @@ Any contributor who wishes to contribute to this project should first read the R
 
  <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
  
-<h2>💻 Built with</h2>
-
-Technologies used in the project:
-
-*   React.js
-*   Express.js
-*   JSX
-*   CSS
-*   Node.js
-*   Mongodb
-*   mongoose
 
 
 <div align=center>
