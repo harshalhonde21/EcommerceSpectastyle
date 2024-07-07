@@ -9,10 +9,11 @@ import VisitCount from "./VisitCount";
 import Logo from './assests/Logo.png';
 import Logo1 from './assests/Logo1.png';
 import Logo2 from './assests/Logo2.png';
-
+import React, { useContext } from 'react';
+import { useCart } from './CartContext'
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { cart } = useCart();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -28,9 +29,9 @@ const Navbar = () => {
       <nav>
         <div className={`main-component ${menuOpen ? "menu-open show" : ""}`}>
           <div className="head-main" onClick={goHome}>
-           {/* my image of logo is in components folder */}
+            {/* my image of logo is in components folder */}
             <img src={Logo2} alt="logo" className="logo" />
-            
+
           </div>
           <div className="routes">
             <ul className={`navbar_list ${menuOpen ? "menu-opens" : ""}`}>
@@ -74,7 +75,7 @@ const Navbar = () => {
                   Contact
                 </NavLink>
               </li>
-              <li>
+              <li className="cart-cont">
                 <NavLink to="/cart">
                   <ShoppingCartIcon
                     className="btn"
@@ -82,6 +83,7 @@ const Navbar = () => {
                     onClick={toggleMenu}
                   />
                 </NavLink>
+                <span className="cart-value">{cart.length}</span>
               </li>
               <li>
                 <NavLink to="/profile">
@@ -123,3 +125,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
