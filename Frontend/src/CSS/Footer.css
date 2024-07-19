@@ -16,7 +16,15 @@
   --font-rubik: "Rubik", sans-serif;
 }
 
-/* Footer.css */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .footer {
   display: flex;
   flex-wrap: wrap;
@@ -94,7 +102,7 @@ ul li {
   cursor: pointer;
 }
 
-.social-icons svg:hover {
+social-icons svg:hover {
   color: rgb(255, 0, 251);
 }
 
@@ -104,29 +112,36 @@ ul li {
   }
 }
 
-#back-to-top-container {
-  position: fixed;
-  bottom: 30px;
-  right: 30px; 
+.scrollToTop {
+  height: 50px;
+  width: 50px;
+  background: hsl(300, 73%, 26%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
   cursor: pointer;
-  z-index: 1000;
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
 }
 
-.circle1 {
-  background-color:  rgb(205, 180, 219);;
-  border-radius: 50%;
+.scrollToTop .inner {
+  height: 85%;
+  width: 85%;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s;
+  border-radius: 50%;
 }
 
-#back-to-top {
-  width: 40px; 
-  height: 40px; 
-  fill:  rgb(70, 11, 70);
-  transition: fill 0.3s;
-}
-#back-to-top:hover {
-  fill: hsl(300, 73%, 26%);
+.scrollToTop .fa-arrow-up {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 54%;
 }
