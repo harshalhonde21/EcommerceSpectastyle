@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Inconsolata:wght@200;900&family=Rubik:wght@300&display=swap");
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 :root {
   --color-1: rgb(205, 180, 219);
   --color-2: rgb(255, 200, 221);
@@ -96,6 +96,14 @@ ul li {
 
 .social-icons svg:hover {
   color: rgb(255, 0, 251);
+}
+.section i{
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+.section i:hover{
+  transform: translateY(-5px);
+  color: rgb(161, 14, 151);
 }
 
 @media (max-width: 768px) {
