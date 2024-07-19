@@ -17,6 +17,8 @@ import ConformOrder from "./Pages/ConformOrder";
 import Success from "./Pages/Success"
 import PageNotFound from "./Pages/404page";
 import Faq from './Pages/FAQ';
+import FeedbackModal from "./Pages/Feedback";
+import FeedbackButton from "./Components/Feedbtn";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
         <Route path="/address-payment-placeOrder/confirmOrder" element={<ConformOrder />} ></Route>
         <Route path="/success" element={<Success />} ></Route>
         <Route path="/faq" element={<Faq />} />
+        <Route path="/feedback" element={<FeedbackModal/>} ></Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
