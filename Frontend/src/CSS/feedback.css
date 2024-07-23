@@ -1,0 +1,166 @@
+:root {
+  --color-1: rgb(205, 180, 219);
+  --color-2: rgb(255, 200, 221);
+  --color-3: rgb(255, 175, 204);
+  --color-4: rgb(189, 224, 254);
+  --color-5: rgb(255, 210, 255);
+  --color-6: rgb(70, 11, 70);
+}
+
+.feedback-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin: auto;
+  padding: 20px;
+  /* border: 2px solid var(--color-3); */
+  box-sizing: border-box;
+  background-color: rgba(236, 237, 238, 0.6);
+}
+
+.feedback-form {
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  max-width: 550px;
+  width: 100%;
+  margin-top: 90px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+}
+
+.feedback-form h2 {
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-6);
+  font-size: 41px;
+  font-weight: 750;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.feedback-form p {
+  color: var(--color-6);
+  font-size: 18.5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.rating-container {
+  display: flex;
+  justify-content:center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 0 !important;
+}
+
+.rating-container button {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 !important;
+  margin: 0 2px;
+  color: var(--color-3);
+}
+
+.rating-container button.active {
+  color: rgb(255, 81, 145);
+}
+
+.rating-container button.active:hover {
+  color: rgb(255, 24, 109);
+}
+
+.rating-container button:hover {
+  transform: scale(1.2);
+  color: rgb(255, 81, 145);
+}
+
+.para {
+  margin-top: 25px;
+
+}
+
+.spectastyles {
+  color: var(--color-6);
+  font-weight: 700;
+  font-size: 19.5px;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.feedback-form button {
+  background: none;
+  border: none;
+  font-size: 47px;
+  padding: 0px 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.feedback-form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.feedback-form label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1px;
+  color: var(--color-6);
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+  padding: 10px;
+  border: 1px solid var(--color-3);
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  width: 100%;
+  background-color: rgba(247, 247, 247, 0.774);
+  box-sizing: border-box;
+}
+
+.feedback-form input[type="text"] {
+  box-shadow: none;
+}
+
+.feedback-form input[type="text"]:focus,
+.feedback-form input[type="email"]:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: var(--color-1);
+  background-color: rgba(253, 236, 251, 0.705);
+  
+}
+
+.feedback-form textarea {
+  resize: vertical;
+}
+
+.feedback-form button[type="submit"] {
+  background-color: var(--color-5);
+  color: var(--color-6);
+  border: none;
+  padding: 13px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-form button[type="submit"]:hover {
+  background-color: var(--color-4);
+  transform: translateY(2px);
+}
+
+@media (min-width: 1200px) {
+  .feedback-wrapper {
+    padding: 50px;
+  }
+}
