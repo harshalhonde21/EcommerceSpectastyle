@@ -1,44 +1,69 @@
-import { Fragment, useEffect, useState} from "react";
+import { Fragment, useEffect, useState } from "react";
 import '../CSS/Footer.css';
-import { Facebook, Twitter, Instagram, LinkedIn} from '@mui/icons-material'; // Import the shoes icon
-import XIcon from '@mui/icons-material/X';
+import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
+import React from 'react';
 
+const ScrollToTop = () => {
+  // Function to calculate the scroll value and update the scrollToTop button
+  const calcScrollValue = () => {
+    let pos = document.body.scrollTop || document.documentElement.scrollTop;
+    let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let percentval = Math.round((pos * 100) / calcHeight);
 
-const Footer = () => {
+    const scrollToTop = document.querySelector(".scrollToTop");
 
-  const navigate = useNavigate();
-  const [showBackToTop, setShowBackToTop] = useState(false);
+    if (pos > 100) {
+      scrollToTop.style.display = "flex";
+    } else {
+      scrollToTop.style.display = "none";
+    }
+
+    scrollToTop.style.background = `conic-gradient(#571157 ${percentval}%, white ${percentval}%)`;
+  };
+
+  // Add click event listener to scrollToTop button
+  const scrollToTop = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            setShowBackToTop(true);
-        } else {
-            setShowBackToTop(false);
-        }
-    });
-}, []);
+    // Call calcScrollValue on scroll and on load
+    window.onscroll = calcScrollValue;
+    window.onload = calcScrollValue;
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' 
-    });
-  };
-  
+    // Clean up event listeners on component unmount
+    return () => {
+      window.onscroll = null;
+      window.onload = null;
+    };
+  }, []);
+
+  return (
+    <div className="scrollToTop" onClick={scrollToTop} style={{ display: 'none' }}>
+      <div className="inner">
+        <i className="fa fa-arrow-up icon"></i>
+      </div>
+    </div>
+  );
+};
+
+const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <Fragment>
       <footer className="footer">
         <div className="section">
           <h2>SpectaStyle</h2>
           <div className="email-signup">
-          <input
-                      type="email"
-                      name="email"
-                      placeholder="Enter Email"
-                      style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
-                    />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter Email"
+              style={{ border: "3px solid var(--color-6)", borderRadius: "10px" }}
+            />
             <button>Get monthly updates and free resources</button>
           </div>
         </div>
@@ -46,13 +71,13 @@ const Footer = () => {
         <div className="section">
           <h2>Routes</h2>
           <ul>
-            <li onClick={()=>navigate('/about')}>About Us</li>
+            <li onClick={() => navigate('/about')}>About Us</li>
             <li>Services</li>
-            <li onClick={()=>navigate('/contact')}>Get In Touch</li>
-            <li onClick={()=>navigate('/faq')}>FAQ</li>
+            <li onClick={() => navigate('/contact')}>Get In Touch</li>
+            <li onClick={() => navigate('/faq')}>FAQ</li>
             <div className="social-icons">
               <Facebook />
-              <XIcon />
+              <Twitter />
               <Instagram />
               <LinkedIn />
             </div>
@@ -63,8 +88,8 @@ const Footer = () => {
           <h2>About Us</h2>
           <z>Phone: +91 565 8989 878</z>
           <z>Email: spectastyle@gmail.com</z>
-          <z>Address: 1234 Smart Street,Nagpur 440058</z>
-          <z style={{fontWeight:'bolder'}}>Design and Develop by <a style={{textDecoration:'none'}} href="https://harshalwebfolio.netlify.app">❤️Harshal Honde❤️</a></z>
+          <z>Address: 1234 Smart Street, Nagpur 440058</z>
+          <z style={{ fontWeight: 'bolder' }}>Design and Develop by <a style={{ textDecoration: 'none' }} href="https://harshalwebfolio.netlify.app">❤️Harshal Honde❤️</a></z>
         </div>
 
         <div className="section">
@@ -75,15 +100,8 @@ const Footer = () => {
             <li>Download for Windows</li>
           </ul>
         </div>
-        {showBackToTop && (
-        <div id="back-to-top-container">
-      <div class="circle1" onClick={scrollToTop}>
-    <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-      <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
-    </svg>
-    </div>
-    </div>
-    )}
+
+        <ScrollToTop />
       </footer>
     </Fragment>
   );
