@@ -6,8 +6,11 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useCart } from "../Components/CartContext";
 
 const Cart = () => {
+  const context = useCart()
+  const {cart,setCart} = context;
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [cartItems, setCartItems] = useState([]);
@@ -34,6 +37,7 @@ const Cart = () => {
       .then((response) => {
         const shoppingCart = response.data.shoppingCart;
         setCartItems(shoppingCart);
+        setCart(shoppingCart);
 
         const initialQuantities = {};
         shoppingCart.forEach((item) => {
