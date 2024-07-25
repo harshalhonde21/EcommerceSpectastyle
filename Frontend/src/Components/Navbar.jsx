@@ -79,7 +79,7 @@ const Navbar = () => {
                 <NavLink to="/cart">
                   <ShoppingCartIcon
                     className="btn"
-                    style={{ color: "#460B46", marginLeft: "5rem" }}
+                    style={{ color: "#460B46", marginLeft: "1rem" }}
                     onClick={toggleMenu}
                   />
                 </NavLink>
