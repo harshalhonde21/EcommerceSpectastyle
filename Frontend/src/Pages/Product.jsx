@@ -4,6 +4,9 @@ import "../CSS/Product.css";
 import Loader from "../Components/Loader";
 import ProductDetail from "../Components/ProductDetail";
 import toast from "react-hot-toast";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useCart } from '../Components/CartContext'
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Product = () => {
   const [loading, setLoading] = useState(true);
@@ -15,7 +18,6 @@ const Product = () => {
   const [sortOrder, setSortOrder] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortByDate, setSortByDate] = useState("");
-
   useEffect(() => {
     axios
       .get("https://ecommerce-backend-0wr7.onrender.com/ecommerce/product")
@@ -162,6 +164,11 @@ const Product = () => {
                 <h2 className="product-name">{product.productName}</h2>
                 <h5 className="product-price">Rs. {product.productPrice}</h5>
                 <h4 className="product-status">{product.status}</h4>
+                <NavLink to="/cart">
+                  <ShoppingCartIcon
+                    className="btn"
+                  />
+                </NavLink>
               </div>
             ))}
           </div>
