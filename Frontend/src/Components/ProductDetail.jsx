@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../CSS/ProductDetail.css";
 import { useCart } from "./CartContext";
 import ErrorComponent from "../Components/Error";
 import toast from "react-hot-toast";
 import AddReview from "./AddReview";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const ProductDetail = ({ productId, onClose }) => {
   const [product, setProduct] = useState(null);
-  const { addToCart } = useCart();
+  const { addToCart,cart } = useCart();
   const navigate = useNavigate();
-
   const [error, setError] = useState(null);
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
@@ -52,6 +52,8 @@ const ProductDetail = ({ productId, onClose }) => {
     } else {
       const userData = JSON.parse(localStorage.getItem("userData"));
       const userId = userData._id;
+
+
       axios
         .post(
           `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/addProductToCart/${userId}`,
@@ -118,12 +120,36 @@ const ProductDetail = ({ productId, onClose }) => {
               <h3 className="product-date-status">
                 Date: {product.publishDate}
               </h3>
-              <button
-                className="product-detail-add-to-cart"
-                onClick={handleAddToCart}
-              >
-                Add to Cart
-              </button>
+
+              {/* Changes  */}
+        {
+        cart.some((p)=>p.product._id === productId)
+        ? 
+        <button className="product-detail-add-to-cart">
+        <Link
+        className="product-detail-go-to-cart"
+        
+        to={"/cart"}
+        
+      >
+        Go to Cart
+      </Link>
+      </button>
+       
+      :
+      <button
+      className="product-detail-add-to-cart"
+      onClick={handleAddToCart}
+    >
+      Add to Cart
+    </button>
+        
+        
+        }
+
+
+
+             
               <br />
               {/* Updated the onClick handler to toggle the modal */}
               <button

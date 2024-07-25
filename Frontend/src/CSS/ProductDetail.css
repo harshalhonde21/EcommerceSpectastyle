@@ -110,6 +110,8 @@
 }
 
 .product-detail-add-to-cart {
+  text-decoration: none;
+  width: 100%;
   margin-top: 20px;
   background-color: rgb(124, 153, 250);
   color: #fff;
@@ -120,6 +122,23 @@
   font-family: var(--font-rubik);
   font-size: 18px;
   transition: background-color 0.3s;
+}
+
+/* newly added CSS */
+.product-detail-go-to-cart{
+  text-decoration: none;
+  width: 100%;
+  margin-top: 20px;
+  /* background-color: rgb(124, 153, 250); */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--font-rubik);
+  font-size: 18px;
+  transition: background-color 0.3s;
+
 }
 
 .product-detail-add-to-cart:hover {

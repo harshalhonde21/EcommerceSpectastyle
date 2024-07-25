@@ -11,44 +11,25 @@ import { useCart } from "../Components/CartContext";
 const Cart = () => {
   const context = useCart()
   const {cart,setCart} = context;
+  const {fetchCartItems} = context;
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [itemQuantities, setItemQuantities] = useState({});
-
-  const totalCartValue = cartItems.reduce((total, item) => {
-    const itemQuantity = itemQuantities[item._id] || 1;
-    return total + item.product.productPrice * itemQuantity;
-  }, 0);
   
-    const fetchCartItems = () => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const userId = userData ? userData._id : null;
+  // changes
+  const totalCartValue = cart.reduce((total, item) => {
+    const itemQuantity = itemQuantities[item._id] || 1;
+    return total + item?.product?.productPrice * itemQuantity;
+  }, 0);
 
-    if (!userId) {
-      console.error("User ID not found in localStorage.");
-      return;
-    }
 
-    const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}`;
+  const val = cart;
+  console.log(val)
 
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        const shoppingCart = response.data.shoppingCart;
-        setCartItems(shoppingCart);
-        setCart(shoppingCart);
+   // Removed and transferred to the CartContext
 
-        const initialQuantities = {};
-        shoppingCart.forEach((item) => {
-          initialQuantities[item._id] = item.quantity;
-        });
-        setItemQuantities(initialQuantities);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  };
+
 
   useEffect(() => {
     fetchCartItems();
@@ -122,24 +103,26 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <h1 className="cart-heading">Cart</h1>
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <div className="empty-cart">
           <img src="/cartempty.png" alt="Empty Cart" />
           <button onClick={() => navigate("/product")}>Shop the Product</button>
         </div>
       ) : (
         <>
-          {cartItems.map((item) => (
+          {val?.map((item) => (
+            
             <div key={item._id} className="outer-product-container">
               <div className="image-product">
                 <img
-                  src={item.product.productImage}
-                  alt={item.product.productName}
+               
+                  src={item?.product?.productImage}
+                  alt={item?.product?.productName}
                 />
               </div>
               <div className="detail-product">
-                <h4>Name: {item.product.productName}</h4>
-                <h5>Price: Rs. {item.product.productPrice}</h5>
+                <h4>Name: {item?.product?.productName}</h4>
+                <h5>Price: Rs. {item?.product?.productPrice }</h5>
                 <input
                   type="button"
                   value="Remove"
@@ -169,7 +152,7 @@ const Cart = () => {
               <div className="product-price-cart">
                 <h1>
                   Rs.
-                  {item.product.productPrice * (itemQuantities[item._id] || 1)}
+                  {item?.product?.productPrice * (itemQuantities[item._id] || 1)}
                 </h1>
               </div>
             </div>
