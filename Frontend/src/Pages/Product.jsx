@@ -4,6 +4,7 @@ import "../CSS/Product.css";
 import Loader from "../Components/Loader";
 import ProductDetail from "../Components/ProductDetail";
 import toast from "react-hot-toast";
+import CustomDropdown from "./CustomDropdown";
 
 const Product = () => {
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,8 @@ const Product = () => {
   const [sortOrder, setSortOrder] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortByDate, setSortByDate] = useState("");
+
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     axios
@@ -113,36 +116,50 @@ const Product = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <div className="filters">
-          <select
+          <CustomDropdown
             className="filterSelect"
-            onChange={(e) => setSortOrder(e.target.value)}
+            options={[
+              { value: "", label: "Sort by Price" },
+              { value: "price-asc", label: "Price: Low to High" },
+              { value: "price-desc", label: "Price: High to Low" },
+            ]}
+            onChange={(value) => setSortOrder(value)}
             value={sortOrder}
-          >
-            <option value="">Sort by Price</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-          </select>
-          <select
+            isOpen={openDropdown === "sortOrder"}
+            setIsOpen={(isOpen) =>
+              setOpenDropdown(isOpen ? "sortOrder" : null)
+            }
+          />
+          <CustomDropdown
             className="filterSelect"
-            onChange={(e) => setSelectedCategory(e.target.value)}
+            options={[
+              { value: "", label: "Filter by Category" },
+              ...categories.map((category) => ({
+                value: category,
+                label: category,
+              })),
+            ]}
+            onChange={(value) => setSelectedCategory(value)}
             value={selectedCategory}
-          >
-            <option value="">Filter by Category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          <select
+            isOpen={openDropdown === "selectedCategory"}
+            setIsOpen={(isOpen) =>
+              setOpenDropdown(isOpen ? "selectedCategory" : null)
+            }
+          />
+          <CustomDropdown
             className="filterSelect"
-            onChange={(e) => setSortByDate(e.target.value)}
+            options={[
+              { value: "", label: "Sort by Publish Date" },
+              { value: "date-asc", label: "Date: Oldest to Newest" },
+              { value: "date-desc", label: "Date: Newest to Oldest" },
+            ]}
+            onChange={(value) => setSortByDate(value)}
             value={sortByDate}
-          >
-            <option value="">Sort by Publish Date</option>
-            <option value="date-asc">Date: Oldest to Newest</option>
-            <option value="date-desc">Date: Newest to Oldest</option>
-          </select>
+            isOpen={openDropdown === "sortByDate"}
+            setIsOpen={(isOpen) =>
+              setOpenDropdown(isOpen ? "sortByDate" : null)
+            }
+          />
         </div>
         {loading ? (
           <Loader />
