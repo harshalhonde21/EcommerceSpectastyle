@@ -71,7 +71,7 @@ const About = () => {
           </div>
           <img
             alt="team"
-            src="https://www.burgan-systems.com/wp-content/uploads/2024/02/blog4-1.png"
+            src="http://www.burgan-systems.com/wp-content/uploads/2024/02/blog4-1.png"
             className="image"
           />
            <div className="announcement">
