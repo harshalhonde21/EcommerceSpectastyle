@@ -51,6 +51,6 @@
 }
 
 .custom-dropdown-option:hover {
-  background-color: var(--color-hover);
+  background-color: purple;
   color: #fff;
 }
