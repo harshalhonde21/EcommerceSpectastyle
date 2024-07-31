@@ -58,6 +58,7 @@
   max-width: 90rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+  display: flex;
 }
 
 .content {
