@@ -66,12 +66,12 @@
   gap: 4rem;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
+ */
 .text-section {
   max-width: 40rem;
 }
