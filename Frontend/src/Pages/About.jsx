@@ -69,11 +69,7 @@ const About = () => {
               ))}
             </dl>
           </div>
-          <img
-            alt="team"
-            src="http://www.burgan-systems.com/wp-content/uploads/2024/02/blog4-1.png"
-            className="image"
-          />
+       
            <div className="announcement">
             <div className="announcement-text">
               Announcing our new Arrivals.
@@ -83,8 +79,14 @@ const About = () => {
             </div>
           </div>
         </div>
+        <img
+            alt="team"
+            src="http://www.burgan-systems.com/wp-content/uploads/2024/02/blog4-1.png"
+            className="image"
+          />
       </div>
     </section>
+
 
 
 
