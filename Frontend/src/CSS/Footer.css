@@ -40,9 +40,18 @@ body {
   flex-direction: column;
 }
 
+.section img{
+  aspect-ratio: 1/1;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
 z {
   font-family: var(--font-rubik);
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  margin-top: .5rem;
 }
 
 .section h2 {
