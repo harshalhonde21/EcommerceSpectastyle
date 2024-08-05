@@ -1,5 +1,8 @@
 import { Fragment } from "react";
 import "../CSS/Contact.css";
+import phone from '../Components/assests/phone.png';
+import email from '../Components/assests/email.png';
+import address from '../Components/assests/address.png';
 import { Email, Phone, Store } from "@mui/icons-material";
 
 const Contact = () => {
@@ -24,10 +27,13 @@ const Contact = () => {
 
           <h2 className="contact-subheading">Reach Us</h2>
           <h6 className="contact-paragraph">
+            <img className="contact-icons" src={phone} />
             Email: SpectaStyle@gmail.com
             <br />
+            <img className="contact-icons" src={email} />
             Phone: +91 565 8989 878
             <br />
+            <img className="contact-icons" src={address} />
             Address: 1234 Smart Street,Nagpur 440058
           </h6>
 
