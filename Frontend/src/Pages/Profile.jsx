@@ -7,13 +7,15 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
 import { FormLoader } from "../Components/Loader";
 import convertToBase64 from "./convertToBase64";
+import {GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import {jwtDecode} from "jwt-decode";
 
 // components
 import toast from 'react-hot-toast';
 import Error from "../Components/Error";
 import UserProfile from "./UserProfile";
 import { useCart } from "../Components/CartContext";
-import ".././CSS/Profile.css";
+import "../CSS/Profile.css";
 import Reg from "/reg.png";
 
 const Profile = () => {
@@ -34,7 +36,18 @@ const Profile = () => {
   const backendUrl = "https://ecommerce-backend-0wr7.onrender.com/";
 
   const [file, setFile] = useState(null);
+  
+const responseMessage = (credentialResponse) => {
+   const credentialDecoded = jwtDecode(credentialResponse.credential);
+   console.log("Google Login Success:", credentialDecoded);
+navigate("/home");
+ };
 
+ const errorMessage = (error) => {
+
+   console.log(error);
+   console.log("Failed to login");
+ };
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("userData");
@@ -207,7 +220,12 @@ const Profile = () => {
           <div className="profile-outer_box">
             <div className="profile-card" style={{ boxShadow: "25px 25px 100px rgba(0, 0, 0, 0.2)" }}>
               <h2>{isLogin ? "Login" : "Sign Up"}</h2>
+                 <script
+                src="https://accounts.google.com/gsi/client"
+                async
+              ></script>
               {isLogin ? (
+            <GoogleOAuthProvider clientId="758500021538-7tm7mv4tas3ouma9bb0uau1ia209al78.apps.googleusercontent.com">
                 <form onSubmit={handleLoginFormSubmit}>
                   <div className="input-group">
                     <EmailIcon className="icon"
@@ -241,8 +259,20 @@ const Profile = () => {
                   <button type="submit" disabled={isLoading}>
                     {isLoading ? <FormLoader /> : "Login"}
                   </button>
-
+                    <div
+                      style={{
+                        marginTop: 20,
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <GoogleLogin
+                        onSuccess={responseMessage}
+                        onError={errorMessage}
+                      />
+                    </div>
                 </form>
+            </GoogleOAuthProvider>
               ) : (
                 <form onSubmit={handleSignupFormSubmit}>
 
@@ -311,6 +341,7 @@ const Profile = () => {
                     : "Already have an account? Login"}
                 </button>
               </div>
+             
             </div>
           </div>
         </div>
