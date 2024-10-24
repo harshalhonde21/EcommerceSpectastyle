@@ -8,7 +8,6 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
-    
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -16,6 +15,7 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.10",
     "axios": "^1.5.0",
+    "frontend": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.2",
