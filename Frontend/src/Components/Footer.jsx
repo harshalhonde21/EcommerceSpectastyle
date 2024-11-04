@@ -1,8 +1,10 @@
-import { Fragment, useEffect, useState } from "react";
-import '../CSS/Footer.css';
-import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
+import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
+import React, { Fragment, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import React from 'react';
+import '../CSS/Footer.css';
+import phone from './assests/phone.png';
+import email from './assests/email.png';
+import address from './assests/address.png';
 
 const ScrollToTop = () => {
   // Function to calculate the scroll value and update the scrollToTop button
@@ -86,9 +88,18 @@ const Footer = () => {
 
         <div className="section">
           <h2>About Us</h2>
-          <z>Phone: +91 565 8989 878</z>
-          <z>Email: spectastyle@gmail.com</z>
-          <z>Address: 1234 Smart Street, Nagpur 440058</z>
+          <z>
+            <img src={phone} /> 
+            <p>Phone: +91 565 8989 878</p>
+          </z>
+          <z>
+            <img src={email} />
+            <p>Email: spectastyle@gmail.com</p>
+          </z>
+          <z>
+            <img src={address} />
+            <p>Address: 1234 Smart Street, Nagpur 440058</p>
+          </z>
           <z style={{ fontWeight: 'bolder' }}>Design and Develop by <a style={{ textDecoration: 'none' }} href="https://harshalwebfolio.netlify.app">❤️Harshal Honde❤️</a></z>
         </div>
 

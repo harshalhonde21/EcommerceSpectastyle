@@ -75,6 +75,13 @@
   margin-bottom: 2rem;
 }
 
+.contact-icons{
+  aspect-ratio: 1/1;
+  width: 1.5rem;
+  margin: .5rem .5rem 0 0;
+  
+}
+
 input::placeholder,
 textarea::placeholder {
   color: rgba(70, 11, 70, 50%);
