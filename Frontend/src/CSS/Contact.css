@@ -100,3 +100,12 @@ textarea::placeholder {
 .form-group {
   margin-bottom: 2rem;
 }
+
+.Toastify__toast-container {
+  color: #000;
+}
+
+.Toastify__toast {
+  color: black;
+  background-color: rgb(165, 57, 197);
+}
